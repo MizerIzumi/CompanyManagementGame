@@ -1,0 +1,111 @@
+{
+    "version": 1,
+    "name": "MainInputSystem",
+    "maps": [
+        {
+            "name": "Navigation",
+            "id": "4853a68f-5de0-4922-8ebc-389834f6d7ac",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "2f3eb9fb-b1df-411e-bdef-cfa221972730",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "New action1",
+                    "type": "Button",
+                    "id": "2770c2f6-301d-4b5a-bb91-0a7d31973c53",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2d73e3cd-3ef2-48ca-8209-33615bdccfa0",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3f66cab-8eed-4467-a80a-65d2fa5d1a21",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Management",
+            "id": "6ab9234c-8045-4065-9099-754a21f32c5c",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "73cb8199-e6e2-4245-bb11-830096634152",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e26eb029-29df-4703-ac69-57ef0abe54e3",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Shop",
+            "id": "00799d42-26f3-475e-ac34-f311963c52d8",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "3aedd900-6104-4fd0-ad5a-931358c7ad41",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a4f032c2-f65a-4df0-8aa2-c72d4f789486",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
