@@ -1,17 +1,17 @@
 public class Stat
 {
-    public int _statValue
+    public float _statValue
     {
         get;
         private set;
     }
 
-    public void Increse(int amount)
+    public virtual void  Increse(float amount)
     {
         _statValue += amount;
     }
 
-    public void Decrese(int amount)
+    public virtual void Decrese(float amount)
     {
         _statValue -= amount;
     }
