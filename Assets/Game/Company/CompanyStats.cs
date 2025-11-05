@@ -6,8 +6,10 @@ namespace Game
     {
         public ProgressBar reputationProg;
 
-        private static float MaxRepLVL = 9;
-        private static float StartingAlignment = 100;
+        public float tempreputation = 0;
+        
+        private const float MaxRepLVL = 99;
+        private const float StartingAlignment = 100;
         
         public enum StatNames
         {
@@ -21,7 +23,8 @@ namespace Game
         
         public void OnEnable()
         {
-            reputationProg.onBarFilled += IncreaseRepLVL;
+            reputationProg.onBarReset += LevelUpRep;
+            reputationProg.onBarBelowZero += LevelDownRepLVL;
             
             //Adding the all the stats to the Stats dictionary
             Stats.Add((int)StatNames.Funds, 0.0f);
@@ -34,7 +37,8 @@ namespace Game
 
         public void OnDisable()
         {
-            reputationProg.onBarFilled -= IncreaseRepLVL;
+            reputationProg.onBarReset -= LevelUpRep;
+            reputationProg.onBarBelowZero -= LevelDownRepLVL;
         }
         
         public string GetName()
@@ -47,15 +51,45 @@ namespace Game
             name = new_Name;
         }
 
-        private void IncreaseRepLVL()
+
+        private void LevelUpRep()
         {
-            if (Stats[(int)StatNames.RepLVL] == MaxRepLVL)
-            {
-                reputationProg.ResetOnFill = false;
-            }
-            Stats[(int)StatNames.RepLVL]++;
+            int repIndex = (int)StatNames.RepLVL;
+            
+            IncreaseStat(repIndex, 1, MaxRepLVL, reputationProg);
+            
+            tempreputation = Stats[repIndex];
+        }
+
+        private void LevelDownRepLVL()
+        {
+            int repIndex = (int)StatNames.RepLVL;
+            
+            DecreaseStat(repIndex, 1, MaxRepLVL, reputationProg);
+            
+            tempreputation = Stats[repIndex];
         }
         
+        
+        private void IncreaseStat(int statIndex, float increasAmount, float statMaxLevel, ProgressBar progressBar)
+        {
+            Stats[statIndex] += increasAmount;
+            
+            if (progressBar != null && Stats[statIndex] == statMaxLevel)
+            {
+                progressBar.ResetOnFill = false;
+            }
+        }
+        
+        private void DecreaseStat(int statIndex, float decreaseAmount, float statMaxLevel, ProgressBar progressBar)
+        {
+            if (progressBar != null && Stats[statIndex] == statMaxLevel)
+            {
+                progressBar.ResetOnFill = true;
+            }
+            
+            Stats[statIndex] -= decreaseAmount;
+        }
         
     }
 }

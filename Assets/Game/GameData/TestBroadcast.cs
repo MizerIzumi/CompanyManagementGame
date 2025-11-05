@@ -11,18 +11,27 @@ namespace Game
 
         public void OnEnable()
         {
-            progressBar.onBarFilled += printmessage;
+            progressBar.onBarFilled += PrintmessageBarProgression;
+            progressBar.onBarBelowZero += PrintmessageBarRegression;
         }
 
         public void OnDisable()
         {
-            progressBar.onBarFilled -= printmessage;
+            progressBar.onBarFilled -= PrintmessageBarProgression;
+            progressBar.onBarBelowZero -= PrintmessageBarRegression;
         }
 
 
-        private void printmessage()
+        private void PrintmessageBarProgression()
         {
-            
+            Debug.unityLogger.Log("Levelup");
+            Debug.unityLogger.Log("Company RepLevel: " + compStats.Stats[(int)CompanyStats.StatNames.RepLVL]);
+            //Debug.unityLogger.Log(message);
+        }
+        
+        private void PrintmessageBarRegression()
+        {
+            Debug.unityLogger.Log("Leveldown");
             Debug.unityLogger.Log("Company RepLevel: " + compStats.Stats[(int)CompanyStats.StatNames.RepLVL]);
             //Debug.unityLogger.Log(message);
         }

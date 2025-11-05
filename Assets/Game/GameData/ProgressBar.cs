@@ -8,6 +8,9 @@ namespace Game
         public delegate void OnBarFilled();
         public event OnBarFilled onBarFilled;
 
+        public delegate void OnBarReset();
+        public event OnBarReset onBarReset;
+        
         public delegate void OnBarBelowZero();
         public event OnBarBelowZero onBarBelowZero;
 
@@ -21,7 +24,7 @@ namespace Game
         
         [SerializeField] private float _barValue = 0;
 
-        public float barMax = 5;
+        public float barMax = 10;
 
         public AnimationCurve barCurve;
         
@@ -79,6 +82,8 @@ namespace Game
             _barValue = 0;
             onBarFilled?.Invoke();
             //The ? is essentialy a nullcheck
+            
+            if (ResetOnFill) onBarReset?.Invoke();
         }
         
         public void IncreaseBar(float value)
@@ -92,9 +97,16 @@ namespace Game
         public void DecreaseBar(float value)
         {
             if (value == 0) return;
-            
-            if (RegressBelowZero && value - barValue < 0) onBarBelowZero?.Invoke();
-            
+
+            if (RegressBelowZero && barValue - value < 0)
+            {
+                onBarBelowZero?.Invoke();
+                //Do bar regression <---------------------------------
+                barValue = barMax - value;
+                onBarUpdate?.Invoke();
+                return;
+            }
+
             barValue -= value;
             onBarUpdate?.Invoke();
         }
