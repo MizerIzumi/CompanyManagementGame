@@ -40,18 +40,21 @@ namespace Game
                     else
                     {
                         _barValue = value;
+                        onBarUpdate?.Invoke();
                     }
                 }
                 else
                 {
                     if (value - barMax >= 0)
                     {
-                        _barValue = barMax; 
+                        _barValue = barMax;
+                        onBarUpdate?.Invoke();
                         BarFilled();
                     }
                     else
                     {
                         _barValue = 0;
+                        onBarUpdate?.Invoke();
                     }
                 }
             }
@@ -91,7 +94,6 @@ namespace Game
             if (value == 0 || barValue == barMax) return;
             
             barValue += value;
-            onBarUpdate?.Invoke();
         }
 
         public void DecreaseBar(float value)
@@ -101,14 +103,11 @@ namespace Game
             if (RegressBelowZero && barValue - value < 0)
             {
                 onBarBelowZero?.Invoke();
-                //Do bar regression <---------------------------------
                 barValue = barMax - value;
-                onBarUpdate?.Invoke();
                 return;
             }
 
             barValue -= value;
-            onBarUpdate?.Invoke();
         }
     }
 }

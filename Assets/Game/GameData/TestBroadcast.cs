@@ -25,14 +25,14 @@ namespace Game
         private void PrintmessageBarProgression()
         {
             Debug.unityLogger.Log("Levelup");
-            Debug.unityLogger.Log("Company RepLevel: " + compStats.Stats[(int)CompanyStats.StatNames.RepLVL]);
+            Debug.unityLogger.Log("Company RepLevel: " + compStats.Stats[(int)CompanyStats.StatIndices.RepLVL]);
             //Debug.unityLogger.Log(message);
         }
         
         private void PrintmessageBarRegression()
         {
             Debug.unityLogger.Log("Leveldown");
-            Debug.unityLogger.Log("Company RepLevel: " + compStats.Stats[(int)CompanyStats.StatNames.RepLVL]);
+            Debug.unityLogger.Log("Company RepLevel: " + compStats.Stats[(int)CompanyStats.StatIndices.RepLVL]);
             //Debug.unityLogger.Log(message);
         }
     }

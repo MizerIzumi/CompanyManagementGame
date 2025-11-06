@@ -11,7 +11,7 @@ namespace Game
         private const float MaxRepLVL = 99;
         private const float StartingAlignment = 100;
         
-        public enum StatNames
+        public enum StatIndices
         {
             Funds,
             RepLVL,
@@ -27,12 +27,12 @@ namespace Game
             reputationProg.onBarBelowZero += LevelDownRepLVL;
             
             //Adding the all the stats to the Stats dictionary
-            Stats.Add((int)StatNames.Funds, 0.0f);
-            Stats.Add((int)StatNames.RepLVL, 0.0f);
-            Stats.Add((int)StatNames.CompInvSize, 0.0f);
-            Stats.Add((int)StatNames.ShopInvSize, 0.0f);
-            Stats.Add((int)StatNames.Alignment, StartingAlignment);
-            Stats.Add((int)StatNames.RecruitCapacity, 0.0f);
+            Stats.Add((int)StatIndices.Funds, 0.0f);
+            Stats.Add((int)StatIndices.RepLVL, 0.0f);
+            Stats.Add((int)StatIndices.CompInvSize, 0.0f);
+            Stats.Add((int)StatIndices.ShopInvSize, 0.0f);
+            Stats.Add((int)StatIndices.Alignment, StartingAlignment);
+            Stats.Add((int)StatIndices.RecruitCapacity, 0.0f);
         }
 
         public void OnDisable()
@@ -54,42 +54,30 @@ namespace Game
 
         private void LevelUpRep()
         {
-            int repIndex = (int)StatNames.RepLVL;
+            int repIndex = (int)StatIndices.RepLVL;
             
-            IncreaseStat(repIndex, 1, MaxRepLVL, reputationProg);
+            IncreaseStat(repIndex,1);
+            
+            if (Stats[repIndex] == MaxRepLVL)
+            {
+                reputationProg.ResetOnFill = true;
+            }
             
             tempreputation = Stats[repIndex];
         }
-
+        
         private void LevelDownRepLVL()
         {
-            int repIndex = (int)StatNames.RepLVL;
+            int repIndex = (int)StatIndices.RepLVL;
             
-            DecreaseStat(repIndex, 1, MaxRepLVL, reputationProg);
+            if (Stats[repIndex] == MaxRepLVL)
+            {
+                reputationProg.ResetOnFill = false;
+            }
+            
+            DecreaseStat(repIndex, 1);
             
             tempreputation = Stats[repIndex];
         }
-        
-        
-        private void IncreaseStat(int statIndex, float increasAmount, float statMaxLevel, ProgressBar progressBar)
-        {
-            Stats[statIndex] += increasAmount;
-            
-            if (progressBar != null && Stats[statIndex] == statMaxLevel)
-            {
-                progressBar.ResetOnFill = false;
-            }
-        }
-        
-        private void DecreaseStat(int statIndex, float decreaseAmount, float statMaxLevel, ProgressBar progressBar)
-        {
-            if (progressBar != null && Stats[statIndex] == statMaxLevel)
-            {
-                progressBar.ResetOnFill = true;
-            }
-            
-            Stats[statIndex] -= decreaseAmount;
-        }
-        
     }
 }
