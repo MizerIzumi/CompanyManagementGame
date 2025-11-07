@@ -60,7 +60,7 @@ namespace Game
             
             if (Stats[repIndex] == MaxRepLVL)
             {
-                reputationProg.ResetOnFill = true;
+                reputationProg.resetOnFill = true;
             }
             
             tempreputation = Stats[repIndex];
@@ -72,7 +72,7 @@ namespace Game
             
             if (Stats[repIndex] == MaxRepLVL)
             {
-                reputationProg.ResetOnFill = false;
+                reputationProg.resetOnFill = false;
             }
             
             DecreaseStat(repIndex, 1);

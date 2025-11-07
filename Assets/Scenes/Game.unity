@@ -281,7 +281,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 699588979}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Game.ProgressBar, Assembly-CSharp
         m_MethodName: DecreaseBar
         m_Mode: 4
@@ -550,7 +550,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 699588979}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Game.ProgressBar, Assembly-CSharp
         m_MethodName: IncreaseBar
         m_Mode: 4
@@ -610,8 +610,6 @@ GameObject:
   m_Component:
   - component: {fileID: 699588975}
   - component: {fileID: 699588974}
-  - component: {fileID: 699588979}
-  - component: {fileID: 699588977}
   m_Layer: 0
   m_Name: Company
   m_TagString: Untagged
@@ -632,7 +630,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CompanyStats
   _name: Grimoire
-  reputationProg: {fileID: 699588979}
   tempreputation: 0
 --- !u!4 &699588975
 Transform:
@@ -649,69 +646,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &699588977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699588973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ae8a4e481f15a544a9d7d9d4d227c4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestBroadcast
-  progressBar: {fileID: 699588979}
-  compStats: {fileID: 699588974}
---- !u!114 &699588979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 699588973}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 809968b8409e6234ca898cbeeaf51e95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ProgressBar
-  ResetOnFill: 1
-  RegressBelowZero: 1
-  _barValue: 0
-  barMax: 5
-  barCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0.23514295
-      outSlope: 0.23514295
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.27671975
-    - serializedVersion: 3
-      time: 0.8
-      value: 0.5
-      inSlope: 1.5625001
-      outSlope: 1.5625001
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 2.9386532
-      outSlope: 2.9386532
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.03346008
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &853105784
 GameObject:
   m_ObjectHideFlags: 0

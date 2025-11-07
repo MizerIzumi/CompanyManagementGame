@@ -13,22 +13,30 @@ namespace Game
         
         public enum AffiliationIndices
         {
-            TestAffiliation,
+            TestAffiliation
         }
         
         public void OnEnable()
         {
-
-            _rankUpDelegate = RankUp;
-            TestAffiliationProgressBar.onBarReset += ;
+            TestAffiliationProgressBar.onBarReset += TestAffUp;
             
             //Adding the all the stats to the Stats dictionary
             Stats.Add((int)AffiliationIndices.TestAffiliation, 0.0f);
         }
 
-        private void RankUp(int rank)
+        private void TestAffUp()
         {
-            
+            RankUp((int)AffiliationIndices.TestAffiliation);
+        }
+
+        private void RankUp(int AffiliationIndex)
+        {
+            Stats[AffiliationIndex] += 1;
+        }
+
+        private void RankDown(int AffiliationIndex)
+        {
+            Stats[AffiliationIndex] -= 1;
         }
     }
 }

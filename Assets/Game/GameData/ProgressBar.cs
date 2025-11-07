@@ -3,10 +3,13 @@ using UnityEngine.Serialization;
 
 namespace Game
 {
-    public class ProgressBar : MonoBehaviour
+    public class ProgressBar
     {
         public delegate void OnBarFilled();
         public event OnBarFilled onBarFilled;
+        
+        public delegate void OnBarEmpty();
+        public event OnBarEmpty onBarEmpty;
 
         public delegate void OnBarReset();
         public event OnBarReset onBarReset;
@@ -18,15 +21,25 @@ namespace Game
         public event OnBarUpdate onBarUpdate;
 
 
-        public bool ResetOnFill = true;
+        public bool resetOnFill = true;
         
-        public bool RegressBelowZero = false;
+        public bool regressBelowZero = false;
         
-        [SerializeField] private float _barValue = 0;
+        private float _barValue = 0;
+        
+        public float barMultiplier = 1;
 
         public float barMax = 10;
 
-        public AnimationCurve barCurve;
+        //public AnimationCurve barCurve;
+
+        public ProgressBar(bool resetonfill, bool regressbelowzero, float barmultiplier,  float barmax)
+        {
+            resetOnFill = resetonfill;
+            regressBelowZero = regressbelowzero;
+            barMultiplier = barmultiplier;
+            barMax = barmax;
+        }
         
         public float barValue
         {
@@ -34,7 +47,7 @@ namespace Game
 
             private set
             {
-                if (ResetOnFill)
+                if (resetOnFill)
                 {
                     if (value - barMax >= 0) RecursiveOverflowCheck(value);
                     else
@@ -60,11 +73,13 @@ namespace Game
             }
         }
 
+        
         public float BarPercent()
         {
             return barValue / barMax;
         }
 
+        
         private void RecursiveOverflowCheck(float value)
         {
             float overflowCheck = value - barMax;
@@ -79,35 +94,40 @@ namespace Game
                 barValue = value;
             }
         }
-
+        
         private void BarFilled()
         {
             _barValue = 0;
             onBarFilled?.Invoke();
             //The ? is essentialy a nullcheck
             
-            if (ResetOnFill) onBarReset?.Invoke();
+            if (resetOnFill) onBarReset?.Invoke();
         }
+        
         
         public void IncreaseBar(float value)
         {
-            if (value == 0 || barValue == barMax) return;
+            float mValue = value * barMultiplier;
             
-            barValue += value;
+            if (mValue == 0 || barValue <= barMax) return;
+            
+            barValue += mValue;
         }
 
         public void DecreaseBar(float value)
         {
-            if (value == 0) return;
+            float mValue = value * barMultiplier;
+            
+            if (mValue == 0) return;
 
-            if (RegressBelowZero && barValue - value < 0)
+            if (regressBelowZero && barValue - mValue < 0)
             {
                 onBarBelowZero?.Invoke();
-                barValue = barMax - value;
+                barValue = barMax - mValue;
                 return;
             }
 
-            barValue -= value;
+            barValue -= mValue;
         }
     }
 }
