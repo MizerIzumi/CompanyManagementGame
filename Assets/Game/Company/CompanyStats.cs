@@ -1,15 +1,14 @@
-
+using System;
 
 namespace Game
 {
-    public class CompanyStats : StatBlock
+    public class CompanyStats : StatHandler
     {
-        public ProgressBar reputationProg;
-
-        public float tempreputation = 0;
-        
         private const float MaxRepLVL = 99;
-        private const float StartingAlignment = 100;
+        private const float MaxCompInvSize = 200;
+        private const float MaxShopInvSize = 100;
+        private const float MaxRecruitment = 40;
+        private const float AlignmentBounds = 100;
         
         public enum StatIndices
         {
@@ -23,22 +22,25 @@ namespace Game
         
         public void OnEnable()
         {
-            reputationProg.onBarReset += LevelUpRep;
-            reputationProg.onBarBelowZero += LevelDownRepLVL;
-            
             //Adding the all the stats to the Stats dictionary
-            Stats.Add((int)StatIndices.Funds, 0.0f);
-            Stats.Add((int)StatIndices.RepLVL, 0.0f);
-            Stats.Add((int)StatIndices.CompInvSize, 0.0f);
-            Stats.Add((int)StatIndices.ShopInvSize, 0.0f);
-            Stats.Add((int)StatIndices.Alignment, StartingAlignment);
-            Stats.Add((int)StatIndices.RecruitCapacity, 0.0f);
-        }
-
-        public void OnDisable()
-        {
-            reputationProg.onBarReset -= LevelUpRep;
-            reputationProg.onBarBelowZero -= LevelDownRepLVL;
+            Statistic FundsStat = new Statistic("Funds", 0, Int32.MinValue, Int32.MaxValue, 1, 1);
+            AddStat(FundsStat);
+            
+            ProgressBar RepLVLBar = new ProgressBar(true, false, 1, 100);
+            Statistic RepLVLStat = new Statistic("Reputation Level", 0, 0, MaxRepLVL, 1, 1);
+            AddStatWithBar(RepLVLStat, RepLVLBar);
+            
+            Statistic CompInvSizeStat = new Statistic("Company Inventory Size", 10, 0, MaxCompInvSize, 1, 1);
+            AddStat(CompInvSizeStat);
+            
+            Statistic ShopInvSizeStat = new Statistic("Shop Inventory Size", 3, 0, MaxShopInvSize, 1, 1);
+            AddStat(ShopInvSizeStat);
+            
+            Statistic AlignmentStat = new Statistic("Alignment", 0, -AlignmentBounds, AlignmentBounds, 1, 1);
+            AddStat(AlignmentStat);
+            
+            Statistic RecruitCapStat = new Statistic("Alignment", 0, 1, MaxRecruitment, 1, 1);
+            AddStat(RecruitCapStat);
         }
         
         public string GetName()
@@ -50,34 +52,7 @@ namespace Game
         {
             name = new_Name;
         }
-
-
-        private void LevelUpRep()
-        {
-            int repIndex = (int)StatIndices.RepLVL;
-            
-            IncreaseStat(repIndex,1);
-            
-            if (Stats[repIndex] == MaxRepLVL)
-            {
-                reputationProg.resetOnFill = true;
-            }
-            
-            tempreputation = Stats[repIndex];
-        }
         
-        private void LevelDownRepLVL()
-        {
-            int repIndex = (int)StatIndices.RepLVL;
-            
-            if (Stats[repIndex] == MaxRepLVL)
-            {
-                reputationProg.resetOnFill = false;
-            }
-            
-            DecreaseStat(repIndex, 1);
-            
-            tempreputation = Stats[repIndex];
-        }
+        
     }
 }

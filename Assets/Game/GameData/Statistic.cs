@@ -2,41 +2,63 @@
 
 namespace Game
 {
-    public struct Statistic
+    public class Statistic
     {
         public string displayName;
-        public float value;
-        public float statMultiplier;
-        
-        private ProgressBar _progressBar;
-        
-        public float progressMultiplier
+
+        private float _value;
+
+        public float value
         {
-            get { return _progressBar.barMultiplier; }
-            private set {_progressBar.barMultiplier = value;}
+            get { return _value * statMultiplier; }
+            private set { _value = value; }
         }
         
+        public float statMultiplier;
+        public float statGrowthMultiplier;
+        public float statMin;
+        public float statMax;
         
-        public Statistic(string displayName, float value, float statMultiplier, ProgressBar progressBar)
+        public int barIndex = -1;
+        
+        
+        public Statistic(string displayname, float value, float statmin, float statmax, float statmultiplier, float statgrowthmultiplier)
         {
-            this.displayName = displayName;
+            displayName = displayname;
             this.value = value;
-            this.statMultiplier = statMultiplier;
-            _progressBar = progressBar;
-            
-            _progressBar.onBarFilled += IncreseStat;
-            _progressBar.onBarBelowZero += DecreseStat;
+            statMin = statmin;
+            statMax = statmax;
+            statMultiplier = statmultiplier;
+            statGrowthMultiplier = statgrowthmultiplier;
         }
         
         
         //Increase/Decrease the value of this stat
-        public void  IncreseStat()
+        public void IncreaseStat(float amount)
         {
-            value += 1;
+            if (amount < 0) return;
+
+            float mAmount = amount * statGrowthMultiplier;
+            
+            if (value + mAmount >= statMax)
+            {
+                value = statMax;
+                return;
+            }
+            value += mAmount;
         }
-        public void DecreseStat()
+        public void DecreaseStat(float amount)
         {
-            value -= 1;
+            if (amount < 0) return;
+            
+            float mAmount = amount * statGrowthMultiplier;
+            
+            if (value - mAmount <= statMin)
+            {
+                value = statMin;
+                return;
+            }
+            value -= mAmount;
         }
 
         //Increase/Decrease the multiplier of this stat
@@ -49,7 +71,72 @@ namespace Game
             statMultiplier -= amount;
         }
         
+        //Stat +/- 1 mostly used for when the progress bar is filled
+        public void  IncrementStat()
+        {
+            if (value >= statMax)
+            {
+                value = statMax;
+                return;
+            }
+            
+            value += 1 * statGrowthMultiplier;;
+        }
+        public void DecrementStat()
+        {
+            if (value <= statMin)
+            {
+                value = statMin;
+                return;
+            }
+            
+            value -= 1;
+        }
         
+        
+        
+        
+        
+        
+        /*
+         
+        public void  IncrementStat()
+        {
+            if (value == statMin)
+            {
+                _progressBar.regressBelowZero = true;
+            }
+            
+            value += 1 * statGrowthMultiplier;;
+            
+            if (value >= statMax)
+            {
+                _progressBar.resetOnFill = false;
+                value = statMax;
+            }
+        }
+        public void DecrementStat()
+        {
+            if (value == statMax)
+            {
+                _progressBar.resetOnFill = true;
+            }
+            
+            value -= 1 * statGrowthMultiplier;;
+            
+            if (value <= statMin)
+            {
+                _progressBar.regressBelowZero = false;
+                value = statMin;
+            }
+        }
+         
+         public void OnBarReset()
+         {
+         StatHandler.increment
+         }
+         
+         
         public float GetProgressValue()
         {
             return _progressBar.barValue;
@@ -74,5 +161,6 @@ namespace Game
         {
             progressMultiplier -= amount;
         }
+        */
     }
 }
