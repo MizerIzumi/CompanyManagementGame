@@ -10,8 +10,9 @@ namespace Game
         [SerializeField]
         protected string _name;
 
-        List<Statistic> stats;
-        List<ProgressBar> bars;
+        public List<Statistic> stats;
+        
+        public Dictionary<Statistic, ProgressBar> statBarsDict  = new Dictionary<Statistic, ProgressBar>();
         
         protected void AddStat(Statistic stat)
         {
@@ -20,14 +21,37 @@ namespace Game
 
         protected void AddStatWithBar(Statistic stat, ProgressBar bar)
         {
-            stats.Add(stat);
-            bars.Add(bar);
-            stat.barIndex = bars.Count - 1;
+            AddStat(stat);
+            statBarsDict.Add(stat, bar);
             
             bar.onBarReset += stat.IncrementStat;
             bar.onBarBelowZero += stat.DecrementStat;
+
+            stat.onStatReachedMax += BarManagementUpper;
+            stat.onStatReachedMin += BarManagementLower;
         }
         
-        //public Dictionary<int, Statistic> Stats = new Dictionary<int, Statistic>();
+        public void  BarManagementUpper(Statistic stat)
+        {
+            if (stat.value >= stat.statMin)
+            {
+                statBarsDict[stat].regressBelowZero = true;
+            }
+            if (stat.value >= stat.statMax)
+            {
+                statBarsDict[stat].resetOnFill = false;
+            }
+        }
+        public void BarManagementLower(Statistic stat)
+        {
+            if (stat.value <= stat.statMax)
+            {
+                statBarsDict[stat].resetOnFill = true;
+            }
+            if (stat.value <= stat.statMin)
+            {
+                statBarsDict[stat].regressBelowZero = false;
+            }
+        }
     }
 }

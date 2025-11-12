@@ -4,6 +4,14 @@ namespace Game
 {
     public class Statistic
     {
+        public delegate void OnStatChanged();
+        public event OnStatChanged onStatChanged;
+        public delegate void OnStatReachedMax(Statistic stat);
+        public event OnStatReachedMax onStatReachedMax;
+        public delegate void OnStatReachedMin(Statistic stat);
+        public event OnStatReachedMin onStatReachedMin;
+        
+        
         public string displayName;
 
         private float _value;
@@ -18,8 +26,6 @@ namespace Game
         public float statGrowthMultiplier;
         public float statMin;
         public float statMax;
-        
-        public int barIndex = -1;
         
         
         public Statistic(string displayname, float value, float statmin, float statmax, float statmultiplier, float statgrowthmultiplier)
@@ -43,9 +49,12 @@ namespace Game
             if (value + mAmount >= statMax)
             {
                 value = statMax;
+                onStatChanged?.Invoke();
+                onStatReachedMax?.Invoke(this);
                 return;
             }
             value += mAmount;
+            onStatChanged?.Invoke();
         }
         public void DecreaseStat(float amount)
         {
@@ -56,9 +65,12 @@ namespace Game
             if (value - mAmount <= statMin)
             {
                 value = statMin;
+                onStatChanged?.Invoke();
+                onStatReachedMin?.Invoke(this);
                 return;
             }
             value -= mAmount;
+            onStatChanged?.Invoke();
         }
 
         //Increase/Decrease the multiplier of this stat
@@ -71,26 +83,42 @@ namespace Game
             statMultiplier -= amount;
         }
         
-        //Stat +/- 1 mostly used for when the progress bar is filled
+        //Increase/Decrease the growth multiplier of this stat
+        public void IncreaseStatGrowthMultiplier(float amount)
+        {
+            statGrowthMultiplier += amount;
+        }
+        public void DecreaseStatGrowthMultiplier(float amount)
+        {
+            statGrowthMultiplier -= amount;
+        }
+        
+        //Stat +/- 1
         public void  IncrementStat()
         {
             if (value >= statMax)
             {
                 value = statMax;
+                onStatChanged?.Invoke();
+                onStatReachedMax?.Invoke(this);
                 return;
             }
             
             value += 1 * statGrowthMultiplier;;
+            onStatChanged?.Invoke();
         }
         public void DecrementStat()
         {
             if (value <= statMin)
             {
                 value = statMin;
+                onStatChanged?.Invoke();
+                onStatReachedMin?.Invoke(this);
                 return;
             }
             
             value -= 1;
+            onStatChanged?.Invoke();
         }
         
         
