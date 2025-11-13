@@ -1,10 +1,12 @@
 using System;
+using UnityEngine;
 
 namespace Game
 {
     public class CompanyStats : StatHandler
     {
-        private const float MaxRepLVL = 99;
+        private const float MaxRepLVL = 2;
+        private const float RepExpToLevel = 3;
         private const float MaxCompInvSize = 200;
         private const float MaxShopInvSize = 100;
         private const float MaxRecruitment = 40;
@@ -29,7 +31,7 @@ namespace Game
             AddStat(FundsStat);
             
             //1
-            ProgressBar RepLVLBar = new ProgressBar(true, false, 1, 100);
+            ProgressBar RepLVLBar = new ProgressBar(true, false, 1, RepExpToLevel, 0);
             Statistic RepLVLStat = new Statistic("Reputation Level", 0, 0, MaxRepLVL, 1, 1);
             AddStatWithBar(RepLVLStat, RepLVLBar);
             
@@ -46,13 +48,18 @@ namespace Game
             AddStat(AlignmentStat);
             
             //5
-            Statistic RecruitCapStat = new Statistic("Alignment", 0, 1, MaxRecruitment, 1, 1);
+            Statistic RecruitCapStat = new Statistic("Recruitment Capacity", 0, 1, MaxRecruitment, 1, 1);
             AddStat(RecruitCapStat);
         }
 
         public void Start()
         {
-            
+
+        }
+
+        public void Update()
+        {
+            //TestQuestComplete();
         }
 
         public string GetName()
@@ -67,12 +74,12 @@ namespace Game
 
         public void TestQuestComplete()
         {
-            statBarsDict[stats[(int)StatIndices.RepLVL]].IncreaseBar(1);
+            StatBarsDict[Stats[(int)StatIndices.RepLVL]].IncreaseBar(1);
         }
 
         public void TestQuestFail()
         {
-            statBarsDict[stats[(int)StatIndices.RepLVL]].DecreaseBar(1);
+            StatBarsDict[Stats[(int)StatIndices.RepLVL]].DecreaseBar(1);
         }
         
     }

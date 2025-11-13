@@ -17,7 +17,7 @@ namespace Game
         public void OnEnable()
         {
             //Adding the all the stats to the Stats dictionary
-            ProgressBar TestAffiliationProgressBar = new ProgressBar(true, true, 1, 10);
+            ProgressBar TestAffiliationProgressBar = new ProgressBar(true, true, 1, 10, 0);
             Statistic TestAffiliationStatistic = new Statistic("TestAffiliation", 0, -10, 10, 1, 1);
             AddStatWithBar(TestAffiliationStatistic, TestAffiliationProgressBar);
         }

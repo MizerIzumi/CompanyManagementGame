@@ -6,44 +6,39 @@ namespace Game
     {
         [SerializeField] public CompanyStats compStats;
 
-        //public string message;
-
         public void OnEnable()
         {
-            ProgressBar bar = compStats.statBarsDict[compStats.stats[(int)CompanyStats.StatIndices.RepLVL]];
+            ProgressBar bar = compStats.StatBarsDict[compStats.Stats[(int)CompanyStats.StatIndices.RepLVL]];
             
             bar.onBarUpdate += PrintmessageBarUpdate;
-            bar.onBarReset += PrintmessageBarProgression;
-            bar.onBarBelowZero += PrintmessageBarRegression;
+            bar.onBarReset += PrintmessageBarReset;
+            bar.onBarRegress += PrintmessageBarRegress;
         }
 
         public void OnDisable()
         {
-            ProgressBar bar = compStats.statBarsDict[compStats.stats[(int)CompanyStats.StatIndices.RepLVL]];
+            ProgressBar bar = compStats.StatBarsDict[compStats.Stats[(int)CompanyStats.StatIndices.RepLVL]];
             
-            bar.onBarUpdate -= PrintmessageBarProgression;
-            bar.onBarBelowZero -= PrintmessageBarRegression;
+            bar.onBarUpdate -= PrintmessageBarReset;
+            bar.onBarRegress -= PrintmessageBarRegress;
         }
 
         private void PrintmessageBarUpdate()
         {
-            ProgressBar bar = compStats.statBarsDict[compStats.stats[(int)CompanyStats.StatIndices.RepLVL]];
-            Debug.unityLogger.Log("RepExp: " + bar.barValue);
-            //Debug.unityLogger.Log(message);
+            ProgressBar bar = compStats.StatBarsDict[compStats.Stats[(int)CompanyStats.StatIndices.RepLVL]];
+            Debug.unityLogger.Log("RepExp: " + bar.BarValue);
         }
 
-        private void PrintmessageBarProgression()
+        private void PrintmessageBarReset()
         {
             Debug.unityLogger.Log("Levelup");
-            Debug.unityLogger.Log("Company RepLevel: " + compStats.stats[(int)CompanyStats.StatIndices.RepLVL]);
-            //Debug.unityLogger.Log(message);
+            Debug.unityLogger.Log("Company RepLevel: " + compStats.Stats[(int)CompanyStats.StatIndices.RepLVL].Value);
         }
         
-        private void PrintmessageBarRegression()
+        private void PrintmessageBarRegress()
         {
             Debug.unityLogger.Log("Leveldown");
-            Debug.unityLogger.Log("Company RepLevel: " + compStats.stats[(int)CompanyStats.StatIndices.RepLVL]);
-            //Debug.unityLogger.Log(message);
+            Debug.unityLogger.Log("Company RepLevel: " + compStats.Stats[(int)CompanyStats.StatIndices.RepLVL].Value);
         }
     }
 }

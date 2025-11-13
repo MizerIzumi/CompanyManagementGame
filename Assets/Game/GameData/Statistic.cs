@@ -1,10 +1,12 @@
+ 
 
+using UnityEngine;
 
 namespace Game
 {
     public class Statistic
     {
-        public delegate void OnStatChanged();
+        public delegate void OnStatChanged(Statistic stat);
         public event OnStatChanged onStatChanged;
         public delegate void OnStatReachedMax(Statistic stat);
         public event OnStatReachedMax onStatReachedMax;
@@ -12,30 +14,30 @@ namespace Game
         public event OnStatReachedMin onStatReachedMin;
         
         
-        public string displayName;
+        public string DisplayName;
 
         private float _value;
 
-        public float value
+        public float Value
         {
-            get { return _value * statMultiplier; }
+            get { return _value * StatMultiplier; }
             private set { _value = value; }
         }
         
-        public float statMultiplier;
-        public float statGrowthMultiplier;
-        public float statMin;
-        public float statMax;
+        public float StatMultiplier;
+        public float StatGrowthMultiplier;
+        public float StatMin;
+        public float StatMax;
         
         
         public Statistic(string displayname, float value, float statmin, float statmax, float statmultiplier, float statgrowthmultiplier)
         {
-            displayName = displayname;
-            this.value = value;
-            statMin = statmin;
-            statMax = statmax;
-            statMultiplier = statmultiplier;
-            statGrowthMultiplier = statgrowthmultiplier;
+            DisplayName = displayname;
+            this.Value = value;
+            StatMin = statmin;
+            StatMax = statmax;
+            StatMultiplier = statmultiplier;
+            StatGrowthMultiplier = statgrowthmultiplier;
         }
         
         
@@ -44,151 +46,81 @@ namespace Game
         {
             if (amount < 0) return;
 
-            float mAmount = amount * statGrowthMultiplier;
+            float mAmount = amount * StatGrowthMultiplier;
             
-            if (value + mAmount >= statMax)
+            if (Value + mAmount >= StatMax)
             {
-                value = statMax;
-                onStatChanged?.Invoke();
+                Value = StatMax;
+                onStatChanged?.Invoke(this);
                 onStatReachedMax?.Invoke(this);
                 return;
             }
-            value += mAmount;
-            onStatChanged?.Invoke();
+            Value += mAmount;
+            onStatChanged?.Invoke(this);
         }
         public void DecreaseStat(float amount)
         {
             if (amount < 0) return;
             
-            float mAmount = amount * statGrowthMultiplier;
+            float mAmount = amount * StatGrowthMultiplier;
             
-            if (value - mAmount <= statMin)
+            if (Value - mAmount <= StatMin)
             {
-                value = statMin;
-                onStatChanged?.Invoke();
+                Value = StatMin;
+                onStatChanged?.Invoke(this);
                 onStatReachedMin?.Invoke(this);
                 return;
             }
-            value -= mAmount;
-            onStatChanged?.Invoke();
+            Value -= mAmount;
+            onStatChanged?.Invoke(this);
         }
 
         //Increase/Decrease the multiplier of this stat
         public void IncreaseStatMultiplier(float amount)
         {
-            statMultiplier += amount;
+            StatMultiplier += amount;
         }
         public void DecreaseStatMultiplier(float amount)
         {
-            statMultiplier -= amount;
+            StatMultiplier -= amount;
         }
         
         //Increase/Decrease the growth multiplier of this stat
         public void IncreaseStatGrowthMultiplier(float amount)
         {
-            statGrowthMultiplier += amount;
+            StatGrowthMultiplier += amount;
         }
         public void DecreaseStatGrowthMultiplier(float amount)
         {
-            statGrowthMultiplier -= amount;
+            StatGrowthMultiplier -= amount;
         }
         
         //Stat +/- 1
         public void  IncrementStat()
         {
-            if (value >= statMax)
+            if (Value + 1 * StatGrowthMultiplier >= StatMax)
             {
-                value = statMax;
-                onStatChanged?.Invoke();
+                Value = StatMax;
+                onStatChanged?.Invoke(this);
                 onStatReachedMax?.Invoke(this);
                 return;
             }
             
-            value += 1 * statGrowthMultiplier;;
-            onStatChanged?.Invoke();
+            Value += 1 * StatGrowthMultiplier;
+            onStatChanged?.Invoke(this);
         }
         public void DecrementStat()
         {
-            if (value <= statMin)
+            if (Value - 1 <= StatMin)
             {
-                value = statMin;
-                onStatChanged?.Invoke();
+                Value = StatMin;
+                onStatChanged?.Invoke(this);
                 onStatReachedMin?.Invoke(this);
                 return;
             }
             
-            value -= 1;
-            onStatChanged?.Invoke();
+            Value -= 1;
+            onStatChanged?.Invoke(this);
         }
-        
-        
-        
-        
-        
-        
-        /*
-         
-        public void  IncrementStat()
-        {
-            if (value == statMin)
-            {
-                _progressBar.regressBelowZero = true;
-            }
-            
-            value += 1 * statGrowthMultiplier;;
-            
-            if (value >= statMax)
-            {
-                _progressBar.resetOnFill = false;
-                value = statMax;
-            }
-        }
-        public void DecrementStat()
-        {
-            if (value == statMax)
-            {
-                _progressBar.resetOnFill = true;
-            }
-            
-            value -= 1 * statGrowthMultiplier;;
-            
-            if (value <= statMin)
-            {
-                _progressBar.regressBelowZero = false;
-                value = statMin;
-            }
-        }
-         
-         public void OnBarReset()
-         {
-         StatHandler.increment
-         }
-         
-         
-        public float GetProgressValue()
-        {
-            return _progressBar.barValue;
-        }
-        
-        //Increase/Decrease the progress bar attached to the stat
-        public void IncreaseProgress(float amount)
-        {
-            _progressBar.IncreaseBar(amount);
-        }
-        public void DecreaseProgress(float amount)
-        {
-            _progressBar.DecreaseBar(amount);
-        }
-        
-        //Increase/Decrease the multiplier of the progress bar
-        public void IncreaseProgressMultiplier(float amount)
-        {
-            progressMultiplier += amount;
-        }
-        public void DecreaseProgressMultiplier(float amount)
-        {
-            progressMultiplier -= amount;
-        }
-        */
     }
 }

@@ -13,120 +13,149 @@ namespace Game
         public delegate void OnBarReset();
         public event OnBarReset onBarReset;
         
-        public delegate void OnBarBelowZero();
-        public event OnBarBelowZero onBarBelowZero;
+        public delegate void OnBarRegress();
+        public event OnBarRegress onBarRegress;
 
         public delegate void OnBarUpdate();
         public event OnBarUpdate onBarUpdate;
 
 
-        public bool resetOnFill = true;
+        public bool ResetOnFill = true;
         
-        public bool regressBelowZero = false;
+        public bool RegressBelowZero = false;
         
         private float _barValue = 0;
         
-        public float barMultiplier = 1;
+        public float BarMultiplier = 1;
 
-        public float barMax = 10;
+        public float BarMax = 10;
+        
+        public float BarMin = 0;
 
-        //public AnimationCurve barCurve;
-
-        public ProgressBar(bool resetonfill, bool regressbelowzero, float barmultiplier,  float barmax)
+        public ProgressBar(bool resetonfill, bool regressbelowzero, float barmultiplier,  float barmax, float barmin)
         {
-            resetOnFill = resetonfill;
-            regressBelowZero = regressbelowzero;
-            barMultiplier = barmultiplier;
-            barMax = barmax;
+            ResetOnFill = resetonfill;
+            RegressBelowZero = regressbelowzero;
+            BarMultiplier = barmultiplier;
+            BarMax = barmax;
+            BarMin = barmin;
         }
         
-        public float barValue
+        public float BarValue
         {
             get { return _barValue; }
 
             private set
             {
-                if (resetOnFill)
+                //check if the value you are setting is greater than the bar maximum
+                if (value >= BarMax)
                 {
-                    if (value - barMax >= 0) RecursiveOverflowCheck(value);
-                    else
+                    //Is the bar set to reset upon hitting maximum capacity?
+                    if (ResetOnFill)
                     {
-                        _barValue = value;
-                        onBarUpdate?.Invoke();
+                        //Check how many times the bar gets filled with the given value and then try to set it again.
+                        RecursiveOverflowCheck(value);
+                        return;
                     }
+
+                    _barValue = BarMax;
+                    onBarUpdate?.Invoke();
+                    BarFilled();
+                    return;
                 }
-                else
+                //Check if the value you are setting is lower than the bar minimum
+                if (value <= BarMin)
                 {
-                    if (value - barMax >= 0)
+                    //Is the bar set to regress upon going below minimum capacity?
+                    if (RegressBelowZero && value < BarMin)
                     {
-                        _barValue = barMax;
-                        onBarUpdate?.Invoke();
-                        BarFilled();
+                        //Check how many times the bar regresses with the given value and then try to set it again
+                        RecursiveUnderflowCheck(value);
+                        return;
                     }
-                    else
-                    {
-                        _barValue = 0;
-                        onBarUpdate?.Invoke();
-                    }
+                    
+                    _barValue = BarMin;
+                    onBarUpdate?.Invoke();
+                    BarEmpty();
+                    return;
                 }
+                
+                _barValue = value;
+                onBarUpdate?.Invoke();
             }
         }
-
-        
-        public float BarPercent()
-        {
-            return barValue / barMax;
-        }
-
         
         private void RecursiveOverflowCheck(float value)
         {
-            float overflowCheck = value - barMax;
+            //This only ever gets called if the Progress bar is set to reset on overflow
+            //Maybe look in to how this could be calculated without being a recursive function
+            float overflowCheck = value - BarMax;
 
             if (overflowCheck >= 0)
             {
                 BarFilled();
+                onBarReset?.Invoke();
                 RecursiveOverflowCheck(overflowCheck);
             }
             else
             {
-                barValue = value;
+                BarValue = value;
+            }
+        }
+        
+        private void RecursiveUnderflowCheck(float value)
+        {
+            //This only ever gets called if the Progress bar is set to regress
+            float underflowCheck = value - BarMin;
+
+            if (underflowCheck < BarMin)
+            {
+                BarEmpty();
+                onBarRegress?.Invoke();
+                RecursiveUnderflowCheck(underflowCheck);
+            }
+            else
+            {
+                BarValue = value;
             }
         }
         
         private void BarFilled()
         {
-            _barValue = 0;
             onBarFilled?.Invoke();
             //The ? is essentialy a nullcheck
-            
-            if (resetOnFill) onBarReset?.Invoke();
+        }
+
+        private void BarEmpty()
+        {
+            onBarEmpty?.Invoke();
         }
         
         
         public void IncreaseBar(float value)
         {
-            float mValue = value * barMultiplier;
+            float mValue = value * BarMultiplier;
             
-            if (mValue == 0 || barValue <= barMax) return;
+            if (mValue == 0 || BarValue >= BarMax) return;
             
-            barValue += mValue;
+            BarValue += mValue;
         }
 
         public void DecreaseBar(float value)
         {
-            float mValue = value * barMultiplier;
-            
-            if (mValue == 0) return;
+            float mValue = value * BarMultiplier;
 
-            if (regressBelowZero && barValue - mValue < 0)
+            if (mValue == 0 || BarValue - mValue < BarMin)
             {
-                onBarBelowZero?.Invoke();
-                barValue = barMax - mValue;
+                if (RegressBelowZero)
+                {
+                    onBarRegress?.Invoke();
+                    BarValue = BarMax - mValue;
+                }
                 return;
             }
 
-            barValue -= mValue;
+            BarValue -= mValue;
         }
     }
 }
