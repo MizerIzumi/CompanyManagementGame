@@ -19,7 +19,6 @@ namespace Game
         public delegate void OnBarUpdate();
         public event OnBarUpdate onBarUpdate;
 
-
         public bool ResetOnFill = true;
         
         public bool RegressBelowZero = false;

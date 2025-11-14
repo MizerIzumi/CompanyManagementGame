@@ -9,17 +9,12 @@ namespace Game
     {
         private float _maxLevel;
         
-        public enum AffiliationIndices
-        {
-            TestAffiliation
-        }
-        
         public void OnEnable()
         {
             //Adding the all the stats to the Stats dictionary
-            ProgressBar TestAffiliationProgressBar = new ProgressBar(true, true, 1, 10, 0);
-            Statistic TestAffiliationStatistic = new Statistic("TestAffiliation", 0, -10, 10, 1, 1);
-            AddStatWithBar(TestAffiliationStatistic, TestAffiliationProgressBar);
+            ProgressBar testAffiliationProgressBar = new ProgressBar(true, true, 1, 10, 0);
+            Statistic testAffiliationStatistic = new Statistic("TestAffiliation", 0, -10, 10, 1, 1);
+            AddStatWithBar(testAffiliationStatistic, TagsEnum.TestAffiliation, testAffiliationProgressBar);
         }
     }
 }
