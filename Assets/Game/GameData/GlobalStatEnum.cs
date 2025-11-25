@@ -4,7 +4,7 @@ namespace Game
 {
     public enum TagsEnum
     {
-        //Company Stats
+        //------------------------- Company Stats -------------------------
         CompFunds,
         RepLevel,
         CompInvSize,
@@ -12,7 +12,7 @@ namespace Game
         CompAlignment,
         RecruitCapacity,
         
-        //Adventurer Stats
+        //------------------------- Adventurer Stats -------------------------
         AdvLevel,
         Health,
         Mana,
@@ -20,21 +20,39 @@ namespace Game
         Dexterity,
         Intelligence,
         AdvInvSize,
+        AdvAlignment,
         
-        //Races
+        //------------------------- Races -------------------------
+        //Alignment A
         Human,
+        Celestial,
         Elf,
+        
+        //Neutral
         Dwarf,
         BeastKin,
+        Goblin,
         
-        //Sub Races
+        //Alignment B
+        PureBlood,
+        Dragon,
+        
+        //------------------------- Sub Races -------------------------
+        NoSubRace,
+        Vampire,
+        Werbeast,
+        Fae,
+        Draconic,
+        Angelic,
+        Demonic,
+        Golem,
+        Undead,
+        
+        //------------------------- Faiths -------------------------
         
         
-        //Faiths
-        
-        
-        //Affiliations
-        //AlignmentA
+        //------------------------- Affiliations -------------------------
+        //Alignment A
         Affiliation1,
         Affiliation2,
         Affiliation3,
@@ -44,7 +62,7 @@ namespace Game
         Affiliation5,
         Affiliation6,
         
-        //AlignmentB
+        //Alignment B
         Affiliation7,
         Affiliation8,
         Affiliation9,

@@ -31,7 +31,7 @@ namespace Game
         public Statistic(string displayname, float value, float statmin, float statmax, float statmultiplier, float statgrowthmultiplier)
         {
             DisplayName = displayname;
-            this.Value = value;
+            Value = value;
             StatMin = statmin;
             StatMax = statmax;
             StatMultiplier = statmultiplier;
