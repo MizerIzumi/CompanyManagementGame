@@ -659,6 +659,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.TestBroadcast
   compStats: {fileID: 699588974}
+  mod:
+    TargetTag: 7
+    Value: 0
+    ApplyAfterCalculations: 0
+    Operation: {fileID: 11400000, guid: d650cbc6ad9ea134095573186a4cbd41, type: 2}
 --- !u!1 &853105784
 GameObject:
   m_ObjectHideFlags: 0

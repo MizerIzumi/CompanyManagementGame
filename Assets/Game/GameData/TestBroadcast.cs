@@ -5,7 +5,10 @@ namespace Game
     public class TestBroadcast : MonoBehaviour
     {
         [SerializeField] public CompanyStats compStats;
-
+        
+        public Modifier mod;
+        
+        
         public void OnEnable()
         {
             ProgressBar bar = compStats.GetStatBar(TagsEnum.RepLevel);
@@ -13,6 +16,8 @@ namespace Game
             bar.onBarUpdate += PrintmessageBarUpdate;
             bar.onBarReset += PrintmessageBarReset;
             bar.onBarRegress += PrintmessageBarRegress;
+            
+            //mod.Operation.DoOperation();
         }
 
         public void OnDisable()
