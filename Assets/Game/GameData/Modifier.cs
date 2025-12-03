@@ -1,5 +1,5 @@
 using System;
-using UnityEngine.Serialization;
+using System.Collections.Generic;
 
 
 namespace Game
@@ -7,15 +7,19 @@ namespace Game
     [Serializable]
     public struct Modifier
     {
-        public TagsEnum TargetTag;
+        public TargetTags TargetTag;
+        public ConditionalTags ModifierCondition;
         public ModifierType Type;
         public float Value;
         public object Source;
+        
+        //Not yet implemented
         public bool ApplyAfterCalculations;
         
-        public Modifier(TagsEnum targetTag, ModifierType type, float value, bool applyAfterCalculations,  object source = null)
+        public Modifier(TargetTags targetTargetTag, ConditionalTags modifierCondition, ModifierType type, float value, bool applyAfterCalculations,  object source = null)
         {
-            TargetTag = targetTag;
+            TargetTag = targetTargetTag;
+            ModifierCondition = modifierCondition;
             Type = type;
             Value = value;
             ApplyAfterCalculations = applyAfterCalculations;

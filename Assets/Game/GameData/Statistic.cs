@@ -28,7 +28,7 @@ namespace Game
             get => _baseValue;
             set
             {
-                _baseValue = value;
+                _baseValue = value * StatGrowthMultiplier;
                 _currentValue = CalculateModifiedValue(_digitalAccuracy);
                 OnValueChanged();
             }
@@ -56,8 +56,7 @@ namespace Game
         private static ModifierOperationsCollection _modifierOperationsCollection = new();
         private static void Init() => _modifierOperationsCollection = new();
         
-        //public float StatMultiplier;
-        //public float StatGrowthMultiplier;
+        public float StatGrowthMultiplier = 1;
         public float StatMin;
         public float StatMax;
 
@@ -148,7 +147,7 @@ namespace Game
 
             for (int i = 0; i < _modifiersOperations.Count; i++)
             {
-                if (TryRemoveAllModifiersOfSourceFromList(source, _modifiersOperations[i].GetAllModifiers()))
+                if (TryRemoveAllModifiersOfSourceFromList(source, _modifiersOperations.Values[i].GetAllModifiers()))
                 {
                     isRemoved = true;
                     IsDirty =  true;
@@ -196,43 +195,33 @@ namespace Game
         {
             if (amount < 0) return;
 
-            float mAmount = amount * StatGrowthMultiplier;
+            float mAmount = amount;
             
-            if (Value + mAmount >= StatMax)
+            if (BaseValue + mAmount >= StatMax)
             {
-                Value = StatMax;
+                BaseValue = StatMax;
                 OnValueChanged();
                 OnValueMax();
                 return;
             }
-            Value += mAmount;
+            BaseValue += mAmount;
             OnValueChanged();
         }
         public void DecreaseStat(float amount)
         {
             if (amount < 0) return;
             
-            float mAmount = amount * StatGrowthMultiplier;
+            float mAmount = amount;
             
-            if (Value - mAmount <= StatMin)
+            if (BaseValue - mAmount <= StatMin)
             {
-                Value = StatMin;
+                BaseValue = StatMin;
                 OnValueChanged();
                 OnValueMin();
                 return;
             }
-            Value -= mAmount;
+            BaseValue -= mAmount;
             OnValueChanged();
-        }
-
-        //Increase/Decrease the multiplier of this stat
-        public void IncreaseStatMultiplier(float amount)
-        {
-            StatMultiplier += amount;
-        }
-        public void DecreaseStatMultiplier(float amount)
-        {
-            StatMultiplier -= amount;
         }
         
         //Increase/Decrease the growth multiplier of this stat
@@ -248,28 +237,28 @@ namespace Game
         //Stat +/- 1
         public void  IncrementStat()
         {
-            if (Value + 1 * StatGrowthMultiplier >= StatMax)
+            if (BaseValue + 1 >= StatMax)
             {
-                Value = StatMax;
+                BaseValue = StatMax;
                 OnValueChanged();
                 OnValueMax();
                 return;
             }
             
-            Value += 1 * StatGrowthMultiplier;
+            BaseValue += 1;
             OnValueChanged();
         }
         public void DecrementStat()
         {
-            if (Value - 1 <= StatMin)
+            if (BaseValue - 1 <= StatMin)
             {
-                Value = StatMin;
+                BaseValue = StatMin;
                 OnValueChanged();
                 OnValueMin();
                 return;
             }
             
-            Value -= 1;
+            BaseValue -= 1;
             OnValueChanged();
         }
         

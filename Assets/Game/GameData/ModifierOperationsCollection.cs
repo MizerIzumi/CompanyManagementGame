@@ -29,8 +29,8 @@ namespace Game
         internal Dictionary<ModifierType, Func<IModifiersOperations>> GetModifierOperations()
         {
             _modifierOperationsDict[ModifierType.Flat] = () => new FlatModifierOperations();
-            _modifierOperationsDict[ModifierType.Multiplication_Combined] = () => new Multi_C_ModifierOperations();
-            _modifierOperationsDict[ModifierType.Multiplication_Individual] = () => new Multi_I_ModifierOperations();
+            _modifierOperationsDict[ModifierType.Multiplication_Combined] = () => new Additive_ModifierOperations();
+            _modifierOperationsDict[ModifierType.Multiplication_Individual] = () => new Multiplicative_ModifierOperations();
             
             _modifiersCollectionHasBeenReturned = true;
             

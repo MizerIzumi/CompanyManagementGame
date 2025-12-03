@@ -2,9 +2,9 @@
 
 namespace Game
 {
-    public sealed class Multi_C_ModifierOperations : ModifierOperationsBase
+    public sealed class Additive_ModifierOperations : ModifierOperationsBase
     {
-        internal Multi_C_ModifierOperations() : base() { }
+        internal Additive_ModifierOperations() : base() { }
         public override float CalculateModifiersValue(float baseValue, float currentValue)
         {
             float modifiersSum = 0f;

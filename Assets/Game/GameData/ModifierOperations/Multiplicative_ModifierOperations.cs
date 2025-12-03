@@ -2,9 +2,9 @@
 
 namespace Game
 {
-    public sealed class Multi_I_ModifierOperations : ModifierOperationsBase
+    public sealed class Multiplicative_ModifierOperations : ModifierOperationsBase
     {
-        internal Multi_I_ModifierOperations() : base() {}
+        internal Multiplicative_ModifierOperations() : base() {}
         public override float CalculateModifiersValue(float baseValue, float currentValue)
         {
             float calculatedValue = currentValue;

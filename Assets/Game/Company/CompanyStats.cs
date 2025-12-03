@@ -16,24 +16,24 @@ namespace Game
         {
             //Adding the all the stats to the Stats List/dictionary
             
-            Statistic FundsStat = new Statistic("Funds", 0, Int32.MinValue, Int32.MaxValue, 1, 1);
-            AddStat(FundsStat, TagsEnum.CompFunds);
+            Statistic FundsStat = new Statistic("Funds", 0, Int32.MinValue, Int32.MaxValue);
+            AddStat(FundsStat, TargetTags.CompFunds);
             
             ProgressBar RepLVLBar = new ProgressBar(true, false, 1, RepExpToLevel, 0);
-            Statistic RepLVLStat = new Statistic("Reputation Level", 0, 0, MaxRepLVL, 1, 1);
-            AddStatWithBar(RepLVLStat, TagsEnum.RepLevel, RepLVLBar);
+            Statistic RepLVLStat = new Statistic("Reputation Level", 0, 0, MaxRepLVL);
+            AddStatWithBar(RepLVLStat, TargetTags.RepLevel, RepLVLBar);
             
-            Statistic CompInvSizeStat = new Statistic("Company Inventory Size", 10, 0, MaxCompInvSize, 1, 1);
-            AddStat(CompInvSizeStat,  TagsEnum.CompInvSize);
+            Statistic CompInvSizeStat = new Statistic("Company Inventory Size", 10, 0, MaxCompInvSize);
+            AddStat(CompInvSizeStat,  TargetTags.CompInvSize);
             
-            Statistic ShopInvSizeStat = new Statistic("Shop Inventory Size", 3, 0, MaxShopInvSize, 1, 1);
-            AddStat(ShopInvSizeStat,  TagsEnum.ShopInvSize);
+            Statistic ShopInvSizeStat = new Statistic("Shop Inventory Size", 3, 0, MaxShopInvSize);
+            AddStat(ShopInvSizeStat,  TargetTags.ShopInvSize);
             
-            Statistic AlignmentStat = new Statistic("Alignment", 0, -AlignmentBounds, AlignmentBounds, 1, 1);
-            AddStat(AlignmentStat,   TagsEnum.CompAlignment);
+            Statistic AlignmentStat = new Statistic("Alignment", 0, -AlignmentBounds, AlignmentBounds);
+            AddStat(AlignmentStat,   TargetTags.CompAlignment);
             
-            Statistic RecruitCapStat = new Statistic("Recruitment Capacity", 0, 1, MaxRecruitment, 1, 1);
-            AddStat(RecruitCapStat, TagsEnum.RecruitCapacity);
+            Statistic RecruitCapStat = new Statistic("Recruitment Capacity", 0, 1, MaxRecruitment);
+            AddStat(RecruitCapStat, TargetTags.RecruitCapacity);
         }
 
         public void Start()
@@ -61,12 +61,12 @@ namespace Game
 
         public void TestQuestComplete()
         {
-            IncreaseBar(TagsEnum.RepLevel, 1);
+            IncreaseBar(TargetTags.RepLevel, 1);
         }
 
         public void TestQuestFail()
         {
-            DecreaseBar(TagsEnum.RepLevel, 1);
+            DecreaseBar(TargetTags.RepLevel, 1);
         }
         
     }

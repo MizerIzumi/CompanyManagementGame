@@ -234,7 +234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -23, y: -89}
+  m_AnchoredPosition: {x: -144.9, y: -303}
   m_SizeDelta: {x: 194.0701, y: 101.2374}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &260035638
@@ -503,7 +503,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -237, y: -89}
+  m_AnchoredPosition: {x: -345, y: -303}
   m_SizeDelta: {x: 194.0701, y: 101.2374}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &384227408
@@ -660,10 +660,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.TestBroadcast
   compStats: {fileID: 699588974}
   mod:
-    TargetTag: 7
+    TargetTag: 0
+    ModifierCondition: 0
+    Type: 0
     Value: 0
     ApplyAfterCalculations: 0
-    Operation: {fileID: 11400000, guid: d650cbc6ad9ea134095573186a4cbd41, type: 2}
 --- !u!1 &853105784
 GameObject:
   m_ObjectHideFlags: 0
