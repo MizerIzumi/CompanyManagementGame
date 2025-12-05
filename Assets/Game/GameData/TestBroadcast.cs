@@ -5,6 +5,7 @@ namespace Game
     public class TestBroadcast : MonoBehaviour
     {
         [SerializeField] public CompanyStats compStats;
+        [SerializeField] public AdventurerStats advStats;
         
         public Modifier mod;
         

@@ -44,11 +44,6 @@ namespace Game
             }
         }
 
-        public void Update()
-        {
-            //TestQuestComplete();
-        }
-
         public string GetName()
         {
             return name;

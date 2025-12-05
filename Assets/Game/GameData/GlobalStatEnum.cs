@@ -21,13 +21,12 @@ namespace Game
         
         //------------------------- Adventurer Stats -------------------------
         AdvLevel = 200,
-        Health = 201,
-        Mana = 202,
-        Strength = 203,
-        Dexterity = 204,
-        Intelligence = 205,
+        AdvHealth = 201,
+        AdvMana = 202,
+        AdvStrength = 203,
+        AdvDexterity = 204,
+        AdvIntelligence = 205,
         AdvInvSize = 206,
-        AdvAlignment = 207,
         
         //------------------------- Affiliations -------------------------
         NoAffiliation = 300,
@@ -80,6 +79,11 @@ namespace Game
         
         //------------------------- Faiths -------------------------
         NoFaith = 300,
+        
+        //------------------------- Alignments -------------------------
+        AlignmentNeutral = 400,
+        AlignmentA = 401,
+        AlignmentB = 402,
     }
     
     
