@@ -20,7 +20,9 @@ namespace Game
         
         public int MinStatLvl = 0;
         public int MaxStatLvl = 99;
-        
+
+        public CharacterEquipmentSlots  EquipmentSlots = new();
+
         public void OnEnable()
         {
             Statistic AdvLevel = new Statistic("Level", InitialLvl, MinStatLvl,  MaxStatLvl);
@@ -50,7 +52,7 @@ namespace Game
         {
             foreach (var VARIABLE in Stats)
             {
-                Debug.Log(VARIABLE.Value.DisplayName);
+                Debug.Log(VARIABLE.Value.DisplayName + " : " + VARIABLE.Value.BaseValue);
             }
         }
     }

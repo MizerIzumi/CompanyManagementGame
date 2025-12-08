@@ -4,9 +4,9 @@ namespace Game
 {
     public enum ModifierType
     {
-        Flat,
-        Multiplication_Individual,
-        Multiplication_Combined,
+        Multiplication_Multiplicative = 0,
+        Multiplication_Additive = 1,
+        Flat = 2,
     }
     
     public enum TargetTags

@@ -18,7 +18,7 @@ namespace Game
             
             ModifierType modifierType = (ModifierType)order;
             
-            if (modifierType is ModifierType.Flat or ModifierType.Multiplication_Combined or ModifierType.Multiplication_Individual)
+            if (modifierType is ModifierType.Flat or ModifierType.Multiplication_Additive or ModifierType.Multiplication_Multiplicative)
                 Debug.LogWarning("modifier operations for types flat, additive and multiplicative cannot be changed! Default operations for these types will be used.");
             
             _modifierOperationsDict[modifierType] = modifierOperationsDelegate;
@@ -29,8 +29,8 @@ namespace Game
         internal Dictionary<ModifierType, Func<IModifiersOperations>> GetModifierOperations()
         {
             _modifierOperationsDict[ModifierType.Flat] = () => new FlatModifierOperations();
-            _modifierOperationsDict[ModifierType.Multiplication_Combined] = () => new Additive_ModifierOperations();
-            _modifierOperationsDict[ModifierType.Multiplication_Individual] = () => new Multiplicative_ModifierOperations();
+            _modifierOperationsDict[ModifierType.Multiplication_Additive] = () => new Additive_ModifierOperations();
+            _modifierOperationsDict[ModifierType.Multiplication_Multiplicative] = () => new Multiplicative_ModifierOperations();
             
             _modifiersCollectionHasBeenReturned = true;
             
