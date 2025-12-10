@@ -8,6 +8,11 @@ namespace Game
 
         private List<SO_ItemBase> Items = new List<SO_ItemBase>();
 
+        public CharacterInventorySlots(int invSize)
+        {
+            InvSize = invSize;
+        }
+        
         public bool TryAddItem(SO_ItemBase item)
         {
             if (item == null || Items.Count == InvSize)
@@ -19,7 +24,7 @@ namespace Game
             return true;
         }
 
-        public bool ReplaceItem(SO_ItemBase replacedItem, SO_ItemBase replacementItem)
+        public bool TryReplaceItem(SO_ItemBase replacedItem, SO_ItemBase replacementItem)
         {
             if (replacedItem && replacementItem)
             {

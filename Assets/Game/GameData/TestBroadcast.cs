@@ -38,13 +38,13 @@ namespace Game
         private void PrintmessageBarReset()
         {
             Debug.unityLogger.Log("Levelup");
-            Debug.unityLogger.Log("Company RepLevel: " + compStats.Stats[TargetTags.RepLevel].Value);
+            Debug.unityLogger.Log("Company RepLevel: " + compStats.StatsDictionary[TargetTags.RepLevel].Value);
         }
         
         private void PrintmessageBarRegress()
         {
             Debug.unityLogger.Log("Leveldown");
-            Debug.unityLogger.Log("Company RepLevel: " + compStats.Stats[TargetTags.RepLevel].Value);
+            Debug.unityLogger.Log("Company RepLevel: " + compStats.StatsDictionary[TargetTags.RepLevel].Value);
         }
     }
 }

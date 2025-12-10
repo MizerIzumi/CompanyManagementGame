@@ -9,7 +9,7 @@ namespace Game
         protected string _name;
 
         //All Stats get added to the stats List
-        public Dictionary<TargetTags, Statistic> Stats = new Dictionary<TargetTags, Statistic>();
+        public Dictionary<TargetTags, Statistic> StatsDictionary = new Dictionary<TargetTags, Statistic>();
         
         //ProgressBars that are linked to a stat get added to this Dictionary
         private Dictionary<Statistic, ProgressBar> _statBarsDict  = new Dictionary<Statistic, ProgressBar>();
@@ -20,7 +20,7 @@ namespace Game
         //List & Dictionary functions
         protected void AddStat(Statistic stat, TargetTags targetTagKey)
         {
-            Stats.Add(targetTagKey, stat);
+            StatsDictionary.Add(targetTagKey, stat);
         }
 
         protected void AddStatWithBar(Statistic stat, TargetTags targetTagKey, ProgressBar bar)
@@ -51,12 +51,12 @@ namespace Game
 
         public ProgressBar GetStatBar(TargetTags targetTagKey)
         {
-            return _statBarsDict[Stats[targetTagKey]];
+            return _statBarsDict[StatsDictionary[targetTagKey]];
         }
         
         public void IncreaseBar(TargetTags targetTagKey, float amount)
         {
-            Statistic stat = Stats[targetTagKey];
+            Statistic stat = StatsDictionary[targetTagKey];
             ProgressBar bar = _statBarsDict[stat];
             
             if (!(stat.Value >= stat.StatMax)) bar.IncreaseBar(amount);
@@ -64,7 +64,7 @@ namespace Game
         
         public void DecreaseBar(TargetTags targetTagKey,float amount)
         {
-            Statistic stat = Stats[targetTagKey];
+            Statistic stat = StatsDictionary[targetTagKey];
             ProgressBar bar = _statBarsDict[stat];
             
             if (!(stat.Value < stat.StatMin)) bar.DecreaseBar(amount);

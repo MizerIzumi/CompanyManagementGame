@@ -661,10 +661,10 @@ MonoBehaviour:
   compStats: {fileID: 699588974}
   advStats: {fileID: 1965105177}
   mod:
-    TargetTag: 203
-    ModifierCondition: 0
-    Type: 0
-    Value: 5
+    TargetTag: 100
+    ModifierCondition: 401
+    Type: 2
+    Value: 100
     ApplyAfterCalculations: 0
 --- !u!1 &853105784
 GameObject:
@@ -837,15 +837,6 @@ MonoBehaviour:
   Race: 100
   Sub_Race: 200
   Faith: 300
-  InitialLvl: 1
-  InitialHp: 10
-  InitialMp: 5
-  InitialStr: 1
-  InitialDex: 5
-  InitialInt: 1
-  InitialInv: 1
-  MinStatLvl: 0
-  MaxStatLvl: 99
   EquipmentSlots:
     Weapon: {fileID: 11400000, guid: da0fc29f37baf1548bb8fd9be3a72479, type: 2}
     Helmet: {fileID: 11400000, guid: 5d175af8e2c60f24b9a371f0dbc18114, type: 2}

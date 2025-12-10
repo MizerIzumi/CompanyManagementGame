@@ -38,7 +38,7 @@ namespace Game
 
         public void Start()
         {
-            foreach (var VARIABLE in Stats)
+            foreach (var VARIABLE in StatsDictionary)
             {
                 Debug.Log(VARIABLE.Value.DisplayName);
             }
