@@ -16,7 +16,7 @@ namespace Game
 
         public CharacterEquipmentSlots EquipmentSlots = new();
         public CharacterInventorySlots InventorySlots;
-        
+        public SO_AdventurerProfessionBase Profession;
         
         public void InitializeAdvStats(AdventurerStatsInitializer advStatsInit)
         {
