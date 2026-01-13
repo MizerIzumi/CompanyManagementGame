@@ -14,7 +14,7 @@ namespace Game
         private int MinStatLvl = 0;
         private int MaxStatLvl = 99;
 
-        public CharacterEquipmentSlots EquipmentSlots = new();
+        //public CharacterEquipmentSlots EquipmentSlots = new();
         public CharacterInventorySlots InventorySlots;
         public SO_AdventurerProfessionBase Profession;
         
@@ -53,6 +53,13 @@ namespace Game
             {
                 Debug.Log(VARIABLE.Value.DisplayName + " : " + VARIABLE.Value.BaseValue);
             }
+        }
+
+        private void Start()
+        {
+            AdventurerStatsInitializer asdfgiha90shf = new AdventurerStatsInitializer();
+            
+            InitializeAdvStats(asdfgiha90shf);
         }
     }
     

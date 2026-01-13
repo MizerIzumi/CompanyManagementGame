@@ -2,34 +2,33 @@ using UnityEngine;
 
 namespace Game
 {
-    [CreateAssetMenu(fileName = "SO_ChestPiece", menuName = "ScriptableObjects/Items/ChestPiece", order = 3)]
-    public class SO_ChestPieceBase : SO_EquipmentBase
+    [CreateAssetMenu(fileName = "SO_Accessorie", menuName = "ScriptableObjects/Items/Accessorie", order = 5)]
+    public class SO_AccessoryBase : SO_EquipmentBase
     {
-        public int Defence;
         
         public override void Equip(CharacterEquipmentSlots target)
         {
             base.Equip(target);
-            if (target.ChestPiece !=null)
+            if (target.Accessory !=null)
             {
-                target.ChestPiece.Unequip(target);
+                target.Accessory.Unequip(target);
             }
 
-            target.ChestPiece = this;
-            Debug.Log("Equipping " + target.ChestPiece.name);
+            target.Accessory = this;
+            Debug.Log("Equipping " + target.Accessory.name);
         }
 
         public override void Unequip(CharacterEquipmentSlots target)
         {
             base.Unequip(target);
-            if (target.ChestPiece != this)
+            if (target.Accessory != this)
             {
                 Debug.LogError("ERROR - Item: " + name + " not equipped by " + target.name);
             }
             
             Debug.Log("Unequipping " + name);
             AddToStorage();
-            target.ChestPiece = null;
+            target.Accessory = null;
         }
     }
 }
