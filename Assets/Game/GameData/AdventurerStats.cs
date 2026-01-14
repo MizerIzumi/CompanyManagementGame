@@ -18,8 +18,17 @@ namespace Game
         public CharacterInventorySlots InventorySlots;
         public SO_AdventurerProfessionBase Profession;
         
+        private bool _initialized = false;
+        
         public void InitializeAdvStats(AdventurerStatsInitializer advStatsInit)
         {
+            if (_initialized)
+            {
+                Debug.LogError("ERROR - " + name + " AdventurerStats has already been initialized");
+                return;
+            }
+            
+            _name = advStatsInit.name;
             Alignment = advStatsInit.alignment;
             Race = advStatsInit.race;
             Sub_Race = advStatsInit.subRace;
@@ -57,15 +66,16 @@ namespace Game
 
         private void Start()
         {
-            AdventurerStatsInitializer asdfgiha90shf = new AdventurerStatsInitializer();
-            
-            InitializeAdvStats(asdfgiha90shf);
+            //AdventurerStatsInitializer asdfgiha90shf = new AdventurerStatsInitializer();
+            //asdfgiha90shf.InitialDex = 99;
+            //InitializeAdvStats(asdfgiha90shf);
         }
     }
     
     [Serializable]
     public struct AdventurerStatsInitializer
     {
+        public string name;
         public ConditionalTags alignment;
         public ConditionalTags race;
         public ConditionalTags subRace;

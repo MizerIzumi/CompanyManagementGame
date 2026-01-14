@@ -28,6 +28,25 @@ namespace Game
             Accessory = startingequipment.Accessory;
             _initialized = true;
         }
+
+        public void UnequipAll()
+        {
+            Weapon.Unequip(this);
+            Helmet.Unequip(this);
+            ChestPiece.Unequip(this);
+            Boots.Unequip(this);
+            Accessory.Unequip(this);
+        }
+
+        public void TestingOnlyEquipSet(EquipmentSet equipmentSet)
+        {
+            UnequipAll();
+            Weapon = equipmentSet.Weapon;
+            Helmet = equipmentSet.Helmet;
+            ChestPiece = equipmentSet.ChestPiece;
+            Boots = equipmentSet.Boots;
+            Accessory = equipmentSet.Accessory;
+        }
     }
     
     [Serializable]
