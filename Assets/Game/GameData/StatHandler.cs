@@ -70,27 +70,14 @@ namespace Game
             if (!(stat.Value < stat.StatMin)) bar.DecreaseBar(amount);
         }
 
-        /*
-        public void IncreaseBarMultiplier(int statIndex, float amount)
+        public string GetName()
         {
-            Statistic stat = Stats[statIndex];
-            ProgressBar bar = _statBarsDict[stat];
-            
-            bar.BarMultiplier += amount;
+            return _name;
         }
 
-        public void DecreaseBarMultiplier(int statIndex, float amount)
+        public void SetName(string new_Name)
         {
-            Statistic stat = Stats[statIndex];
-            ProgressBar bar = _statBarsDict[stat];
-
-            if (bar.BarMultiplier - amount <= 0.01f)
-            {
-                bar.BarMultiplier
-            }
-                
-            bar.BarMultiplier -= amount;
+            _name = new_Name;
         }
-        */
     }
 }

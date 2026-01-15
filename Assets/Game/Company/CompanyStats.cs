@@ -38,20 +38,12 @@ namespace Game
 
         public void Start()
         {
+            /*
             foreach (var VARIABLE in StatsDictionary)
             {
                 Debug.Log(VARIABLE.Value.DisplayName);
             }
-        }
-
-        public string GetName()
-        {
-            return name;
-        }
-
-        public void SetName(string new_Name)
-        {
-            name = new_Name;
+            */
         }
 
         public void TestQuestComplete()
