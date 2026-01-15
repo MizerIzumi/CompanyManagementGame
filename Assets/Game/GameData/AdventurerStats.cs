@@ -62,6 +62,7 @@ namespace Game
             {
                 Debug.Log(VARIABLE.Value.DisplayName + " : " + VARIABLE.Value.BaseValue);
             }
+            _initialized = true;
         }
 
         private void Start()

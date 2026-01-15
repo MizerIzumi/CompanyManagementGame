@@ -79,6 +79,7 @@ namespace Game
             StatMin = statmin;
             StatMax = statmax;
 
+            IsDirty = true;
             InitializeModifierOperations();
 
             void InitializeModifierOperations()
@@ -183,6 +184,8 @@ namespace Game
                 finalValue += _modifiersOperations.Values[i].CalculateModifiersValue(_baseValue, finalValue);
 
             IsDirty = false;
+
+            float test = (float)Math.Round(finalValue, digitalAccuracy);
             
             return (float)Math.Round(finalValue, digitalAccuracy);
         }

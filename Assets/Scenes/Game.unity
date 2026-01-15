@@ -1061,6 +1061,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Testingstatdisplay
   adventurerStats: {fileID: 1965105177}
+  characterEquipmentSlots: {fileID: 1965105179}
+  equipmentSet: {fileID: 11400000, guid: 6bd8b3823d2a1ed4a8738a9eb7aad340, type: 2}
   Int: {fileID: 2145345199}
   Str: {fileID: 2092803781}
   Dex: {fileID: 285067410}
@@ -1323,7 +1325,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Unequip
+  m_text: Unequip All
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1742,7 +1744,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1024572987}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 523476406}
+        m_TargetAssemblyTypeName: Game.Testingstatdisplay, Assembly-CSharp
+        m_MethodName: TestingEquipSet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1024572987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1875,7 +1889,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Equip
+  m_text: Equip Set
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2246,7 +2260,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1589439710}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 523476406}
+        m_TargetAssemblyTypeName: Game.Testingstatdisplay, Assembly-CSharp
+        m_MethodName: TestingUnequipAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1589439710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2484,6 +2510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6bfa13ed09a6e840a3bac4ac0355895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.CharacterEquipmentSlots
+  advStats: {fileID: 1965105177}
   Weapon: {fileID: 0}
   Helmet: {fileID: 0}
   ChestPiece: {fileID: 0}

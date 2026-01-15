@@ -6,7 +6,20 @@ namespace Game
     {
         public Modifier[] modifiers;
 
-        public virtual void Equip(CharacterEquipmentSlots target) {}
-        public virtual void Unequip(CharacterEquipmentSlots target) {}
+        public virtual void Equip(CharacterEquipmentSlots target)
+        {
+            foreach (Modifier modifier in modifiers)
+            {
+                target.advStats.StatsDictionary[modifier.TargetTag].AddModifier(modifier);
+            }
+        }
+
+        public virtual void Unequip(CharacterEquipmentSlots target)
+        {
+            foreach (Modifier modifier in modifiers)
+            {
+                target.advStats.StatsDictionary[modifier.TargetTag].TryRemoveModifier(modifier);
+            }
+        }
     }
 }

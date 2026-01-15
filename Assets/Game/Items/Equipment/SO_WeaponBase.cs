@@ -9,7 +9,6 @@ namespace Game
         
         public override void Equip(CharacterEquipmentSlots target)
         {
-            base.Equip(target);
             if (target.Weapon !=null)
             {
                 target.Weapon.Unequip(target);
@@ -17,17 +16,18 @@ namespace Game
 
             target.Weapon = this;
             Debug.Log("Equipping " + target.Weapon.name);
+            base.Equip(target);
         }
 
         public override void Unequip(CharacterEquipmentSlots target)
         {
-            base.Unequip(target);
             if (target.Weapon != this)
             {
                 Debug.LogError("ERROR - Item: " + name + " not equipped by " + target.name);
             }
             
             Debug.Log("Unequipping " + name);
+            base.Unequip(target);
             AddToStorage();
             target.Weapon = null;
         }

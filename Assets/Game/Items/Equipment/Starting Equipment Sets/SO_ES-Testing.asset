@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SO_ES-Testing
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_EquipmentSetBase
   equipmentSet:
-    Weapon: {fileID: 0}
-    Helmet: {fileID: 0}
-    ChestPiece: {fileID: 0}
-    Boots: {fileID: 0}
-    Accessory: {fileID: 0}
+    Weapon: {fileID: 11400000, guid: da0fc29f37baf1548bb8fd9be3a72479, type: 2}
+    Helmet: {fileID: 11400000, guid: 5d175af8e2c60f24b9a371f0dbc18114, type: 2}
+    ChestPiece: {fileID: 11400000, guid: 1668272235def16469e1f6d75088c405, type: 2}
+    Boots: {fileID: 11400000, guid: f6e9283bfcaf6e54daff44733c9e3601, type: 2}
+    Accessory: {fileID: 11400000, guid: 9a20aa9e3dc2cdb4bb3dbd6ac552d05b, type: 2}

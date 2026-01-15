@@ -7,6 +7,8 @@ namespace Game
     public class Testingstatdisplay : MonoBehaviour
     {
         public AdventurerStats adventurerStats;
+        public CharacterEquipmentSlots characterEquipmentSlots;
+        public SO_EquipmentSetBase equipmentSet;
         public TextMeshProUGUI Int;
         public TextMeshProUGUI Str;
         public TextMeshProUGUI Dex;
@@ -16,6 +18,16 @@ namespace Game
             AdventurerStatsInitializer adinit = new();
             adinit.InitialDex = 10;
             adventurerStats.InitializeAdvStats(adinit);
+        }
+
+        public void TestingEquipSet()
+        {
+            characterEquipmentSlots.TestingOnlyEquipSet(equipmentSet.equipmentSet);
+        }
+
+        public void TestingUnequipAll()
+        {
+            characterEquipmentSlots.UnequipAll();
         }
 
         void Update()

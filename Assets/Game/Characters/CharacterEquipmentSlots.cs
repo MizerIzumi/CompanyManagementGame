@@ -1,16 +1,18 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Game
 {
     public class CharacterEquipmentSlots : MonoBehaviour
     {
+        public AdventurerStats advStats;
+        
         public SO_WeaponBase Weapon;
         public SO_HelmetBase Helmet;
         public SO_ChestPieceBase ChestPiece;
         public SO_BootsBase Boots;
         public SO_AccessoryBase Accessory;
+        
         private bool _initialized = false;
 
         public void InitializeEquipment(EquipmentSet startingequipment)
@@ -31,21 +33,21 @@ namespace Game
 
         public void UnequipAll()
         {
-            Weapon.Unequip(this);
-            Helmet.Unequip(this);
-            ChestPiece.Unequip(this);
-            Boots.Unequip(this);
-            Accessory.Unequip(this);
+            if (Weapon != null) Weapon.Unequip(this);
+            if (Helmet != null) Helmet.Unequip(this);
+            if (ChestPiece != null) ChestPiece.Unequip(this);
+            if (Boots != null) Boots.Unequip(this);
+            if (Accessory != null) Accessory.Unequip(this);
         }
 
         public void TestingOnlyEquipSet(EquipmentSet equipmentSet)
         {
             UnequipAll();
-            Weapon = equipmentSet.Weapon;
-            Helmet = equipmentSet.Helmet;
-            ChestPiece = equipmentSet.ChestPiece;
-            Boots = equipmentSet.Boots;
-            Accessory = equipmentSet.Accessory;
+            equipmentSet.Weapon.Equip(this);
+            equipmentSet.Helmet.Equip(this);
+            equipmentSet.ChestPiece.Equip(this);
+            equipmentSet.Boots.Equip(this);
+            equipmentSet.Accessory.Equip(this);
         }
     }
     
