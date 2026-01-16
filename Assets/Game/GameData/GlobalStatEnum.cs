@@ -27,6 +27,10 @@ namespace Game
         AdvDexterity = 204,
         AdvIntelligence = 205,
         AdvInvSize = 206,
+        AdvPhysicalAttack = 207,
+        AdvMagicalAttack = 208,
+        AdvPhysicalDefence = 209,
+        AdvMagicalDefence = 210,
         
         //------------------------- Affiliations -------------------------
         NoAffiliation = 300,
@@ -47,7 +51,7 @@ namespace Game
         
         TestAffiliation = 399
     }
-
+    
     public enum ConditionalTags
     {
         NoCondition = 0,
@@ -59,7 +63,7 @@ namespace Game
         
         //Neutral
         Dwarf = 110,
-        BeastKin = 111,
+        Beastkin = 111,
         Goblin = 112,
         
         //Alignment B

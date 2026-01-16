@@ -8,18 +8,12 @@ namespace Game
 
         public virtual void Equip(CharacterEquipmentSlots target)
         {
-            foreach (Modifier modifier in modifiers)
-            {
-                target.advStats.StatsDictionary[modifier.TargetTag].AddModifier(modifier);
-            }
+            target.advStats.ApplyModifiers(modifiers);
         }
 
         public virtual void Unequip(CharacterEquipmentSlots target)
         {
-            foreach (Modifier modifier in modifiers)
-            {
-                target.advStats.StatsDictionary[modifier.TargetTag].TryRemoveModifier(modifier);
-            }
+            target.advStats.RemoveModifiers(modifiers);
         }
     }
 }

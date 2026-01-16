@@ -37,6 +37,22 @@ namespace Game
         
         //Stat Functions
         
+        public void ApplyModifiers(Modifier[] modifiers)
+        {
+            foreach (var modifier in modifiers)
+            {
+                StatsDictionary[modifier.TargetTag].AddModifier(modifier);
+            }
+        }
+        
+        public void RemoveModifiers(Modifier[] modifiers)
+        {
+            foreach (var modifier in modifiers)
+            {
+                StatsDictionary[modifier.TargetTag].TryRemoveModifier(modifier);
+            }
+        }
+        
         
         
         //Progress Bar Functions

@@ -5,8 +5,6 @@ namespace Game
     [CreateAssetMenu(fileName = "SO_Helmet", menuName = "ScriptableObjects/Items/Helmet", order = 2)]
     public class SO_HelmetBase : SO_EquipmentBase
     {
-        public int Defence;
-
         public override void Equip(CharacterEquipmentSlots target)
         {
             if (target.Helmet !=null)

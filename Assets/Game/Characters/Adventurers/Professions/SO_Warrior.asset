@@ -12,16 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e64c21d96e5a14d92f9f9fd9107223, type: 3}
   m_Name: SO_Warrior
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_AdventurerProfessionBase
-  ClassName: Warrior
-  InitialStats:
-    alignment: 400
-    race: 0
-    subRace: 0
-    faith: 0
-    InitialLvl: 0
-    InitialHp: 0
-    InitialMp: 0
-    InitialStr: 0
-    InitialDex: 0
-    InitialInt: 0
-    InitialInv: 0
+  ProfessionName: Warrior
+  InitialHp: 300
+  InitialMp: 25
+  InitialStr: 15
+  InitialDex: 10
+  InitialInt: 3
+  InitialPDamage: 10
+  InitialMDamage: 1
+  InitialPDefence: 15
+  InitialMDefence: 8
+  modifiers: []

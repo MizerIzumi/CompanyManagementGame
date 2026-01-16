@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0cc37f4706cd6e47bc2be7c31b71433, type: 3}
   m_Name: SO_TestAccessorie
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_AccessorieBase
+  ItemName: Test Accessory
   SellValue: 0
-  modifiers: []
+  range: {x: 0, y: 0}
+  modifiers:
+  - TargetTag: 208
+    ModifierCondition: 0
+    Type: 2
+    Value: 999
+    ApplyAfterCalculations: 0

@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e9afb23ef0b4241b223955bab39820, type: 3}
   m_Name: SO_TestChestPiece
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_ChestPieceBase
+  ItemName: Test Chest Piece
   SellValue: 0
+  range: {x: 0, y: 0}
   modifiers:
+  - TargetTag: 209
+    ModifierCondition: 0
+    Type: 2
+    Value: 999
+    ApplyAfterCalculations: 0
   - TargetTag: 203
     ModifierCondition: 0
     Type: 2
     Value: 99
     ApplyAfterCalculations: 0
-  Defence: 999

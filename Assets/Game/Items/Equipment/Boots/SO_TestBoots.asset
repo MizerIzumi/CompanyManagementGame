@@ -12,11 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc02ab58a964cc6459afbd6aae740a3f, type: 3}
   m_Name: SO_TestBoots
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_BootsBase
+  ItemName: Test Boots
   SellValue: 0
+  range: {x: 0, y: 0}
   modifiers:
+  - TargetTag: 210
+    ModifierCondition: 0
+    Type: 2
+    Value: 999
+    ApplyAfterCalculations: 0
   - TargetTag: 204
     ModifierCondition: 0
     Type: 2
     Value: 99
     ApplyAfterCalculations: 0
-  Defence: 999

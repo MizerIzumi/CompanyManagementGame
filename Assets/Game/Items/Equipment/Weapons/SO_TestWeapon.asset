@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 329583f3737622945868b3cf66009ba7, type: 3}
   m_Name: SO_TestWeapon
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_WeaponBase
+  ItemName: Test Weapon
   SellValue: 0
-  modifiers: []
-  Damage: 999
+  modifiers:
+  - TargetTag: 207
+    ModifierCondition: 0
+    Type: 2
+    Value: 999
+    ApplyAfterCalculations: 0
