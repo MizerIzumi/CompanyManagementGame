@@ -69,6 +69,7 @@ namespace Game
         //Alignment B
         PureBlood = 120,
         Dragon = 121,
+        Umbral = 122,
         
         //------------------------- Sub Races -------------------------
         NoSubRace = 200,

@@ -14,20 +14,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_RaceBase
   RaceName: Beastkin
   RaceTag: 111
-  IncompatableSubRace: 0
-  modifiers:
-  - TargetTag: 203
-    ModifierCondition: 0
-    Type: 1
-    Value: 0.2
-    ApplyAfterCalculations: 0
-  - TargetTag: 204
-    ModifierCondition: 0
-    Type: 1
-    Value: 0.2
-    ApplyAfterCalculations: 0
-  - TargetTag: 207
-    ModifierCondition: 0
-    Type: 2
-    Value: 2
-    ApplyAfterCalculations: 0
+  IncompatableSubRace: 202
+  StartingStats:
+  - statname: Level
+    initialValue: 1
+    statgrowthmultiplier: 1
+    statmin: -999
+    statmax: 999
+  - statname: Health
+    initialValue: 6
+    statgrowthmultiplier: 1.1
+    statmin: -999
+    statmax: 999
+  - statname: Mana
+    initialValue: 3
+    statgrowthmultiplier: 0.8
+    statmin: -999
+    statmax: 999
+  - statname: Strength
+    initialValue: 8
+    statgrowthmultiplier: 1.2
+    statmin: -999
+    statmax: 999
+  - statname: Dexterity
+    initialValue: 8
+    statgrowthmultiplier: 1.2
+    statmin: -999
+    statmax: 999
+  - statname: Intelligence
+    initialValue: 3
+    statgrowthmultiplier: 0.8
+    statmin: -999
+    statmax: 999
+  - statname: Physical Damage
+    initialValue: 6
+    statgrowthmultiplier: 1.1
+    statmin: -999
+    statmax: 999
+  - statname: Magic Damage
+    initialValue: 3
+    statgrowthmultiplier: 1
+    statmin: -999
+    statmax: 999
+  - statname: Physical Defence
+    initialValue: 5
+    statgrowthmultiplier: 0.9
+    statmin: -999
+    statmax: 999
+  - statname: Magical Defence
+    initialValue: 3
+    statgrowthmultiplier: 0.8
+    statmin: -999
+    statmax: 999
+  - statname: Inventory Size
+    initialValue: 1
+    statgrowthmultiplier: 1
+    statmin: 1
+    statmax: 4

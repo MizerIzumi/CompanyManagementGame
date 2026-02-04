@@ -40,7 +40,7 @@ namespace Game
             if (Accessory != null) Accessory.Unequip(this);
         }
 
-        public void TestingOnlyEquipSet(EquipmentSet equipmentSet)
+        public void EquipSet(EquipmentSet equipmentSet)
         {
             UnequipAll();
             equipmentSet.Weapon.Equip(this);

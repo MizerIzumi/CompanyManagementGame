@@ -25,7 +25,7 @@ namespace Game
         private float _baseValue;
         public float BaseValue
         {
-            get => _baseValue;
+            get => Mathf.Floor(_baseValue);
             set
             {
                 _baseValue = value * StatGrowthMultiplier;
@@ -72,12 +72,13 @@ namespace Game
         }
 
         
-        public Statistic(string displayname, float baseValue, float statmin, float statmax)
+        public Statistic(StatInitializer initStat)
         {
-            DisplayName = displayname;
-            _baseValue = baseValue;
-            StatMin = statmin;
-            StatMax = statmax;
+            DisplayName = initStat.statname;
+            _baseValue = initStat.initialValue;
+            StatMin = initStat.statmin;
+            StatMax = initStat.statmax;
+            StatGrowthMultiplier = initStat.statgrowthmultiplier;
 
             IsDirty = true;
             InitializeModifierOperations();
@@ -156,7 +157,7 @@ namespace Game
             }
             return isRemoved;
             
-            //static local method wont get allocated to the heep
+            //static local method wont get allocated to the heep, also did not work last time I tested
             static bool TryRemoveAllModifiersOfSourceFromList(object source, List<Modifier> listOfModifiers)
             {
                 bool modifierHasBeenRemoved = false;
@@ -269,5 +270,24 @@ namespace Game
         private void OnModifiersChanged() => onStatModifiersChanged?.Invoke(this);
         private void OnValueMax() => onStatReachedMax?.Invoke(this);
         private void OnValueMin() => onStatReachedMin?.Invoke(this);
+    }
+    
+    [Serializable]
+    public struct StatInitializer
+    {
+        public string statname;
+        public float initialValue;
+        public float statgrowthmultiplier;
+        public float statmin;
+        public float statmax;
+
+        public StatInitializer(String name, float value, float multiplier, float min, float max)
+        {
+            statname = name;
+            initialValue = value;
+            statgrowthmultiplier = multiplier;
+            statmin = min;
+            statmax = max;
+        }
     }
 }

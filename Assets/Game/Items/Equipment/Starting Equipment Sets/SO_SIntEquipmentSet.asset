@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d918321849613459c22fa199929f82, type: 3}
+  m_Name: SO_SIntEquipmentSet
+  m_EditorClassIdentifier: Assembly-CSharp::Game.SO_EquipmentSetBase
+  equipmentSet:
+    Weapon: {fileID: 11400000, guid: 771b397f497343a43ae7301a5e052dae, type: 2}
+    Helmet: {fileID: 11400000, guid: ad5b98e7c1e07484bbcb36b2e2afc16e, type: 2}
+    ChestPiece: {fileID: 11400000, guid: 336d907ea1da33c4f9fb858d95c9f075, type: 2}
+    Boots: {fileID: 11400000, guid: 962bba6aed0b66e4d8b5348113d996fc, type: 2}
+    Accessory: {fileID: 11400000, guid: 057beac6d512a844a93207fbb5b7a865, type: 2}

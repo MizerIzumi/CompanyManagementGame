@@ -15,7 +15,7 @@ namespace Game
         public void OnEnable()
         {
             //Adding the all the stats to the Stats List/dictionary
-            
+            /*
             Statistic FundsStat = new Statistic("Funds", 0, Int32.MinValue, Int32.MaxValue);
             AddStat(FundsStat, TargetTags.CompFunds);
             
@@ -34,6 +34,7 @@ namespace Game
             
             Statistic RecruitCapStat = new Statistic("Recruitment Capacity", 0, 1, MaxRecruitment);
             AddStat(RecruitCapStat, TargetTags.RecruitCapacity);
+            */
         }
 
         public void Start()

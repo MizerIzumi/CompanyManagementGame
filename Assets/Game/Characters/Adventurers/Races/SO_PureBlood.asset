@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e14c5a07105b72b469ed94a38e4f38e7, type: 3}
+  m_Name: SO_PureBlood
+  m_EditorClassIdentifier: Assembly-CSharp::Game.SO_RaceBase
+  RaceName: PureBlood
+  RaceTag: 120
+  IncompatableSubRace: 201
+  StartingStats:
+  - statname: Level
+    initialValue: 1
+    statgrowthmultiplier: 1
+    statmin: -999
+    statmax: 999
+  - statname: Health
+    initialValue: 4
+    statgrowthmultiplier: 0.9
+    statmin: -999
+    statmax: 999
+  - statname: Mana
+    initialValue: 6
+    statgrowthmultiplier: 1.2
+    statmin: -999
+    statmax: 999
+  - statname: Strength
+    initialValue: 4
+    statgrowthmultiplier: 0.8
+    statmin: -999
+    statmax: 999
+  - statname: Dexterity
+    initialValue: 5
+    statgrowthmultiplier: 1
+    statmin: -999
+    statmax: 999
+  - statname: Intelligence
+    initialValue: 7
+    statgrowthmultiplier: 1.2
+    statmin: -999
+    statmax: 999
+  - statname: Physical Damage
+    initialValue: 3
+    statgrowthmultiplier: 0.9
+    statmin: -999
+    statmax: 999
+  - statname: Magic Damage
+    initialValue: 7
+    statgrowthmultiplier: 1.2
+    statmin: -999
+    statmax: 999
+  - statname: Physical Defence
+    initialValue: 4
+    statgrowthmultiplier: 0.9
+    statmin: -999
+    statmax: 999
+  - statname: Magical Defence
+    initialValue: 5
+    statgrowthmultiplier: 1.1
+    statmin: -999
+    statmax: 999
+  - statname: Inventory Size
+    initialValue: 1
+    statgrowthmultiplier: 1
+    statmin: 1
+    statmax: 4

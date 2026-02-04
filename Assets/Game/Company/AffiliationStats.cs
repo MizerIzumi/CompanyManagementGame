@@ -11,10 +11,12 @@ namespace Game
         
         public void OnEnable()
         {
+            /*
             //Adding the all the stats to the Stats dictionary
             ProgressBar testAffiliationProgressBar = new ProgressBar(true, true, 1, 10, 0);
             Statistic testAffiliationStatistic = new Statistic("TestAffiliation", 0, -10, 10);
             AddStatWithBar(testAffiliationStatistic, TargetTags.TestAffiliation, testAffiliationProgressBar);
+            */
         }
     }
 }

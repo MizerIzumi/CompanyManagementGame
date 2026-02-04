@@ -34,52 +34,43 @@ namespace Game
             SubRace = advStatsInit.subRace;
             Faith = advStatsInit.faith;
             
-            InventorySlots = new CharacterInventorySlots(advStatsInit.InitialInv);
+            InventorySlots = new CharacterInventorySlots((int)advStatsInit.InitialInv.initialValue);
             
             Profession = advStatsInit.profession;
             
-            Statistic AdvLevel = new Statistic("Level", advStatsInit.InitialLvl, _minStatLvl,  _maxStatLvl);
+            Statistic AdvLevel = new Statistic(advStatsInit.InitialLvl);
             ProgressBar AdvLevelBar = new ProgressBar(true, false, 1, 100, 0);
             AddStatWithBar(AdvLevel, TargetTags.AdvLevel, AdvLevelBar);
             
-            Statistic AdvHealth = new Statistic("Health", advStatsInit.InitialHp, _minStatLvl,  _maxStatLvl);
+            Statistic AdvHealth = new Statistic(advStatsInit.InitialHp);
             AddStat(AdvHealth, TargetTags.AdvHealth);
             
-            Statistic AdvMana = new Statistic("Mana", advStatsInit.InitialMp, _minStatLvl,  _maxStatLvl);
+            Statistic AdvMana = new Statistic(advStatsInit.InitialMp);
             AddStat(AdvMana, TargetTags.AdvMana);
             
-            Statistic AdvStrength = new Statistic("Strength", advStatsInit.InitialStr, _minStatLvl, _maxStatLvl);
+            Statistic AdvStrength = new Statistic(advStatsInit.InitialStr);
             AddStat(AdvStrength, TargetTags.AdvStrength);
             
-            Statistic AdvDexterity = new Statistic("Dexterity", advStatsInit.InitialDex, _minStatLvl, _maxStatLvl);
+            Statistic AdvDexterity = new Statistic(advStatsInit.InitialDex);
             AddStat(AdvDexterity, TargetTags.AdvDexterity);
             
-            Statistic AdvIntelligence = new Statistic("Intelligence", advStatsInit.InitialInt, _minStatLvl, _maxStatLvl);
+            Statistic AdvIntelligence = new Statistic(advStatsInit.InitialInt);
             AddStat(AdvIntelligence, TargetTags.AdvIntelligence);
             
-            Statistic AdvPAttack = new Statistic("Physical Attack", advStatsInit.InitialPDamage, -9999999, 9999999);
+            Statistic AdvPAttack = new Statistic(advStatsInit.InitialPDamage);
             AddStat(AdvPAttack, TargetTags.AdvPhysicalAttack);
             
-            Statistic AdvMAttack = new Statistic("Magical Attack", advStatsInit.InitialMDamage, -9999999, 9999999);
+            Statistic AdvMAttack = new Statistic(advStatsInit.InitialMDamage);
             AddStat(AdvMAttack, TargetTags.AdvMagicalAttack);
             
-            Statistic AdvPDefence = new Statistic("Physical Defence", advStatsInit.InitialPDefence, -9999999, 9999999);
+            Statistic AdvPDefence = new Statistic(advStatsInit.InitialPDefence);
             AddStat(AdvPDefence, TargetTags.AdvPhysicalDefence);
             
-            Statistic AdvMDefence = new Statistic("Magical Defence", advStatsInit.InitialMDefence, -9999999, 9999999);
+            Statistic AdvMDefence = new Statistic(advStatsInit.InitialMDefence);
             AddStat(AdvMDefence, TargetTags.AdvMagicalDefence);
             
-            Statistic AdvInventory = new Statistic("Inventory", advStatsInit.InitialInv, _minStatLvl, _maxStatLvl);
+            Statistic AdvInventory = new Statistic(advStatsInit.InitialInv);
             AddStat(AdvInventory, TargetTags.AdvInvSize);
-            
-            foreach (var VARIABLE in StatsDictionary)
-            {
-                Debug.Log(VARIABLE.Value.DisplayName + " : " + VARIABLE.Value.BaseValue);
-            }
-            
-            ApplyModifiers(Race.modifiers);
-            ApplyModifiers(SubRace.modifiers);
-            ApplyModifiers(Profession.modifiers);
             
             _initialized = true;
         }
@@ -93,19 +84,26 @@ namespace Game
         public SO_RaceBase race;
         public SO_SubRaceBase subRace;
         public ConditionalTags faith;
-        
         public SO_AdventurerProfessionBase profession;
-        
-        public int InitialLvl;
-        public int InitialHp;
-        public int InitialMp;
-        public int InitialStr;
-        public int InitialDex;
-        public int InitialInt;
-        public int InitialPDamage;
-        public int InitialMDamage;
-        public int InitialPDefence;
-        public int InitialMDefence;
-        public int InitialInv;
+
+        public StatInitializer InitialLvl;
+        public StatInitializer InitialHp;
+        public StatInitializer InitialMp;
+        public StatInitializer InitialStr;
+        public StatInitializer InitialDex;
+        public StatInitializer InitialInt;
+        public StatInitializer InitialPDamage;
+        public StatInitializer InitialMDamage;
+        public StatInitializer InitialPDefence;
+        public StatInitializer InitialMDefence;
+        public StatInitializer InitialInv;
     }
 }
+/*
+ *         public AdventurerStatsInitializer(string advname, , StatInitializer lvl, StatInitializer hp, StatInitializer mp, 
+            StatInitializer str, StatInitializer dex, StatInitializer intel, StatInitializer pdmg,
+            StatInitializer mdmg, StatInitializer pdef, StatInitializer mdef, StatInitializer inv)
+        {
+            
+        }
+*/

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d918321849613459c22fa199929f82, type: 3}
+  m_Name: SO_SStrEquipmentSet
+  m_EditorClassIdentifier: Assembly-CSharp::Game.SO_EquipmentSetBase
+  equipmentSet:
+    Weapon: {fileID: 11400000, guid: dbf37f81aa398ef429c41a4816962149, type: 2}
+    Helmet: {fileID: 11400000, guid: 2f9b8f3ad11ac174083ed093c0d8d031, type: 2}
+    ChestPiece: {fileID: 11400000, guid: 430b1a77821962046a49390bea182498, type: 2}
+    Boots: {fileID: 11400000, guid: 990332ef3a1ca0144bccc3d65e5dccec, type: 2}
+    Accessory: {fileID: 11400000, guid: ba78a13830bb4254585d32d0de437bc0, type: 2}

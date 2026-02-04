@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -9,18 +10,21 @@ namespace Game
     {
         public string ProfessionName;
         
-        public int InitialHp;
-        public int InitialMp;
+        public SO_EquipmentSetBase startingEquipment;
         
-        public int InitialStr;
-        public int InitialDex;
-        public int InitialInt;
-        
-        public int InitialPDamage;
-        public int InitialMDamage;
-        public int InitialPDefence;
-        public int InitialMDefence;
-        
-        public Modifier[] modifiers;
+        public StatInitializer[] StartingStats = new StatInitializer[11]
+        {
+            new StatInitializer("Level", 0, 0, -999, 999),
+            new StatInitializer("Health", 0, 0, -999, 999),
+            new StatInitializer("Mana", 0, 0, -999, 999),
+            new StatInitializer("Strength", 0, 0, -999, 999),
+            new StatInitializer("Dexterity", 0, 0, -999, 999),
+            new StatInitializer("Intelligence", 0, 0, -999, 999),
+            new StatInitializer("Physical Damage", 0, 0, -999, 999),
+            new StatInitializer("Magic Damage", 0, 0, -999, 999),
+            new StatInitializer("Physical Defence", 0, 0, -999, 999),
+            new StatInitializer("Magical Defence", 0, 0, -999, 999),
+            new StatInitializer("Inventory Size", 0, 0, -999, 999)
+        };
     }
 }

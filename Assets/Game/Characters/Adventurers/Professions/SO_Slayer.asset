@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31e64c21d96e5a14d92f9f9fd9107223, type: 3}
+  m_Name: SO_Slayer
+  m_EditorClassIdentifier: Assembly-CSharp::Game.SO_AdventurerProfessionBase
+  ProfessionName: Slayer
+  startingEquipment: {fileID: 11400000, guid: e01d61ef8a4198a48a39d9b0b926877a, type: 2}
+  StartingStats:
+  - statname: Level
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Health
+    initialValue: -2
+    statgrowthmultiplier: -0.1
+    statmin: -999
+    statmax: 999
+  - statname: Mana
+    initialValue: 1
+    statgrowthmultiplier: 0.1
+    statmin: -999
+    statmax: 999
+  - statname: Strength
+    initialValue: 6
+    statgrowthmultiplier: 0.2
+    statmin: -999
+    statmax: 999
+  - statname: Dexterity
+    initialValue: -1
+    statgrowthmultiplier: -0.1
+    statmin: -999
+    statmax: 999
+  - statname: Intelligence
+    initialValue: -4
+    statgrowthmultiplier: 0.1
+    statmin: -999
+    statmax: 999
+  - statname: Physical Damage
+    initialValue: 5
+    statgrowthmultiplier: 0.2
+    statmin: -999
+    statmax: 999
+  - statname: Magic Damage
+    initialValue: 4
+    statgrowthmultiplier: 0.1
+    statmin: -999
+    statmax: 999
+  - statname: Physical Defence
+    initialValue: -1
+    statgrowthmultiplier: -0.1
+    statmin: -999
+    statmax: 999
+  - statname: Magical Defence
+    initialValue: -1
+    statgrowthmultiplier: -0.1
+    statmin: -999
+    statmax: 999
+  - statname: Inventory Size
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999

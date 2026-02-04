@@ -13,13 +13,60 @@ MonoBehaviour:
   m_Name: SO_Warrior
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_AdventurerProfessionBase
   ProfessionName: Warrior
-  InitialHp: 300
-  InitialMp: 25
-  InitialStr: 15
-  InitialDex: 10
-  InitialInt: 3
-  InitialPDamage: 10
-  InitialMDamage: 1
-  InitialPDefence: 15
-  InitialMDefence: 8
-  modifiers: []
+  startingEquipment: {fileID: 11400000, guid: e01d61ef8a4198a48a39d9b0b926877a, type: 2}
+  StartingStats:
+  - statname: Level
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Health
+    initialValue: 3
+    statgrowthmultiplier: 0.2
+    statmin: -999
+    statmax: 999
+  - statname: Mana
+    initialValue: -2
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Strength
+    initialValue: 4
+    statgrowthmultiplier: 0.2
+    statmin: -999
+    statmax: 999
+  - statname: Dexterity
+    initialValue: 2
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Intelligence
+    initialValue: -5
+    statgrowthmultiplier: -0.2
+    statmin: -999
+    statmax: 999
+  - statname: Physical Damage
+    initialValue: 3
+    statgrowthmultiplier: 0.1
+    statmin: -999
+    statmax: 999
+  - statname: Magic Damage
+    initialValue: -2
+    statgrowthmultiplier: -0.1
+    statmin: -999
+    statmax: 999
+  - statname: Physical Defence
+    initialValue: 3
+    statgrowthmultiplier: 0.1
+    statmin: -999
+    statmax: 999
+  - statname: Magical Defence
+    initialValue: 1
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Inventory Size
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999

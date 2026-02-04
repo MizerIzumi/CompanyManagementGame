@@ -41,7 +41,7 @@ namespace Game
 
         public void TestingEquipSet()
         {
-            characterEquipmentSlots.TestingOnlyEquipSet(equipmentSet.equipmentSet);
+            characterEquipmentSlots.EquipSet(equipmentSet.equipmentSet);
         }
 
         public void TestingUnequipAll()
@@ -51,6 +51,7 @@ namespace Game
 
         void Update()
         {
+            /*
             Int.text = adventurerStats.StatsDictionary[TargetTags.AdvIntelligence].Value.ToString();
             Str.text = adventurerStats.StatsDictionary[TargetTags.AdvStrength].Value.ToString();
             Dex.text = adventurerStats.StatsDictionary[TargetTags.AdvDexterity].Value.ToString();
@@ -76,6 +77,7 @@ namespace Game
             else Accessory.text = "N/A";
             if (characterEquipmentSlots.Weapon) Weapon.text = characterEquipmentSlots.Weapon.ItemName;
             else Weapon.text = "N/A";
+            */
         }
     }
 }
