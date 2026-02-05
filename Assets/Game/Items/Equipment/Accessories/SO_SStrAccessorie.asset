@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0cc37f4706cd6e47bc2be7c31b71433, type: 3}
   m_Name: SO_SStrAccessorie
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_AccessorieBase
-  ItemName: Test Accessory
+  ItemName: Gilded Bracelet
   SellValue: 0
   modifiers:
   - TargetTag: 203

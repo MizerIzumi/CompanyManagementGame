@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f40f5970f7ced749b351aa71de37f71, type: 3}
+  m_Name: SO_Golem
+  m_EditorClassIdentifier: Assembly-CSharp::Game.SO_SubRaceBase
+  SubRaceName: Golem
+  SubRaceTag: 207
+  StartingStats:
+  - statname: Level
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Health
+    initialValue: 6
+    statgrowthmultiplier: -0.2
+    statmin: -999
+    statmax: 999
+  - statname: Mana
+    initialValue: -2
+    statgrowthmultiplier: -0.2
+    statmin: -999
+    statmax: 999
+  - statname: Strength
+    initialValue: 3
+    statgrowthmultiplier: 0.3
+    statmin: -999
+    statmax: 999
+  - statname: Dexterity
+    initialValue: -2
+    statgrowthmultiplier: -0.2
+    statmin: -999
+    statmax: 999
+  - statname: Intelligence
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Physical Damage
+    initialValue: 2
+    statgrowthmultiplier: 0.3
+    statmin: -999
+    statmax: 999
+  - statname: Magic Damage
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Physical Defence
+    initialValue: 4
+    statgrowthmultiplier: 0.3
+    statmin: -999
+    statmax: 999
+  - statname: Magical Defence
+    initialValue: 3
+    statgrowthmultiplier: 0.3
+    statmin: -999
+    statmax: 999
+  - statname: Inventory Size
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999

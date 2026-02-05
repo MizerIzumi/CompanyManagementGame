@@ -14,29 +14,34 @@ namespace Game
         
         public void OnEnable()
         {
-            //Adding the all the stats to the Stats List/dictionary
-            /*
-            Statistic FundsStat = new Statistic("Funds", 0, Int32.MinValue, Int32.MaxValue);
+            //Adding the all the stats to the Stats dictionary
+            
+            StatInitializer tfundsinit = new StatInitializer("Funds", 0f, 1, (float)Int32.MinValue, (float)Int32.MaxValue);
+            Statistic FundsStat = new Statistic(tfundsinit);
             AddStat(FundsStat, TargetTags.CompFunds);
             
+            StatInitializer trepinit = new StatInitializer("Reputation Level", 0f, 1, 0, MaxRepLVL);
             ProgressBar RepLVLBar = new ProgressBar(true, false, 1, RepExpToLevel, 0);
-            Statistic RepLVLStat = new Statistic("Reputation Level", 0, 0, MaxRepLVL);
+            Statistic RepLVLStat = new Statistic(trepinit);
             AddStatWithBar(RepLVLStat, TargetTags.RepLevel, RepLVLBar);
             
-            Statistic CompInvSizeStat = new Statistic("Company Inventory Size", 10, 0, MaxCompInvSize);
+            StatInitializer tcompinvinit = new StatInitializer("Company Inventory Size", 10, 1, 0, MaxCompInvSize);
+            Statistic CompInvSizeStat = new Statistic(tcompinvinit);
             AddStat(CompInvSizeStat,  TargetTags.CompInvSize);
             
-            Statistic ShopInvSizeStat = new Statistic("Shop Inventory Size", 3, 0, MaxShopInvSize);
+            StatInitializer tshopinvinit = new StatInitializer("Shop Inventory Size", 3, 1, 0, MaxShopInvSize);
+            Statistic ShopInvSizeStat = new Statistic(tshopinvinit);
             AddStat(ShopInvSizeStat,  TargetTags.ShopInvSize);
             
-            Statistic AlignmentStat = new Statistic("Alignment", 0, -AlignmentBounds, AlignmentBounds);
+            StatInitializer taligninit = new StatInitializer("Alignment", 0, 1, -AlignmentBounds, AlignmentBounds);
+            Statistic AlignmentStat = new Statistic(taligninit);
             AddStat(AlignmentStat,   TargetTags.CompAlignment);
             
-            Statistic RecruitCapStat = new Statistic("Recruitment Capacity", 0, 1, MaxRecruitment);
+            StatInitializer trecinit = new StatInitializer("Recruitment Capacity", 0, 1, 1, MaxRecruitment);
+            Statistic RecruitCapStat = new Statistic(trecinit);
             AddStat(RecruitCapStat, TargetTags.RecruitCapacity);
-            */
         }
-
+        
         public void Start()
         {
             /*

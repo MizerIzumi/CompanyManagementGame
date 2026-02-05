@@ -12,9 +12,7 @@ namespace Game
             {
                 target.Accessory.Unequip(target);
             }
-
             target.Accessory = this;
-            Debug.Log("Equipping " + target.Accessory.name);
             base.Equip(target);
         }
 
@@ -24,8 +22,6 @@ namespace Game
             {
                 Debug.LogError("ERROR - Item: " + name + " not equipped by " + target.name);
             }
-            
-            Debug.Log("Unequipping " + name);
             base.Unequip(target);
             AddToStorage();
             target.Accessory = null;
