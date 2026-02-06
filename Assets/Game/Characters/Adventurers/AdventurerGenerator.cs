@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Game
@@ -10,6 +11,9 @@ namespace Game
         public List<SO_RaceBase> AvailableRaces = new();
         public List<SO_SubRaceBase> AvailableSubRaces = new();
         public List<SO_AdventurerProfessionBase> AvailableProfessions = new();
+        public int _SubracePercentChance = 25;
+        [FormerlySerializedAs("_noSubRace")] [SerializeField]
+        private SO_SubRaceBase _noSubrace;
         [SerializeField]
         private GameObject AdventurerPrefab;
         [SerializeField]
@@ -18,13 +22,15 @@ namespace Game
         private int statmin = -9999;
         private int statmax = 9999;
 
-        public List<GameObject> Adventurers = new List<GameObject>();
+        /*
+        //public List<GameObject> Adventurers = new List<GameObject>();
 
         public void TestMakeNewAdventurer()
         {
-            Adventurers.Add(GenerateAdventurer());
+            //Adventurers.Add(GenerateAdventurer());
         }
-
+        */
+        
         public GameObject GenerateAdventurer()
         {
             SO_RaceBase tRace;
@@ -81,44 +87,54 @@ namespace Game
 
         private SO_RaceBase PickRace()
         {
-            SO_RaceBase race = new SO_RaceBase();
+            SO_RaceBase trace = new SO_RaceBase();
             if (AvailableRaces.Count < 0)
             {
                 Debug.LogError("No Races Available");
                 return null;
             }
             
-            race = AvailableRaces[RNGMachine(0, AvailableRaces.Count)];
+            trace = AvailableRaces[RNGMachine(0, AvailableRaces.Count)];
             
-            return race;
+            return trace;
         }
 
         private SO_SubRaceBase PickSubRace()
         {
-            SO_SubRaceBase subrace = new SO_SubRaceBase();
+            SO_SubRaceBase tsubrace = new SO_SubRaceBase();
             if (AvailableSubRaces.Count < 0)
             {
                 Debug.LogError("No Sub Races Available");
+                tsubrace = _noSubrace;
                 return null;
             }
+
+            if (RNGMachine(0, 100) > _SubracePercentChance)
+            {
+                print("More");
+                tsubrace = AvailableSubRaces[RNGMachine(0, AvailableSubRaces.Count)];
+            }
+            else
+            {
+                print("Less");
+                tsubrace = _noSubrace;
+            }
             
-            subrace = AvailableSubRaces[RNGMachine(0, AvailableSubRaces.Count)];
-            
-            return subrace;
+            return tsubrace;
         }
 
         private SO_AdventurerProfessionBase PickProfession()
         {
-            SO_AdventurerProfessionBase profession  = new SO_AdventurerProfessionBase();
+            SO_AdventurerProfessionBase tprofession  = new SO_AdventurerProfessionBase();
             if (AvailableProfessions.Count < 0)
             {
                 Debug.LogError("No Professions Available");
                 return null;
             }
             
-            profession = AvailableProfessions[RNGMachine(0, AvailableProfessions.Count)];
+            tprofession = AvailableProfessions[RNGMachine(0, AvailableProfessions.Count)];
             
-            return profession;
+            return tprofession;
         }
 
         private int RNGMachine(int min, int max)
