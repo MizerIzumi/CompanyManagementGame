@@ -8,13 +8,13 @@ namespace Game
     public class AdventurerBox : MonoBehaviour
     {
         public GameObject adventurerOBJ;
-        private AdventurerRecruitment _advRecruitment;
+        private IAdventurerUI _advRecruitment;
         [SerializeField]
         private GameObject _selectedBorder;
         [SerializeField]
         private TextMeshProUGUI _advNameText;
 
-        public void InitializeAdventurerBox(GameObject adventurer, AdventurerRecruitment  advrecruitment)
+        public void InitializeAdventurerBox(GameObject adventurer, IAdventurerUI  advrecruitment)
         {
             adventurerOBJ = adventurer;
             _advRecruitment = advrecruitment;

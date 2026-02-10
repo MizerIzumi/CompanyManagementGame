@@ -21,15 +21,6 @@ namespace Game
 
         private int statmin = -9999;
         private int statmax = 9999;
-
-        /*
-        //public List<GameObject> Adventurers = new List<GameObject>();
-
-        public void TestMakeNewAdventurer()
-        {
-            //Adventurers.Add(GenerateAdventurer());
-        }
-        */
         
         public GameObject GenerateAdventurer()
         {
@@ -111,13 +102,11 @@ namespace Game
 
             if (RNGMachine(0, 100) > _SubracePercentChance)
             {
-                print("More");
-                tsubrace = AvailableSubRaces[RNGMachine(0, AvailableSubRaces.Count)];
+                tsubrace = _noSubrace;
             }
             else
             {
-                print("Less");
-                tsubrace = _noSubrace;
+                tsubrace = AvailableSubRaces[RNGMachine(0, AvailableSubRaces.Count)];
             }
             
             return tsubrace;

@@ -12,7 +12,7 @@ namespace Game
         
         public void OnEnable()
         {
-            ProgressBar bar = compStats.GetStatBar(TargetTags.RepLevel);
+            ProgressBar bar = compStats.GetStatBar(TargetTags.CompRepLevel);
             
             bar.onBarUpdate += PrintmessageBarUpdate;
             bar.onBarReset += PrintmessageBarReset;
@@ -23,7 +23,7 @@ namespace Game
 
         public void OnDisable()
         {
-            ProgressBar bar = compStats.GetStatBar(TargetTags.RepLevel);
+            ProgressBar bar = compStats.GetStatBar(TargetTags.CompRepLevel);
             
             bar.onBarUpdate -= PrintmessageBarReset;
             bar.onBarRegress -= PrintmessageBarRegress;
@@ -31,20 +31,20 @@ namespace Game
 
         private void PrintmessageBarUpdate()
         {
-            ProgressBar bar = compStats.GetStatBar(TargetTags.RepLevel);
+            ProgressBar bar = compStats.GetStatBar(TargetTags.CompRepLevel);
             Debug.unityLogger.Log("RepExp: " + bar.BarValue);
         }
 
         private void PrintmessageBarReset()
         {
             Debug.unityLogger.Log("Levelup");
-            Debug.unityLogger.Log("Company RepLevel: " + compStats.StatsDictionary[TargetTags.RepLevel].Value);
+            Debug.unityLogger.Log("Company RepLevel: " + compStats.StatsDictionary[TargetTags.CompRepLevel].Value);
         }
         
         private void PrintmessageBarRegress()
         {
             Debug.unityLogger.Log("Leveldown");
-            Debug.unityLogger.Log("Company RepLevel: " + compStats.StatsDictionary[TargetTags.RepLevel].Value);
+            Debug.unityLogger.Log("Company RepLevel: " + compStats.StatsDictionary[TargetTags.CompRepLevel].Value);
         }
     }
 }

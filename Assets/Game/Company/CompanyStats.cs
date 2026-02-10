@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game
@@ -23,7 +24,7 @@ namespace Game
             StatInitializer trepinit = new StatInitializer("Reputation Level", 0f, 1, 0, MaxRepLVL);
             ProgressBar RepLVLBar = new ProgressBar(true, false, 1, RepExpToLevel, 0);
             Statistic RepLVLStat = new Statistic(trepinit);
-            AddStatWithBar(RepLVLStat, TargetTags.RepLevel, RepLVLBar);
+            AddStatWithBar(RepLVLStat, TargetTags.CompRepLevel, RepLVLBar);
             
             StatInitializer tcompinvinit = new StatInitializer("Company Inventory Size", 10, 1, 0, MaxCompInvSize);
             Statistic CompInvSizeStat = new Statistic(tcompinvinit);
@@ -31,15 +32,15 @@ namespace Game
             
             StatInitializer tshopinvinit = new StatInitializer("Shop Inventory Size", 3, 1, 0, MaxShopInvSize);
             Statistic ShopInvSizeStat = new Statistic(tshopinvinit);
-            AddStat(ShopInvSizeStat,  TargetTags.ShopInvSize);
+            AddStat(ShopInvSizeStat,  TargetTags.CompShopInvSize);
             
             StatInitializer taligninit = new StatInitializer("Alignment", 0, 1, -AlignmentBounds, AlignmentBounds);
             Statistic AlignmentStat = new Statistic(taligninit);
             AddStat(AlignmentStat,   TargetTags.CompAlignment);
             
-            StatInitializer trecinit = new StatInitializer("Recruitment Capacity", 0, 1, 1, MaxRecruitment);
+            StatInitializer trecinit = new StatInitializer("Recruitment Capacity", 4, 1, 1, MaxRecruitment);
             Statistic RecruitCapStat = new Statistic(trecinit);
-            AddStat(RecruitCapStat, TargetTags.RecruitCapacity);
+            AddStat(RecruitCapStat, TargetTags.CompRecruitCapacity);
         }
         
         public void Start()
@@ -54,12 +55,12 @@ namespace Game
 
         public void TestQuestComplete()
         {
-            IncreaseBar(TargetTags.RepLevel, 1);
+            IncreaseBar(TargetTags.CompRepLevel, 1);
         }
 
         public void TestQuestFail()
         {
-            DecreaseBar(TargetTags.RepLevel, 1);
+            DecreaseBar(TargetTags.CompRepLevel, 1);
         }
         
     }

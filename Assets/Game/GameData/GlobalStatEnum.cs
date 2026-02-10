@@ -13,11 +13,11 @@ namespace Game
     {
         //------------------------- Company Stats -------------------------
         CompFunds = 100,
-        RepLevel = 101,
+        CompRepLevel = 101,
         CompInvSize = 102,
-        ShopInvSize = 103,
+        CompShopInvSize = 103,
         CompAlignment = 104,
-        RecruitCapacity = 105,
+        CompRecruitCapacity = 105,
         
         //------------------------- Adventurer Stats -------------------------
         AdvLevel = 200,

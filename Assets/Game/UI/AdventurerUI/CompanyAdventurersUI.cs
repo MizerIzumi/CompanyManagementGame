@@ -3,13 +3,10 @@ using UnityEngine;
 
 namespace Game
 {
-    public class AdventurerRecruitment : MonoBehaviour,  IAdventurerUI
+    public class CompanyAdventurersUI : MonoBehaviour,  IAdventurerUI
     {
         public AdventurerBox selectedAdventurerBox;
-        public int amountAdvToGenerate = 5;
         
-        [SerializeField]
-        private AdventurerGenerator _advgen;
         [SerializeField] 
         private CompanyAdventurersList _compAdv;
         [SerializeField] 
@@ -21,7 +18,6 @@ namespace Game
         [SerializeField]
         private GameObject _adventurerBoxPrefab;
         private Statdisplay _statDisplay;
-        private bool _hasListOfAdventurer = false;
         private bool _firstTime = true;
 
         public void EnableUI()
@@ -32,11 +28,7 @@ namespace Game
                 _firstTime = false;
             }
             
-            if (!_hasListOfAdventurer)
-            {
-                GetBatchOfAdventurers();
-                _hasListOfAdventurer = true;
-            }
+            SetupAdventurerGrid();
             
             _adventurerInfo.SetActive(false);
             
@@ -53,21 +45,25 @@ namespace Game
             selectedAdventurerBox = null;
         }
         
-        private void GetBatchOfAdventurers()
+        private void SetupAdventurerGrid()
         {
-            for (int i = 0; i < amountAdvToGenerate; i++)
+            if (_compAdv.GetAdventurers().Count > 0)
             {
-                AddNewAdventurerBox();
+                foreach (var adventurer in _compAdv.GetAdventurers())
+                {
+                    AddNewAdventurerBox(adventurer);
+                }
             }
         }
 
-        private void AddNewAdventurerBox()
+        private void AddNewAdventurerBox(GameObject adventurer)
         {
             GameObject tAdvBox = Instantiate(_adventurerBoxPrefab, _adventurerGrid.transform);
-            tAdvBox.GetComponent<AdventurerBox>().InitializeAdventurerBox(_advgen.GenerateAdventurer(), this);
+            tAdvBox.GetComponent<AdventurerBox>().InitializeAdventurerBox(adventurer, this);
             
             _spawnedBoxes.Add(tAdvBox);
         }
+        
         
         public void UpdateSelectedAdventurerBox(AdventurerBox adventurerbox)
         {
@@ -81,39 +77,21 @@ namespace Game
             _adventurerInfo.SetActive(true);
         }
 
-        public void RecruitSelectedAdventurer()
+        public void DismissSelectedAdventurer()
         {
             if (selectedAdventurerBox != null)
             {
-                GameObject tadventurer = selectedAdventurerBox.adventurerOBJ;
-                if (_compAdv.TryRecruitAdventurer(tadventurer))
-                {
-                    _adventurerInfo.SetActive(false);
-                    selectedAdventurerBox.DeselectBox();
-                    _spawnedBoxes.Remove(selectedAdventurerBox.gameObject);
-                    Destroy(selectedAdventurerBox.gameObject);
-                }
-                else
-                {
-                    print("Cant recruit adventurer");
-                }
+                _adventurerInfo.SetActive(false);
+                selectedAdventurerBox.DeselectBox();
+                _compAdv.RemoveAdventurer(selectedAdventurerBox.adventurerOBJ);
+                Destroy(selectedAdventurerBox.adventurerOBJ.gameObject);
+                Destroy(selectedAdventurerBox.gameObject);
+                selectedAdventurerBox = null;
             }
             else
             {
                 print("No Adventurer Selected");
             }
-        }
-
-        public void ClearRecruitableAdventurers()
-        {
-            foreach (GameObject adventurerbox in _spawnedBoxes)
-            {
-                Destroy(adventurerbox.GetComponent<AdventurerBox>().adventurerOBJ.gameObject);
-                Destroy(adventurerbox.gameObject);
-            }
-            _spawnedBoxes.Clear();
-            _hasListOfAdventurer = false;
-            selectedAdventurerBox = null;
         }
     }
 
