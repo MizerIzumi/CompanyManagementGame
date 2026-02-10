@@ -4,10 +4,11 @@ using TMPro;
 
 namespace Game
 {
-    public class Testingstatdisplay : MonoBehaviour
+    public class Statdisplay : MonoBehaviour
     {
         public AdventurerStats adventurerStats;
         public CharacterEquipmentSlots characterEquipmentSlots;
+        [SerializeField]
         
         [Header("Character Details")]
         public TextMeshProUGUI Race;

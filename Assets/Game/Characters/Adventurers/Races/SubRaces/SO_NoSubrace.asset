@@ -12,6 +12,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f40f5970f7ced749b351aa71de37f71, type: 3}
   m_Name: SO_NoSubrace
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_SubRaceBase
-  SubRaceName: No Sub Race
+  SubRaceName: None
   SubRaceTag: 200
-  modifiers: []
+  StartingStats:
+  - statname: Level
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Health
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Mana
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Strength
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Dexterity
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Intelligence
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Physical Damage
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Magic Damage
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Physical Defence
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Magical Defence
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
+  - statname: Inventory Size
+    initialValue: 0
+    statgrowthmultiplier: 0
+    statmin: -999
+    statmax: 999
