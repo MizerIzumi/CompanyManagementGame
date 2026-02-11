@@ -42,6 +42,12 @@ namespace Game
             {
                 selectedAdventurerBox.DeselectBox();
             }
+            
+            foreach (GameObject adventurerbox in _spawnedBoxes)
+            {
+                Destroy(adventurerbox.gameObject);
+            }
+            _spawnedBoxes.Clear();
             selectedAdventurerBox = null;
         }
         
