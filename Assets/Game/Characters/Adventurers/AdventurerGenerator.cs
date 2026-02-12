@@ -37,25 +37,27 @@ namespace Game
             
             tadvinit.name = AdventurerNames.Names[Random.Range(0, AdventurerNames.Names.Count)];
             tadvinit.alignment = (ConditionalTags)Random.Range(400, 402);
-            //When I get around to adding faiths remember to fis this here <---------------------------------------------------x To Do
+            //When I get around to adding faiths remember to fix this here <---------------------------------------------------x To Do
             tadvinit.faith = ConditionalTags.NoFaith;
             
             tadvinit.race = tRace;
             tadvinit.subRace = tSubRace;
             tadvinit.profession = tProfession;
             
+            tadvinit.expMultiplier = tRace.expMultiplier + tSubRace.expMultiplier;
+            
             //This is garbage but in favor of time I am setting it up like this for now.
-            tadvinit.InitialLvl = AddUpStats(tRace.StartingStats[0], tSubRace.StartingStats[0], tProfession.StartingStats[0]);
-            tadvinit.InitialHp = AddUpStats(tRace.StartingStats[1], tSubRace.StartingStats[1], tProfession.StartingStats[1]);
-            tadvinit.InitialMp = AddUpStats(tRace.StartingStats[2], tSubRace.StartingStats[2], tProfession.StartingStats[2]);
-            tadvinit.InitialStr = AddUpStats(tRace.StartingStats[3], tSubRace.StartingStats[3], tProfession.StartingStats[3]);
-            tadvinit.InitialDex = AddUpStats(tRace.StartingStats[4], tSubRace.StartingStats[4], tProfession.StartingStats[4]);
-            tadvinit.InitialInt = AddUpStats(tRace.StartingStats[5], tSubRace.StartingStats[5], tProfession.StartingStats[5]);
-            tadvinit.InitialPDamage = AddUpStats(tRace.StartingStats[6], tSubRace.StartingStats[6], tProfession.StartingStats[6]);
-            tadvinit.InitialMDamage = AddUpStats(tRace.StartingStats[7], tSubRace.StartingStats[7], tProfession.StartingStats[7]);
-            tadvinit.InitialPDefence = AddUpStats(tRace.StartingStats[8], tSubRace.StartingStats[8], tProfession.StartingStats[8]);
-            tadvinit.InitialMDefence = AddUpStats(tRace.StartingStats[9], tSubRace.StartingStats[9], tProfession.StartingStats[9]);
-            tadvinit.InitialInv = AddUpStats(tRace.StartingStats[10], tSubRace.StartingStats[10], tProfession.StartingStats[10]);
+            tadvinit.initialLvl = AddUpStats(tRace.StartingStats[0], tSubRace.StartingStats[0], tProfession.StartingStats[0]);
+            tadvinit.initialHp = AddUpStats(tRace.StartingStats[1], tSubRace.StartingStats[1], tProfession.StartingStats[1]);
+            tadvinit.initialMp = AddUpStats(tRace.StartingStats[2], tSubRace.StartingStats[2], tProfession.StartingStats[2]);
+            tadvinit.initialStr = AddUpStats(tRace.StartingStats[3], tSubRace.StartingStats[3], tProfession.StartingStats[3]);
+            tadvinit.initialDex = AddUpStats(tRace.StartingStats[4], tSubRace.StartingStats[4], tProfession.StartingStats[4]);
+            tadvinit.initialInt = AddUpStats(tRace.StartingStats[5], tSubRace.StartingStats[5], tProfession.StartingStats[5]);
+            tadvinit.initialPDamage = AddUpStats(tRace.StartingStats[6], tSubRace.StartingStats[6], tProfession.StartingStats[6]);
+            tadvinit.initialMDamage = AddUpStats(tRace.StartingStats[7], tSubRace.StartingStats[7], tProfession.StartingStats[7]);
+            tadvinit.initialPDefence = AddUpStats(tRace.StartingStats[8], tSubRace.StartingStats[8], tProfession.StartingStats[8]);
+            tadvinit.initialMDefence = AddUpStats(tRace.StartingStats[9], tSubRace.StartingStats[9], tProfession.StartingStats[9]);
+            tadvinit.initialInv = AddUpStats(tRace.StartingStats[10], tSubRace.StartingStats[10], tProfession.StartingStats[10]);
             
             tAdventurer = Instantiate(AdventurerPrefab);
             tAdventurer.GetComponent<AdventurerStats>().InitializeAdvStats(tadvinit);
@@ -70,9 +72,17 @@ namespace Game
             StatInitializer newstat = new StatInitializer();
             
             newstat.initialValue = racestat.initialValue + subracestat.initialValue + professionstat.initialValue;
-            newstat.statgrowthmultiplier = racestat.statgrowthmultiplier + subracestat.statgrowthmultiplier + professionstat.statgrowthmultiplier;
+            if (racestat.statgrowthmultiplier + subracestat.statgrowthmultiplier + professionstat.statgrowthmultiplier <= 0)
+            {
+                newstat.statgrowthmultiplier = 0.01f;
+            }
+            else
+            {
+                newstat.statgrowthmultiplier = racestat.statgrowthmultiplier + subracestat.statgrowthmultiplier + professionstat.statgrowthmultiplier;
+            }
             newstat.statmin = statmin;
             newstat.statmax = statmax;
+            newstat.statname = racestat.statname;
             return newstat;
         }
 

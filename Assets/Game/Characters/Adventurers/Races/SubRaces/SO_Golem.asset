@@ -22,7 +22,7 @@ MonoBehaviour:
     statmax: 999
   - statname: Health
     initialValue: 6
-    statgrowthmultiplier: -0.2
+    statgrowthmultiplier: 0.4
     statmin: -999
     statmax: 999
   - statname: Mana
@@ -70,3 +70,4 @@ MonoBehaviour:
     statgrowthmultiplier: 0
     statmin: -999
     statmax: 999
+  expMultiplier: 0

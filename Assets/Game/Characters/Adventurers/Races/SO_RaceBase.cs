@@ -22,6 +22,7 @@ namespace Game
             new StatInitializer("Magical Defence", 0, 1, -999, 999),
             new StatInitializer("Inventory Size", 0, 1, -999, 999)
         };
+        public float expMultiplier = 1;
         
     }
 }

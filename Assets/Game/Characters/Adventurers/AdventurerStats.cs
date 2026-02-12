@@ -7,78 +7,109 @@ namespace Game
 {
     public class AdventurerStats : StatHandler
     {
-        public ConditionalTags Alignment;
-        public SO_RaceBase Race;
-        public SO_SubRaceBase SubRace;
-        public ConditionalTags Faith = ConditionalTags.NoFaith;
+        [Header("Adventurer Details")]
+        public SO_RaceBase race;
+        public SO_SubRaceBase subRace;
+        public ConditionalTags alignment;
+        public ConditionalTags faith = ConditionalTags.NoFaith;
         
-        private int _minStatLvl = 0;
-        private int _maxStatLvl = 999;
+        //private int _minStatLvl = 0;
+        //private int _maxStatLvl = 999;
         
-        public CharacterInventorySlots InventorySlots;
-        public SO_AdventurerProfessionBase Profession;
+        public CharacterInventorySlots inventorySlots;
+        public SO_AdventurerProfessionBase profession;
+
+        public int missionsCleared = 0;
         
         private bool _initialized = false;
+        [SerializeField]
+        private float _expMultiplier = 1;
         
         public void InitializeAdvStats(AdventurerStatsInitializer advStatsInit)
         {
             if (_initialized)
             {
-                Debug.LogError("ERROR - " + name + " AdventurerStats has already been initialized");
+                Debug.LogError("ERROR - " + _name + " AdventurerStats has already been initialized");
                 return;
             }
             
             _name = advStatsInit.name;
-            Alignment = advStatsInit.alignment;
-            Race = advStatsInit.race;
-            SubRace = advStatsInit.subRace;
-            Faith = advStatsInit.faith;
+            alignment = advStatsInit.alignment;
+            race = advStatsInit.race;
+            subRace = advStatsInit.subRace;
+            faith = advStatsInit.faith;
+            _expMultiplier = advStatsInit.expMultiplier;
             
-            InventorySlots = new CharacterInventorySlots((int)advStatsInit.InitialInv.initialValue);
+            inventorySlots = new CharacterInventorySlots((int)advStatsInit.initialInv.initialValue);
             
-            Profession = advStatsInit.profession;
+            profession = advStatsInit.profession;
             
-            Statistic AdvLevel = new Statistic(advStatsInit.InitialLvl);
-            ProgressBar AdvLevelBar = new ProgressBar(true, false, 1, 100, 0);
+            Statistic AdvLevel = new Statistic(advStatsInit.initialLvl);
+            ProgressBar AdvLevelBar = new ProgressBar(true, false, 1, (float)GlobalFunctions.Functions.CalculateExpToNextLevel(1), 0);
             AddStatWithBar(AdvLevel, TargetTags.AdvLevel, AdvLevelBar);
             
-            Statistic AdvHealth = new Statistic(advStatsInit.InitialHp);
+            Statistic AdvHealth = new Statistic(advStatsInit.initialHp);
             AddStat(AdvHealth, TargetTags.AdvHealth);
             
-            Statistic AdvMana = new Statistic(advStatsInit.InitialMp);
+            Statistic AdvMana = new Statistic(advStatsInit.initialMp);
             AddStat(AdvMana, TargetTags.AdvMana);
             
-            Statistic AdvStrength = new Statistic(advStatsInit.InitialStr);
+            Statistic AdvStrength = new Statistic(advStatsInit.initialStr);
             AddStat(AdvStrength, TargetTags.AdvStrength);
             
-            Statistic AdvDexterity = new Statistic(advStatsInit.InitialDex);
+            Statistic AdvDexterity = new Statistic(advStatsInit.initialDex);
             AddStat(AdvDexterity, TargetTags.AdvDexterity);
             
-            Statistic AdvIntelligence = new Statistic(advStatsInit.InitialInt);
+            Statistic AdvIntelligence = new Statistic(advStatsInit.initialInt);
             AddStat(AdvIntelligence, TargetTags.AdvIntelligence);
             
-            Statistic AdvPAttack = new Statistic(advStatsInit.InitialPDamage);
+            Statistic AdvPAttack = new Statistic(advStatsInit.initialPDamage);
             AddStat(AdvPAttack, TargetTags.AdvPhysicalAttack);
             
-            Statistic AdvMAttack = new Statistic(advStatsInit.InitialMDamage);
+            Statistic AdvMAttack = new Statistic(advStatsInit.initialMDamage);
             AddStat(AdvMAttack, TargetTags.AdvMagicalAttack);
             
-            Statistic AdvPDefence = new Statistic(advStatsInit.InitialPDefence);
+            Statistic AdvPDefence = new Statistic(advStatsInit.initialPDefence);
             AddStat(AdvPDefence, TargetTags.AdvPhysicalDefence);
             
-            Statistic AdvMDefence = new Statistic(advStatsInit.InitialMDefence);
+            Statistic AdvMDefence = new Statistic(advStatsInit.initialMDefence);
             AddStat(AdvMDefence, TargetTags.AdvMagicalDefence);
             
-            Statistic AdvInventory = new Statistic(advStatsInit.InitialInv);
+            Statistic AdvInventory = new Statistic(advStatsInit.initialInv);
             AddStat(AdvInventory, TargetTags.AdvInvSize);
+
+            AdvLevelBar.onBarReset += LevelUp;
             
             _initialized = true;
+        }
+
+        private void LevelUp()
+        {
+            foreach (var stat in StatsDictionary)
+            {
+                if (stat.Value == StatsDictionary[TargetTags.AdvInvSize] ||
+                    stat.Value == StatsDictionary[TargetTags.AdvLevel])
+                {
+                    continue;
+                }
+                stat.Value.IncrementStat();
+                //print(stat.Key + ": " + StatsDictionary[stat.Key].Value);
+            }
+            GetStatBar(TargetTags.AdvLevel).BarMax = GlobalFunctions.Functions.CalculateExpToNextLevel((int)StatsDictionary[TargetTags.AdvLevel].Value);
+            print(_name + " Leveled Up!");
+        }
+
+        public void GiveExp(float expAmount)
+        {
+            ProgressBar statbar = GetStatBar(TargetTags.AdvLevel);
+            statbar.IncreaseBar(expAmount * _expMultiplier);
         }
     }
     
     [Serializable]
     public struct AdventurerStatsInitializer
     {
+        [Header("Advanced Characteristics")]
         public string name;
         public ConditionalTags alignment;
         public SO_RaceBase race;
@@ -86,24 +117,18 @@ namespace Game
         public ConditionalTags faith;
         public SO_AdventurerProfessionBase profession;
 
-        public StatInitializer InitialLvl;
-        public StatInitializer InitialHp;
-        public StatInitializer InitialMp;
-        public StatInitializer InitialStr;
-        public StatInitializer InitialDex;
-        public StatInitializer InitialInt;
-        public StatInitializer InitialPDamage;
-        public StatInitializer InitialMDamage;
-        public StatInitializer InitialPDefence;
-        public StatInitializer InitialMDefence;
-        public StatInitializer InitialInv;
+        [Header("Adventurer Stats")]
+        public StatInitializer initialLvl;
+        public float expMultiplier;
+        public StatInitializer initialHp;
+        public StatInitializer initialMp;
+        public StatInitializer initialStr;
+        public StatInitializer initialDex;
+        public StatInitializer initialInt;
+        public StatInitializer initialPDamage;
+        public StatInitializer initialMDamage;
+        public StatInitializer initialPDefence;
+        public StatInitializer initialMDefence;
+        public StatInitializer initialInv;
     }
 }
-/*
- *         public AdventurerStatsInitializer(string advname, , StatInitializer lvl, StatInitializer hp, StatInitializer mp, 
-            StatInitializer str, StatInitializer dex, StatInitializer intel, StatInitializer pdmg,
-            StatInitializer mdmg, StatInitializer pdef, StatInitializer mdef, StatInitializer inv)
-        {
-            
-        }
-*/

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 
@@ -25,10 +26,10 @@ namespace Game
         private float _baseValue;
         public float BaseValue
         {
-            get => Mathf.Floor(_baseValue);
+            get => _baseValue;
             set
             {
-                _baseValue = value * StatGrowthMultiplier;
+                _baseValue = value;
                 _currentValue = CalculateModifiedValue(_digitalAccuracy);
                 OnValueChanged();
             }
@@ -91,7 +92,18 @@ namespace Game
                     _modifiersOperations[operationType] = modifierOperations[operationType]();
             }
         }
-        
+
+
+
+        public int GetRoundDownValue()
+        {
+            return (int)Mathf.Floor(Value);
+        }
+
+        public int GetRoundDownBaseValue()
+        {
+            return (int)Mathf.Floor(BaseValue);
+        }
         
         
         
@@ -199,39 +211,39 @@ namespace Game
         {
             if (amount < 0) return;
 
-            float mAmount = amount;
+            float tamount = amount;
             
-            if (BaseValue + mAmount >= StatMax)
+            if (BaseValue + tamount >= StatMax)
             {
                 BaseValue = StatMax;
                 OnValueChanged();
                 OnValueMax();
                 return;
             }
-            BaseValue += mAmount;
+            BaseValue += GrowthMultipliedValue(tamount);
             OnValueChanged();
         }
         public void DecreaseStat(float amount)
         {
             if (amount < 0) return;
             
-            float mAmount = amount;
+            float tamount = amount;
             
-            if (BaseValue - mAmount <= StatMin)
+            if (BaseValue - tamount <= StatMin)
             {
                 BaseValue = StatMin;
                 OnValueChanged();
                 OnValueMin();
                 return;
             }
-            BaseValue -= mAmount;
+            BaseValue -= tamount;
             OnValueChanged();
         }
         
         //Increase/Decrease the growth multiplier of this stat
         public void IncreaseStatGrowthMultiplier(float amount)
         {
-            StatGrowthMultiplier += amount;
+            StatGrowthMultiplier += GrowthMultipliedValue(amount);
         }
         public void DecreaseStatGrowthMultiplier(float amount)
         {
@@ -249,7 +261,7 @@ namespace Game
                 return;
             }
             
-            BaseValue += 1;
+            BaseValue += GrowthMultipliedValue(1);
             OnValueChanged();
         }
         public void DecrementStat()
@@ -264,6 +276,13 @@ namespace Game
             
             BaseValue -= 1;
             OnValueChanged();
+        }
+
+        private float GrowthMultipliedValue(float amount)
+        {
+            float finalValue = amount;
+            finalValue *= StatGrowthMultiplier;
+            return finalValue;
         }
         
         private void OnValueChanged() => onStatChanged?.Invoke(this);

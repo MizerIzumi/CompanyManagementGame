@@ -5,16 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4cc607c-e1be-4693-a6eb-d59d57334e53" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CompanyManagementGame/.idea/indexLayout.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Game/GameData/TestingScript.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CompanyManagementGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CompanyManagementGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/AdventurerGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/AdventurerGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SubRaces/SO_NoSubrace.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SubRaces/SO_NoSubrace.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Testing/Testing stat display.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Testing/Testing stat display.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerSelect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerRecruitment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerSelect.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerRecruitment.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerSelectionBox.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerSelectionBox.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/AdventurerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/AdventurerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_Beastkin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_Beastkin.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_Dragon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_Dragon.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_Goblin.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_Goblin.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_Human.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_Human.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_PureBlood.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_PureBlood.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_RaceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_RaceBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_Umbral.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SO_Umbral.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SubRaces/SO_Fae.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SubRaces/SO_Fae.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SubRaces/SO_SubRaceBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Races/SubRaces/SO_SubRaceBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/GameData/Statistic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/GameData/Statistic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/GameData/TestBroadcast.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/GameData/TestBroadcast.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/GameData/TestingScript.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Testing/Testing stat display.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Testing/Testing stat display.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerBox.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel-Bold SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel-Bold SDF 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Pixelcastle-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Pixelcastle-Regular SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +128,7 @@
       <workItem from="1768552681058" duration="20215000" />
       <workItem from="1770367020403" duration="6503000" />
       <workItem from="1770373633890" duration="12277000" />
+      <workItem from="1770884974756" duration="24522000" />
     </task>
     <servers />
   </component>

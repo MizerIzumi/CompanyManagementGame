@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14c5a07105b72b469ed94a38e4f38e7, type: 3}
   m_Name: SO_Goblin
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_RaceBase
-  RaceName: Beastkin
+  RaceName: Goblin
   RaceTag: 112
   IncompatableSubRace: 0
   StartingStats:
@@ -71,3 +71,4 @@ MonoBehaviour:
     statgrowthmultiplier: 1
     statmin: 1
     statmax: 4
+  expMultiplier: 1.3

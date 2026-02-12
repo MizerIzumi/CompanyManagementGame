@@ -70,3 +70,4 @@ MonoBehaviour:
     statgrowthmultiplier: 0
     statmin: -999
     statmax: 999
+  expMultiplier: 0.1
