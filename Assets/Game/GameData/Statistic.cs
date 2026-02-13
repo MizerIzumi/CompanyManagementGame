@@ -211,32 +211,32 @@ namespace Game
         {
             if (amount < 0) return;
 
-            float tamount = amount;
+            float newAmount = amount;
             
-            if (BaseValue + tamount >= StatMax)
+            if (BaseValue + newAmount >= StatMax)
             {
                 BaseValue = StatMax;
                 OnValueChanged();
                 OnValueMax();
                 return;
             }
-            BaseValue += GrowthMultipliedValue(tamount);
+            BaseValue += GrowthMultipliedValue(newAmount);
             OnValueChanged();
         }
         public void DecreaseStat(float amount)
         {
             if (amount < 0) return;
             
-            float tamount = amount;
+            float newAmount = amount;
             
-            if (BaseValue - tamount <= StatMin)
+            if (BaseValue - newAmount <= StatMin)
             {
                 BaseValue = StatMin;
                 OnValueChanged();
                 OnValueMin();
                 return;
             }
-            BaseValue -= tamount;
+            BaseValue -= newAmount;
             OnValueChanged();
         }
         
