@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6366190096028911066}
   - component: {fileID: 1021250229204675276}
   - component: {fileID: 2327724103444396667}
+  - component: {fileID: 8897720515227770561}
   m_Layer: 5
   m_Name: Town-Canvas
   m_TagString: Untagged
@@ -102,6 +103,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8897720515227770561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364811485186345136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a22b2d40d03c4459d4021ab29e5dd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AS_TownUI
+  _thisUI: {fileID: 364811485186345136}
+  _worldAS: {fileID: 0}
+  _TownAS: {fileID: 8897720515227770561}
+  _companyAS: {fileID: 0}
+  isDone: 0
 --- !u!1 &3423904083773777961
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8610781619077869921}
   - component: {fileID: 8461161913269066847}
   - component: {fileID: 6422273561997746171}
+  - component: {fileID: 4050408953089920955}
   m_Layer: 5
   m_Name: Company-Canvas
   m_TagString: Untagged
@@ -102,6 +103,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4050408953089920955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198976460871371181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dff64240a54362b43b140c2bec5bde9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AS_CompanyUI
+  _thisUI: {fileID: 198976460871371181}
+  _worldAS: {fileID: 0}
+  _TownAS: {fileID: 0}
+  _companyAS: {fileID: 0}
+  isDone: 0
 --- !u!1 &4365321028527606513
 GameObject:
   m_ObjectHideFlags: 0
