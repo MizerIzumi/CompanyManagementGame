@@ -24,45 +24,47 @@ namespace Game
         
         public GameObject GenerateAdventurer()
         {
-            SO_RaceBase tRace;
-            SO_SubRaceBase tSubRace;
-            SO_AdventurerProfessionBase tProfession;
-            GameObject tAdventurer;
+            SO_RaceBase newRace;
+            SO_SubRaceBase newSubRace;
+            SO_AdventurerProfessionBase newProfession;
+            GameObject newAdventurer;
             
-            tRace = PickRace();
-            tSubRace = PickSubRace();
-            tProfession = PickProfession();
+            newRace = PickRace();
+            newSubRace = PickSubRace();
+            newProfession = PickProfession();
             
-            AdventurerStatsInitializer tadvinit  = new AdventurerStatsInitializer();
+            AdventurerStatsInitializer advinit  = new AdventurerStatsInitializer();
             
-            tadvinit.name = AdventurerNames.Names[Random.Range(0, AdventurerNames.Names.Count)];
-            tadvinit.alignment = (ConditionalTags)Random.Range(400, 402);
-            //When I get around to adding faiths remember to fis this here <---------------------------------------------------x To Do
-            tadvinit.faith = ConditionalTags.NoFaith;
+            advinit.name = AdventurerNames.Names[Random.Range(0, AdventurerNames.Names.Count)];
+            advinit.alignment = (ConditionalTags)Random.Range(400, 402);
+            //When I get around to adding faiths remember to fix this here <---------------------------------------------------x To Do
+            advinit.faith = ConditionalTags.NoFaith;
             
-            tadvinit.race = tRace;
-            tadvinit.subRace = tSubRace;
-            tadvinit.profession = tProfession;
+            advinit.race = newRace;
+            advinit.subRace = newSubRace;
+            advinit.profession = newProfession;
+            
+            advinit.expMultiplier = newRace.expMultiplier + newSubRace.expMultiplier;
             
             //This is garbage but in favor of time I am setting it up like this for now.
-            tadvinit.InitialLvl = AddUpStats(tRace.StartingStats[0], tSubRace.StartingStats[0], tProfession.StartingStats[0]);
-            tadvinit.InitialHp = AddUpStats(tRace.StartingStats[1], tSubRace.StartingStats[1], tProfession.StartingStats[1]);
-            tadvinit.InitialMp = AddUpStats(tRace.StartingStats[2], tSubRace.StartingStats[2], tProfession.StartingStats[2]);
-            tadvinit.InitialStr = AddUpStats(tRace.StartingStats[3], tSubRace.StartingStats[3], tProfession.StartingStats[3]);
-            tadvinit.InitialDex = AddUpStats(tRace.StartingStats[4], tSubRace.StartingStats[4], tProfession.StartingStats[4]);
-            tadvinit.InitialInt = AddUpStats(tRace.StartingStats[5], tSubRace.StartingStats[5], tProfession.StartingStats[5]);
-            tadvinit.InitialPDamage = AddUpStats(tRace.StartingStats[6], tSubRace.StartingStats[6], tProfession.StartingStats[6]);
-            tadvinit.InitialMDamage = AddUpStats(tRace.StartingStats[7], tSubRace.StartingStats[7], tProfession.StartingStats[7]);
-            tadvinit.InitialPDefence = AddUpStats(tRace.StartingStats[8], tSubRace.StartingStats[8], tProfession.StartingStats[8]);
-            tadvinit.InitialMDefence = AddUpStats(tRace.StartingStats[9], tSubRace.StartingStats[9], tProfession.StartingStats[9]);
-            tadvinit.InitialInv = AddUpStats(tRace.StartingStats[10], tSubRace.StartingStats[10], tProfession.StartingStats[10]);
+            advinit.initialLvl = AddUpStats(newRace.StartingStats[0], newSubRace.StartingStats[0], newProfession.StartingStats[0]);
+            advinit.initialHp = AddUpStats(newRace.StartingStats[1], newSubRace.StartingStats[1], newProfession.StartingStats[1]);
+            advinit.initialMp = AddUpStats(newRace.StartingStats[2], newSubRace.StartingStats[2], newProfession.StartingStats[2]);
+            advinit.initialStr = AddUpStats(newRace.StartingStats[3], newSubRace.StartingStats[3], newProfession.StartingStats[3]);
+            advinit.initialDex = AddUpStats(newRace.StartingStats[4], newSubRace.StartingStats[4], newProfession.StartingStats[4]);
+            advinit.initialInt = AddUpStats(newRace.StartingStats[5], newSubRace.StartingStats[5], newProfession.StartingStats[5]);
+            advinit.initialPDamage = AddUpStats(newRace.StartingStats[6], newSubRace.StartingStats[6], newProfession.StartingStats[6]);
+            advinit.initialMDamage = AddUpStats(newRace.StartingStats[7], newSubRace.StartingStats[7], newProfession.StartingStats[7]);
+            advinit.initialPDefence = AddUpStats(newRace.StartingStats[8], newSubRace.StartingStats[8], newProfession.StartingStats[8]);
+            advinit.initialMDefence = AddUpStats(newRace.StartingStats[9], newSubRace.StartingStats[9], newProfession.StartingStats[9]);
+            advinit.initialInv = AddUpStats(newRace.StartingStats[10], newSubRace.StartingStats[10], newProfession.StartingStats[10]);
             
-            tAdventurer = Instantiate(AdventurerPrefab);
-            tAdventurer.GetComponent<AdventurerStats>().InitializeAdvStats(tadvinit);
+            newAdventurer = Instantiate(AdventurerPrefab);
+            newAdventurer.GetComponent<AdventurerStats>().InitializeAdvStats(advinit);
             
-            tAdventurer.GetComponent<CharacterEquipmentSlots>().EquipSet(tadvinit.profession.startingEquipment.equipmentSet);
+            newAdventurer.GetComponent<CharacterEquipmentSlots>().EquipSet(advinit.profession.startingEquipment.equipmentSet);
             
-            return tAdventurer;
+            return newAdventurer;
         }
 
         private StatInitializer AddUpStats(StatInitializer racestat, StatInitializer subracestat, StatInitializer professionstat)
@@ -70,60 +72,68 @@ namespace Game
             StatInitializer newstat = new StatInitializer();
             
             newstat.initialValue = racestat.initialValue + subracestat.initialValue + professionstat.initialValue;
-            newstat.statgrowthmultiplier = racestat.statgrowthmultiplier + subracestat.statgrowthmultiplier + professionstat.statgrowthmultiplier;
+            if (racestat.statgrowthmultiplier + subracestat.statgrowthmultiplier + professionstat.statgrowthmultiplier <= 0)
+            {
+                newstat.statgrowthmultiplier = 0.01f;
+            }
+            else
+            {
+                newstat.statgrowthmultiplier = racestat.statgrowthmultiplier + subracestat.statgrowthmultiplier + professionstat.statgrowthmultiplier;
+            }
             newstat.statmin = statmin;
             newstat.statmax = statmax;
+            newstat.statname = racestat.statname;
             return newstat;
         }
 
         private SO_RaceBase PickRace()
         {
-            SO_RaceBase trace = new SO_RaceBase();
+            SO_RaceBase race = new SO_RaceBase();
             if (AvailableRaces.Count < 0)
             {
                 Debug.LogError("No Races Available");
                 return null;
             }
             
-            trace = AvailableRaces[RNGMachine(0, AvailableRaces.Count)];
+            race = AvailableRaces[RNGMachine(0, AvailableRaces.Count)];
             
-            return trace;
+            return race;
         }
 
         private SO_SubRaceBase PickSubRace()
         {
-            SO_SubRaceBase tsubrace = new SO_SubRaceBase();
+            SO_SubRaceBase subrace = new SO_SubRaceBase();
             if (AvailableSubRaces.Count < 0)
             {
                 Debug.LogError("No Sub Races Available");
-                tsubrace = _noSubrace;
+                subrace = _noSubrace;
                 return null;
             }
 
             if (RNGMachine(0, 100) > _SubracePercentChance)
             {
-                tsubrace = _noSubrace;
+                subrace = _noSubrace;
             }
             else
             {
-                tsubrace = AvailableSubRaces[RNGMachine(0, AvailableSubRaces.Count)];
+                subrace = AvailableSubRaces[RNGMachine(0, AvailableSubRaces.Count)];
             }
             
-            return tsubrace;
+            return subrace;
         }
 
         private SO_AdventurerProfessionBase PickProfession()
         {
-            SO_AdventurerProfessionBase tprofession  = new SO_AdventurerProfessionBase();
+            SO_AdventurerProfessionBase profession  = new SO_AdventurerProfessionBase();
             if (AvailableProfessions.Count < 0)
             {
                 Debug.LogError("No Professions Available");
                 return null;
             }
             
-            tprofession = AvailableProfessions[RNGMachine(0, AvailableProfessions.Count)];
+            profession = AvailableProfessions[RNGMachine(0, AvailableProfessions.Count)];
             
-            return tprofession;
+            return profession;
         }
 
         private int RNGMachine(int min, int max)

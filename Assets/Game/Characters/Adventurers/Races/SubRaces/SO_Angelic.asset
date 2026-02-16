@@ -22,27 +22,27 @@ MonoBehaviour:
     statmax: 999
   - statname: Health
     initialValue: 1
-    statgrowthmultiplier: 0.1
+    statgrowthmultiplier: 0
     statmin: -999
     statmax: 999
   - statname: Mana
     initialValue: 2
-    statgrowthmultiplier: 0.2
+    statgrowthmultiplier: 0.25
     statmin: -999
     statmax: 999
   - statname: Strength
     initialValue: 1
-    statgrowthmultiplier: 0.1
+    statgrowthmultiplier: 0
     statmin: -999
     statmax: 999
   - statname: Dexterity
     initialValue: 1
-    statgrowthmultiplier: 0.1
+    statgrowthmultiplier: 0
     statmin: -999
     statmax: 999
   - statname: Intelligence
     initialValue: 4
-    statgrowthmultiplier: 0.4
+    statgrowthmultiplier: 0.25
     statmin: -999
     statmax: 999
   - statname: Physical Damage
@@ -52,17 +52,17 @@ MonoBehaviour:
     statmax: 999
   - statname: Magic Damage
     initialValue: 3
-    statgrowthmultiplier: 0.3
+    statgrowthmultiplier: 0
     statmin: -999
     statmax: 999
   - statname: Physical Defence
     initialValue: -3
-    statgrowthmultiplier: -0.3
+    statgrowthmultiplier: 0
     statmin: -999
     statmax: 999
   - statname: Magical Defence
     initialValue: 1
-    statgrowthmultiplier: 0.1
+    statgrowthmultiplier: 0
     statmin: -999
     statmax: 999
   - statname: Inventory Size
@@ -70,3 +70,4 @@ MonoBehaviour:
     statgrowthmultiplier: 0
     statmin: -999
     statmax: 999
+  expMultiplier: 0

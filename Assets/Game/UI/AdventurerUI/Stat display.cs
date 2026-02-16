@@ -37,16 +37,6 @@ namespace Game
         public TextMeshProUGUI Accessory;
         public TextMeshProUGUI Weapon;
 
-        private void Start()
-        {
-            //Faith.text = "Not fixed yet";
-        }
-
-        public void TestingEquipSet()
-        {
-            //characterEquipmentSlots.EquipSet(equipmentSet.equipmentSet);
-        }
-
         public void TestingUnequipAll()
         {
             characterEquipmentSlots.UnequipAll();
@@ -56,21 +46,21 @@ namespace Game
         {
             if (adventurerStats)
             {
-                Int.text = adventurerStats.StatsDictionary[TargetTags.AdvIntelligence].Value.ToString();
-                Str.text = adventurerStats.StatsDictionary[TargetTags.AdvStrength].Value.ToString();
-                Dex.text = adventurerStats.StatsDictionary[TargetTags.AdvDexterity].Value.ToString();
-                PATT.text = adventurerStats.StatsDictionary[TargetTags.AdvPhysicalAttack].Value.ToString();
-                MATT.text = adventurerStats.StatsDictionary[TargetTags.AdvMagicalAttack].Value.ToString();
-                PDeff.text = adventurerStats.StatsDictionary[TargetTags.AdvPhysicalDefence].Value.ToString();
-                MDeff.text = adventurerStats.StatsDictionary[TargetTags.AdvMagicalDefence].Value.ToString();
-                InvSze.text = adventurerStats.StatsDictionary[TargetTags.AdvInvSize].Value.ToString();
-                LVL.text = adventurerStats.StatsDictionary[TargetTags.AdvLevel].Value.ToString();
-                HP.text = adventurerStats.StatsDictionary[TargetTags.AdvHealth].Value.ToString();
-                MP.text = adventurerStats.StatsDictionary[TargetTags.AdvMana].Value.ToString();
-                Race.text = adventurerStats.Race.RaceName;
-                SubRace.text = adventurerStats.SubRace.SubRaceName;
+                Int.text = adventurerStats.StatsDictionary[TargetTags.AdvIntelligence].GetRoundDownValue().ToString();
+                Str.text = adventurerStats.StatsDictionary[TargetTags.AdvStrength].GetRoundDownValue().ToString();
+                Dex.text = adventurerStats.StatsDictionary[TargetTags.AdvDexterity].GetRoundDownValue().ToString();
+                PATT.text = adventurerStats.StatsDictionary[TargetTags.AdvPhysicalAttack].GetRoundDownValue().ToString();
+                MATT.text = adventurerStats.StatsDictionary[TargetTags.AdvMagicalAttack].GetRoundDownValue().ToString();
+                PDeff.text = adventurerStats.StatsDictionary[TargetTags.AdvPhysicalDefence].GetRoundDownValue().ToString();
+                MDeff.text = adventurerStats.StatsDictionary[TargetTags.AdvMagicalDefence].GetRoundDownValue().ToString();
+                InvSze.text = adventurerStats.StatsDictionary[TargetTags.AdvInvSize].GetRoundDownValue().ToString();
+                LVL.text = adventurerStats.StatsDictionary[TargetTags.AdvLevel].GetRoundDownValue().ToString();
+                HP.text = adventurerStats.StatsDictionary[TargetTags.AdvHealth].GetRoundDownValue().ToString();
+                MP.text = adventurerStats.StatsDictionary[TargetTags.AdvMana].GetRoundDownValue().ToString();
+                Race.text = adventurerStats.race.RaceName;
+                SubRace.text = adventurerStats.subRace.SubRaceName;
                 CharName.text = adventurerStats.GetName();
-                Profession.text = adventurerStats.Profession.ProfessionName;
+                Profession.text = adventurerStats.profession.ProfessionName;
             }
             
             if (characterEquipmentSlots)

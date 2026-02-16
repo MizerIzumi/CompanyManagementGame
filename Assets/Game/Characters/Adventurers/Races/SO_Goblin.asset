@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14c5a07105b72b469ed94a38e4f38e7, type: 3}
   m_Name: SO_Goblin
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_RaceBase
-  RaceName: Beastkin
+  RaceName: Goblin
   RaceTag: 112
   IncompatableSubRace: 0
   StartingStats:
@@ -23,47 +23,47 @@ MonoBehaviour:
     statmax: 999
   - statname: Health
     initialValue: 4
-    statgrowthmultiplier: 0.8
+    statgrowthmultiplier: 0.25
     statmin: -999
     statmax: 999
   - statname: Mana
     initialValue: 6
-    statgrowthmultiplier: 1.4
+    statgrowthmultiplier: 1
     statmin: -999
     statmax: 999
   - statname: Strength
     initialValue: 4
-    statgrowthmultiplier: 0.8
+    statgrowthmultiplier: 0.25
     statmin: -999
     statmax: 999
   - statname: Dexterity
     initialValue: 4
-    statgrowthmultiplier: 0.9
+    statgrowthmultiplier: 0.5
     statmin: -999
     statmax: 999
   - statname: Intelligence
     initialValue: 6
-    statgrowthmultiplier: 1
+    statgrowthmultiplier: 0.75
     statmin: -999
     statmax: 999
   - statname: Physical Damage
     initialValue: 4
-    statgrowthmultiplier: 0.9
+    statgrowthmultiplier: 0.5
     statmin: -999
     statmax: 999
   - statname: Magic Damage
     initialValue: 6
-    statgrowthmultiplier: 1
+    statgrowthmultiplier: 0.75
     statmin: -999
     statmax: 999
   - statname: Physical Defence
     initialValue: 4
-    statgrowthmultiplier: 0.8
+    statgrowthmultiplier: 0.25
     statmin: -999
     statmax: 999
   - statname: Magical Defence
     initialValue: 6
-    statgrowthmultiplier: 1.1
+    statgrowthmultiplier: 0.75
     statmin: -999
     statmax: 999
   - statname: Inventory Size
@@ -71,3 +71,4 @@ MonoBehaviour:
     statgrowthmultiplier: 1
     statmin: 1
     statmax: 4
+  expMultiplier: 1
