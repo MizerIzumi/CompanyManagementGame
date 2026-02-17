@@ -7,6 +7,9 @@ namespace Game
         public MissionManager missionmanager;
         public AdventurerStats adventurerstats;
         public int fakeMissionRank = 1;
+
+        public ShopAndCompInv cnsinv;
+        public SO_ItemBase goldNugget;
         
         public void CompleteFakeMission()
         {
@@ -31,6 +34,11 @@ namespace Game
                     print(mod.Type + " : " + mod.Value);
                 }
             }
+        }
+
+        public void AddGoldNuggetToCompInv()
+        {
+            cnsinv.AddItemToCompInv(goldNugget);
         }
     }
 }

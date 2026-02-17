@@ -13,17 +13,17 @@ namespace Game
         private ActionStack.ActionBehavior _TownAS;
         [SerializeField]
         private ActionStack.ActionBehavior _companyAS;
+        [SerializeField]
+        private AS_AdventurersUI _AdventurersAS;
 
         private bool _movingZones = true;
         private ActionStack.ActionBehavior _zoneToGoTo;
-        private bool _testDoOnceBool;
         public bool isDone = false;
 
         public override void OnBegin(bool bFirstTime)
         {
             isDone = false;
             _movingZones = false;
-            _testDoOnceBool = true;
             base.OnBegin(bFirstTime);
             _thisUI.SetActive(true);
         }
@@ -51,6 +51,12 @@ namespace Game
             isDone = true;
         }
 
+        public void OpenAdventurersUI(bool recruiting)
+        {
+            _AdventurersAS.RecruitOrCompanyView(recruiting);
+            ActionStack.Main.PushAction(_AdventurersAS);
+        }
+        
         
 
         public override bool IsDone()
@@ -62,9 +68,8 @@ namespace Game
         {
             base.OnEnd();
             _thisUI.SetActive(false);
-            if (_movingZones && _testDoOnceBool)
+            if (_movingZones)
             {
-                _testDoOnceBool = false;
                 ActionStack.Main.PushAction(_zoneToGoTo);
             }
         }

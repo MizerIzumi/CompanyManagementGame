@@ -7,13 +7,13 @@ namespace Game
     public class CompanyAdventurersList : MonoBehaviour
     {
         [SerializeField]
-        private CompanyStats _companyStats;
-        [SerializeField]
         private List<GameObject> _companyAdventurers = new List<GameObject>();
+        private CompanyStats _companyStats;
         public int adventurerCapacity = 1;
 
         private void Start()
         {
+            _companyStats = gameObject.GetComponent<CompanyStats>();
             adventurerCapacity = (int)_companyStats.StatsDictionary[TargetTags.CompRecruitCapacity].Value;
             _companyStats.StatsDictionary[TargetTags.CompRecruitCapacity].onStatChanged += UpdateCapacity;
         }
@@ -57,7 +57,7 @@ namespace Game
 
         private void UpdateCapacity(Statistic stat)
         {
-            adventurerCapacity = (int)stat.Value;
+            adventurerCapacity = Mathf.FloorToInt(stat.Value);
         }
     }
 

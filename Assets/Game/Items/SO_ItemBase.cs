@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace Game
 {
+    [CreateAssetMenu(fileName = "SO_Item", menuName = "ScriptableObjects/Items/Item", order = 99)]
     public class SO_ItemBase : ScriptableObject
     {
         public string ItemName;
