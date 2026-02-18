@@ -63,10 +63,10 @@ namespace Game
 
         private void AddNewAdventurerBox()
         {
-            GameObject tAdvBox = Instantiate(_adventurerBoxPrefab, _adventurerGrid.transform);
-            tAdvBox.GetComponent<AdventurerBox>().InitializeAdventurerBox(_advgen.GenerateAdventurer(), this);
+            GameObject advbox = Instantiate(_adventurerBoxPrefab, _adventurerGrid.transform);
+            advbox.GetComponent<AdventurerBox>().InitializeAdventurerBox(_advgen.GenerateAdventurer(), this);
             
-            _spawnedBoxes.Add(tAdvBox);
+            _spawnedBoxes.Add(advbox);
         }
         
         public void UpdateSelectedAdventurerBox(AdventurerBox adventurerbox)

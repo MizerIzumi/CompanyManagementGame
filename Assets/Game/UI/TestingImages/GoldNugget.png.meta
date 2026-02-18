@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bbc9d333edc7f614db265ed8058bf7db
+guid: 4957b679b5e7bf146833136916641cd2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5904086154281810116
-    second: WorldViewTest_0
+      213: -3900713966332688301
+    second: GoldNugget 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WorldViewTest_0
+      name: GoldNugget 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 640
-        height: 360
+        x: 2
+        y: 1
+        width: 29
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c8f44d73178fe150800000000000000
-      internalID: 5904086154281810116
+      spriteID: 358c5528051edd9c0800000000000000
+      internalID: -3900713966332688301
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WorldViewTest_0: 5904086154281810116
+      GoldNugget 1_0: -3900713966332688301
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,14 +7,37 @@ namespace Game
 {
     public class ShopAndCompInv : MonoBehaviour
     {
+        public event Action<int> OnCompInvChanged;
+        public event Action<int> OnShopInvChanged;
+        
         private CompanyStats _companyStats;
         [Header("Company")]
         public List<SO_ItemBase> _companyInventory;
-        public int companyInvCapacity;
+
+        private int _compinvcap;
+        public int companyInvCapacity
+        {
+            get { return _compinvcap; }
+            set
+            {
+                OnCompInvChanged?.Invoke(_compinvcap);
+                _compinvcap = value;
+            }
+        }
     
         [Header("Shop")]
         public List<SO_ItemBase> _shopInventory;
-        public int shopInvCapacity;
+
+        private int _shopInvCapacity;
+        public int shopInvCapacity
+        {
+            get { return _shopInvCapacity; }
+            set
+            {
+                OnShopInvChanged?.Invoke(_shopInvCapacity);
+                _shopInvCapacity = value; 
+            }
+        }
 
         private void Start()
         {

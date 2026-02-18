@@ -15,10 +15,12 @@ namespace Game
         private ActionStack.ActionBehavior _companyAS;
         [SerializeField]
         private AS_AdventurersUI _AdventurersAS;
+        [SerializeField]
+        private AS_CompAndShopInvUI _CompAndShopInvAS;
 
         private bool _movingZones = true;
         private ActionStack.ActionBehavior _zoneToGoTo;
-        public bool isDone = false;
+        private bool isDone = false;
 
         public override void OnBegin(bool bFirstTime)
         {
@@ -56,7 +58,11 @@ namespace Game
             _AdventurersAS.RecruitOrCompanyView(recruiting);
             ActionStack.Main.PushAction(_AdventurersAS);
         }
-        
+
+        public void OpenInventoryUI()
+        {
+            ActionStack.Main.PushAction(_CompAndShopInvAS);
+        }
         
 
         public override bool IsDone()
