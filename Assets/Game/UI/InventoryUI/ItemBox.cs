@@ -16,7 +16,7 @@ namespace Game
         {
             item = inititem;
             _cnsInv = compAndShopInvUI;
-            _itemName.text = item.ItemName;
+            _itemName.text = "Gold: " + item.SellValue;
         }
         
         public void SelectBox()

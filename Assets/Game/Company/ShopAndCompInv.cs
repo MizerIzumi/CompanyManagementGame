@@ -20,7 +20,6 @@ namespace Game
             get { return _compinvcap; }
             set
             {
-                OnCompInvChanged?.Invoke(_compinvcap);
                 _compinvcap = value;
             }
         }
@@ -34,7 +33,6 @@ namespace Game
             get { return _shopInvCapacity; }
             set
             {
-                OnShopInvChanged?.Invoke(_shopInvCapacity);
                 _shopInvCapacity = value; 
             }
         }

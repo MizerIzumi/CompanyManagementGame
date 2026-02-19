@@ -19,75 +19,64 @@ public class AS_CompAndShopInvUI : ActionStack.ActionBehavior
     private GameObject _shopInv;
 
     private List<SO_ItemBase> _activeInventory;
-    private List<GameObject> _spawnedItemBoxes;
-    private List<ItemBox> _selectedItems;
+    private List<GameObject> _spawnedItemBoxes = new();
+    private List<ItemBox> _selectedItems = new();
     public ShopAndCompInv shopAndCompInv;
     private bool _compToShop = true;
-    
     private bool _isDone = false;
+
+    private int _compInvCap = 0;
+    private int _shopInvCap = 0;
 
 
     public override void OnBegin(bool bFirstTime)
     {
         base.OnBegin(bFirstTime);
-        if (bFirstTime)
-        {
-            shopAndCompInv.OnCompInvChanged += UpdateCapacityDisplay;
-        }
-
         _isDone = false;
+        _compInvCap = shopAndCompInv.companyInvCapacity;
+        _shopInvCap = shopAndCompInv.shopInvCapacity;
+        if (bFirstTime) { }
         EnableUI();
     }
 
 
-    private void UpdateCapacityDisplay(int value)
+    private void UpdateCapacityDisplay(int invCapacity)
     {
-        _capacityDisplay.text = _activeInventory.Count.ToString() + " | " + _activeInventory.Capacity.ToString();
+        _capacityDisplay.text = _activeInventory.Count.ToString() + " | " + invCapacity.ToString();
     }
     
     public void TransferToShop()
     {
-        List<SO_ItemBase> sinv = shopAndCompInv._shopInventory;
-        List<SO_ItemBase> cinv = shopAndCompInv._companyInventory;
-        
+        if (_selectedItems == null || _selectedItems.Count == 0) return;
         foreach (ItemBox itembox in _selectedItems)
         {
-            sinv.Add(itembox.item);
-            cinv.Remove(itembox.item);
+            shopAndCompInv.ItemFromCompToShopInv(itembox.item);
             _spawnedItemBoxes.Remove(itembox.gameObject);
+            Destroy(itembox.gameObject);
         }
+
+        ClearSelectedItems();
+        UpdateCapacityDisplay(_compInvCap);
     }
     
     public void TransferToCompany()
     {
-        List<SO_ItemBase> sinv = shopAndCompInv._shopInventory;
-        List<SO_ItemBase> cinv = shopAndCompInv._companyInventory;
-        
+        if (_selectedItems == null || _selectedItems.Count == 0) return;
         foreach (ItemBox itembox in _selectedItems)
         {
-            cinv.Add(itembox.item);
-            sinv.Remove(itembox.item);
+            shopAndCompInv.ItemFromShopInvToComp(itembox.item);
             _spawnedItemBoxes.Remove(itembox.gameObject);
+            Destroy(itembox.gameObject);
         }
+
+        ClearSelectedItems();
+        UpdateCapacityDisplay(_shopInvCap);
     }
 
     public void EnableUI()
     {
         gameObject.SetActive(true);
-        if (_compToShop)
-        {
-            //Company inv
-            _activeInventory = shopAndCompInv._companyInventory;
-            DisableInvUI(_shopInv);
-            EnableInvUI(_compInv);
-        }
-        else
-        {
-            //Shop inv
-            _activeInventory = shopAndCompInv._shopInventory;
-            DisableInvUI(_compInv);
-            EnableInvUI(_shopInv);
-        }
+        CompOrShopView(_compToShop);
     }
 
     public void DisableUI()
@@ -99,10 +88,11 @@ public class AS_CompAndShopInvUI : ActionStack.ActionBehavior
     public void CompOrShopView(bool company)
     {
         _compToShop = company;
-        if (_compToShop)
+        if (company)
         {
             //Company inv
             _activeInventory = shopAndCompInv._companyInventory;
+            UpdateCapacityDisplay(_compInvCap);
             DisableInvUI(_shopInv);
             EnableInvUI(_compInv);
         }
@@ -110,6 +100,7 @@ public class AS_CompAndShopInvUI : ActionStack.ActionBehavior
         {
             //Shop inv
             _activeInventory = shopAndCompInv._shopInventory;
+            UpdateCapacityDisplay(_shopInvCap);
             DisableInvUI(_compInv);
             EnableInvUI(_shopInv);
         }
@@ -118,6 +109,7 @@ public class AS_CompAndShopInvUI : ActionStack.ActionBehavior
     private void EnableInvUI(GameObject invUI)
     {
         invUI.SetActive(true);
+        ClearAllItems();
         AddItemsFromInventory();
     }
 
@@ -129,10 +121,14 @@ public class AS_CompAndShopInvUI : ActionStack.ActionBehavior
 
     private void AddItemsFromInventory()
     {
+        if (_activeInventory.Count <= 0) return;
+        
         foreach (SO_ItemBase item in _activeInventory)
         {
             GameObject itembox = Instantiate(_itemBoxPrefab, _invGrid.transform);
-            itembox.GetComponent<ItemBox>().InitializeItemBox(item, this);
+            itembox.TryGetComponent<ItemBox>(out ItemBox _itembox);
+            _itembox?.InitializeItemBox(item, this);
+            
             _spawnedItemBoxes.Add(itembox);
         }
     }
@@ -141,16 +137,17 @@ public class AS_CompAndShopInvUI : ActionStack.ActionBehavior
     {
         if (_selectedItems.Contains(itembox))
         {
+            _selectedItems.Remove(itembox);
             return false;
         }
         
         if (_compToShop)
         {
-            if (shopAndCompInv.shopInvCapacity <= _selectedItems.Count) return false;
+            if (shopAndCompInv.shopInvCapacity - shopAndCompInv._shopInventory.Count <= _selectedItems.Count) return false;
         }
         else
         {
-            if (shopAndCompInv.companyInvCapacity <= _selectedItems.Count) return false;
+            if (shopAndCompInv.companyInvCapacity - shopAndCompInv._companyInventory.Count<= _selectedItems.Count) return false;
         }
         
         _selectedItems.Add(itembox);
@@ -159,12 +156,24 @@ public class AS_CompAndShopInvUI : ActionStack.ActionBehavior
 
     private void ClearAllItems()
     {
-        if (_selectedItems.Count == 0) return;
+        if (_spawnedItemBoxes == null || _spawnedItemBoxes.Count == 0) return;
         foreach (GameObject itembox in _spawnedItemBoxes)
         {
             Destroy(itembox.gameObject); 
         }
         _spawnedItemBoxes.Clear();
+        if (_selectedItems == null || _selectedItems.Count == 0) return;
+        _selectedItems.Clear();
+    }
+
+    private void ClearSelectedItems()
+    {
+        if (_selectedItems == null || _selectedItems.Count == 0) return;
+        foreach (ItemBox itembox in _selectedItems)
+        {
+            _spawnedItemBoxes.Remove(itembox.gameObject);
+            Destroy(itembox.gameObject);
+        }
         _selectedItems.Clear();
     }
 

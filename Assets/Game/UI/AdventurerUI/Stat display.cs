@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 namespace Game
 {
@@ -7,9 +8,9 @@ namespace Game
     {
         public AdventurerStats adventurerStats;
         public CharacterEquipmentSlots characterEquipmentSlots;
-        [SerializeField]
         
         [Header("Character Details")]
+        public Image characterImage;
         public TextMeshProUGUI Race;
         public TextMeshProUGUI SubRace;
         public TextMeshProUGUI Profession;
@@ -46,6 +47,7 @@ namespace Game
         {
             if (adventurerStats)
             {
+                characterImage.sprite = adventurerStats.race.Portrait;
                 Int.text = adventurerStats.StatsDictionary[TargetTags.AdvIntelligence].GetRoundDownValue().ToString();
                 Str.text = adventurerStats.StatsDictionary[TargetTags.AdvStrength].GetRoundDownValue().ToString();
                 Dex.text = adventurerStats.StatsDictionary[TargetTags.AdvDexterity].GetRoundDownValue().ToString();

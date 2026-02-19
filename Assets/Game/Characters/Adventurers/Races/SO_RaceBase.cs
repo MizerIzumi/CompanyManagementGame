@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Game
 {
@@ -6,6 +7,7 @@ namespace Game
     public class SO_RaceBase : ScriptableObject
     {
         public string RaceName;
+        public Sprite Portrait;
         public ConditionalTags RaceTag;
         public ConditionalTags IncompatableSubRace;
         public StatInitializer[] StartingStats = new StatInitializer[11]

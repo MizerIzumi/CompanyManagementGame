@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AdventurerBo
   adventurerOBJ: {fileID: 0}
+  _icon: {fileID: 2183488044447405778}
   _selectedBorder: {fileID: 7654175626012789420}
   _advNameText: {fileID: 4622007505936288661}
 --- !u!1 &7654175626012789420

@@ -9,6 +9,8 @@ namespace Game
     {
         public GameObject adventurerOBJ;
         private IAdventurerUI _advRecruitment;
+        [SerializeField] 
+        private Image _icon;
         [SerializeField]
         private GameObject _selectedBorder;
         [SerializeField]
@@ -19,6 +21,7 @@ namespace Game
             adventurerOBJ = adventurer;
             _advRecruitment = advrecruitment;
             _advNameText.text = adventurer.GetComponent<AdventurerStats>().GetName();
+            _icon.sprite = adventurer.GetComponent<AdventurerStats>().profession.Icon;
         }
         
         public void SelectBox()

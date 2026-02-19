@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SO_Dwarf
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_RaceBase
   RaceName: Dwarf
+  Portrait: {fileID: 21300000, guid: d5899bb0893c1154f9edcb0697fcd7d7, type: 3}
   RaceTag: 110
   IncompatableSubRace: 0
   StartingStats:

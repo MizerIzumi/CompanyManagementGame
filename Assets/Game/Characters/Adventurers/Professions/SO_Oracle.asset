@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SO_Oracle
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_AdventurerProfessionBase
   ProfessionName: Oracle
+  Icon: {fileID: 21300000, guid: 142fa032c69e45b459fb302d2b09b47d, type: 3}
   startingEquipment: {fileID: 11400000, guid: c498052bee6391c4eb76f284992af3d2, type: 2}
   StartingStats:
   - statname: Level

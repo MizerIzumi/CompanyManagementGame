@@ -9,7 +9,7 @@ namespace Game
     public class SO_AdventurerProfessionBase : ScriptableObject
     {
         public string ProfessionName;
-        
+        public Sprite Icon;
         public SO_EquipmentSetBase startingEquipment;
         
         public StatInitializer[] StartingStats = new StatInitializer[11]
