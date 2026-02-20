@@ -14,6 +14,10 @@ public class AS_AdventurersUI : ActionStack.ActionBehavior
     
     public override void OnBegin(bool bFirstTime)
     {
+        if (bFirstTime)
+        {
+            _recruitUI.Initialize();
+        }
         _isDone = false;
         _adventurersUI.SetActive(true);
     }

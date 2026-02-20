@@ -23,7 +23,20 @@ namespace Game
         private Statdisplay _statDisplay;
         private bool _hasListOfAdventurer = false;
         private bool _firstTime = true;
+        private TimeManager _timeManager;
 
+        public void Initialize()
+        {
+            _timeManager = GameManager.Instance.timeManager;
+            _timeManager.OnDaySlotChanged += ClearRecruitableAdventurers;
+        }
+
+        public void Deconstruct()
+        {
+            _timeManager.OnDaySlotChanged -= ClearRecruitableAdventurers;
+            ClearRecruitableAdventurers();
+        }
+        
         public void EnableUI()
         {
             if (_firstTime)
@@ -104,7 +117,19 @@ namespace Game
             }
         }
 
-        public void ClearRecruitableAdventurers()
+        private void ClearRecruitableAdventurers()
+        {
+            foreach (GameObject adventurerbox in _spawnedBoxes)
+            {
+                Destroy(adventurerbox.GetComponent<AdventurerBox>().adventurerOBJ.gameObject);
+                Destroy(adventurerbox.gameObject);
+            }
+            _spawnedBoxes.Clear();
+            _hasListOfAdventurer = false;
+            selectedAdventurerBox = null;
+        }
+        
+        private void ClearRecruitableAdventurers(TimeManager.DaySlot daySlot)
         {
             foreach (GameObject adventurerbox in _spawnedBoxes)
             {

@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8849184942852039678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4740118356335910029}
+  - component: {fileID: 7495105264908966378}
+  - component: {fileID: 1585521867200467013}
+  m_Layer: 0
+  m_Name: AdventurereFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4740118356335910029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8849184942852039678}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -340.9248, y: -196.6319, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7495105264908966378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8849184942852039678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67eabe2ba01dd394f87da9e439611ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.AdventurerGenerator
+  AvailableRaces:
+  - {fileID: 11400000, guid: 6a4d84da6a12f334fa3a7197d5f90d70, type: 2}
+  - {fileID: 11400000, guid: 6250a81f43e97bb4b81591f338aa5244, type: 2}
+  - {fileID: 11400000, guid: 5ef9d1f34e161324ba5c2af3600b4e7a, type: 2}
+  - {fileID: 11400000, guid: d28f14a5f000a3d439dc45b138e3174a, type: 2}
+  - {fileID: 11400000, guid: 0d300a04cc4c51e45af2f3b99a70fa92, type: 2}
+  - {fileID: 11400000, guid: 046d9c79951cb7043bbb7c2ae165d753, type: 2}
+  - {fileID: 11400000, guid: 20d5e98417f17d6428913c6fecabffff, type: 2}
+  - {fileID: 11400000, guid: cc226eddca9530f4c86371a7e24770ab, type: 2}
+  - {fileID: 11400000, guid: 0819922be5bcfee4f9f1b37393b9402a, type: 2}
+  AvailableSubRaces:
+  - {fileID: 11400000, guid: f677bc1a63f997f4087ca1dd639bf67d, type: 2}
+  - {fileID: 11400000, guid: 91cad45ab7d1c9d45bb2f56c60fabc65, type: 2}
+  - {fileID: 11400000, guid: 720825b571269d04ba8676f054fac00e, type: 2}
+  - {fileID: 11400000, guid: a7ea00ba6e0d6cf4ca6d5922ad214772, type: 2}
+  - {fileID: 11400000, guid: cef491908876dd340bcf860d1802ac62, type: 2}
+  - {fileID: 11400000, guid: 33d3a91afbaf4d34e98a9d998e07d237, type: 2}
+  - {fileID: 11400000, guid: acdb1809e6c74d14db1042c9d0b99755, type: 2}
+  - {fileID: 11400000, guid: 48a0760a222388046a61eca0e14f1417, type: 2}
+  AvailableProfessions:
+  - {fileID: 11400000, guid: 5ccc402da38713f4cb4abb192948df9d, type: 2}
+  - {fileID: 11400000, guid: 611ef05c38e3df44b9085dc925319026, type: 2}
+  - {fileID: 11400000, guid: 51e5b3c61f9af4f48acfdb98212a2d92, type: 2}
+  - {fileID: 11400000, guid: 5feb38696cb89104282b17bb5dddf1c4, type: 2}
+  - {fileID: 11400000, guid: f3a74e5ffc65cbc4baa87ad8e110620f, type: 2}
+  - {fileID: 11400000, guid: fba4c6a36611cf14dbb4939af6ebe1e5, type: 2}
+  _SubracePercentChance: 25
+  _noSubrace: {fileID: 11400000, guid: c662baaa94720614a9bf2eeebff158ef, type: 2}
+  AdventurerPrefab: {fileID: 147732962360053526, guid: 9939b69b0e0c7314c81ff435bcd071b3, type: 3}
+  AdventurerNames: {fileID: 1585521867200467013}
+--- !u!114 &1585521867200467013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8849184942852039678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4fa6aa7f47ee364ea6518857c974226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ListOfNames
+  Names:
+  - Jon
+  - Carim
+  - Irith
+  - Feris
+  - Mari
+  - Gerolt
+  - Tony
+  - Kiran
+  - Barus
+  - Mili
+  - Jarvis
+  - Craig
+  - Simon
+  - Carl
+  - Oskar
+  - Mohammed
+  - Blair
+  - Yerin
+  - Cerin
+  - Azura
+  - Kairi
+  - Lisciafael
+  - Kaine
+  - Tarmac
+  - Kaulkin
+  - Nera
+  - David
+  - Lorik
+  - McDucky
+  - Obliviot
+  - Raiel
+  - Kristin
+  - Adel
+  - Boris
+  - Ken
+  - Bingus
+  - Lyndon

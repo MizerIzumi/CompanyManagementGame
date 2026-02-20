@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace Game
 {
+    //Originaly Mad by Carl
+    
     public class ActionStack : MonoBehaviour
     {
         public interface IAction
@@ -200,9 +202,10 @@ namespace Game
             }
         }
 
+        public bool disableStackGUI = true;
         private void OnGUI()
         {
-            if (this != sm_main)
+            if (this != sm_main || disableStackGUI)
             {
                 return;
             }
