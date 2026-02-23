@@ -40,5 +40,10 @@ namespace Game
         {
             cnsinv.AddItemToCompInv(goldNugget);
         }
+
+        public void PrintRNGRarity()
+        {
+            print("Rarity: " + GlobalFunctions.Functions.GetRandomRarity());
+        }
     }
 }
