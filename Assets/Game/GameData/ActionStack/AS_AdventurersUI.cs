@@ -48,6 +48,8 @@ public class AS_AdventurersUI : ActionStack.ActionBehavior
     
     public override void OnEnd()
     {
+        _companyAdvUI.DisableUI();
+        _recruitUI.DisableUI();
         _adventurersUI.SetActive(false);
     }
 }

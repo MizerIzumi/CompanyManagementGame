@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game
@@ -11,9 +13,17 @@ namespace Game
         public ShopAndCompInv cnsinv;
         public SO_ItemBase goldNugget;
         
+        public DungeonManager dungeonmanager;
+        public SO_DungeonData dungeonData;
+        public List<AdventurerStats> party = new();
+
+        public float FakeDifficultyOdds;
+        public int FakeStat;
+        
         public void CompleteFakeMission()
         {
-            missionmanager.GiveAdvanturerExp(adventurerstats, fakeMissionRank);
+            List<AdventurerStats> _party = new() {adventurerstats};
+            missionmanager.MissionComplete(party, fakeMissionRank);
         }
         
         public void PrintGrowth()
@@ -44,6 +54,18 @@ namespace Game
         public void PrintRNGRarity()
         {
             print("Rarity: " + GlobalFunctions.Functions.GetRandomRarity());
+        }
+
+        public void StartTestDungeon()
+        {
+            dungeonmanager.StartDungeon(dungeonData, party);
+        }
+
+        public void PrintOdds()
+        {
+            float x = FakeStat / FakeDifficultyOdds;
+            Double result = (x < 0.5 ? 2 * x * x : 1 - Math.Pow(-2 * x + 2, 2) / 2) * 100;
+            print((int)result + "%");
         }
     }
 }

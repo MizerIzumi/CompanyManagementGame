@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Game
 {
     [CreateAssetMenu(fileName = "SO_EncounterData", menuName = "ScriptableObjects/EncounterData", order = 4)]
-    public class SO_EncounterDataBase : ScriptableObject
+    public class SO_EncounterData : ScriptableObject
     {
         //Numbers will need revision when equipment gets fully implemented
         public enum Difficulty
@@ -22,7 +22,7 @@ namespace Game
         public string encounterName;
         public string encounterDescription;
         public Rarity encounterRarity;
-
+        
         public EncounterOption OptionA;
         public EncounterOption OptionB;
         public EncounterOption OptionC;
@@ -37,6 +37,8 @@ namespace Game
             public bool hasReward;
             public bool hasPenalty;
 
+            
+            //TODO: Re work these so that rewards and penalties are scriptable object
             //reward
             public List<SO_ItemBase> rewards;
             public ConditionalTags condition;

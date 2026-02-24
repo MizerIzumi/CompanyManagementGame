@@ -4,7 +4,7 @@ using UnityEngine;
 using GlobalFunctions;
 public class Dungeon
 {
-    public SO_DungeonDataBase dungeonData;
+    public SO_DungeonData dungeonData;
     private int _timeElapsed = 0;
     public bool isDone = false;
     public List<AdventurerStats> party = new();
@@ -15,9 +15,11 @@ public class Dungeon
     private List<Encounter> epicEncounters = new();
     private List<Encounter> legendaryEncounters = new();
     
+    public Encounter activeEncounter;
     
     public void StartDungeon()
     {
+        Debug.Log("Initializing Dungeon: " + dungeonData.dungeonName);
         InnitializeEncounters();
     }
     
@@ -46,7 +48,7 @@ public class Dungeon
         }
     }
 
-    private Encounter CreateEncounter(SO_EncounterDataBase encounterData)
+    private Encounter CreateEncounter(SO_EncounterData encounterData)
     {
         Encounter newEncounter = new Encounter();
         newEncounter.encounterData = encounterData;
@@ -63,15 +65,22 @@ public class Dungeon
         }
         _timeElapsed++;
 
+        if (activeEncounter != null)
+        {
+            activeEncounter.AutoResolveEncounter();
+        }
         EncounterCheck();
     }
 
     private void EncounterCheck()
     {
-        if (Random.Range(0, 100) <= dungeonData.duration)
+        if (Random.Range(0, 100) <= dungeonData.encounterRate)
         {
-            EncounterPicker(Functions.GetRandomRarity());
+            activeEncounter = EncounterPicker(Functions.GetRandomRarity());
+            Debug.Log("Encountered: " + activeEncounter.encounterData.encounterName); 
+            return;
         }
+        Debug.Log("No Encounter");
     }
 
     private Encounter EncounterPicker(Rarity rarity)

@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_DungoenBase
   dungeonName: Testing Dungeon
   dangerRating: 1
-  duration: 3
+  duration: 5
   partySize: 1
+  encounterRate: 25
   encounters:
   - {fileID: 11400000, guid: 682d5a1b677877646b660c1f0168b3f1, type: 2}
+  - {fileID: 11400000, guid: a3c329259679bd24799051995fa83db9, type: 2}
+  - {fileID: 11400000, guid: 369b0e763666d084cb803b21a17d5d66, type: 2}
+  - {fileID: 11400000, guid: f04b59575da872a45a579d97d15c84d9, type: 2}
+  - {fileID: 11400000, guid: 10a0a217611e5474fa9a6c001a4ae323, type: 2}

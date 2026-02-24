@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 557144bfe4f7c4845b8f56a19684fcc3, type: 3}
-  m_Name: SO_TestEncounterData
+  m_Name: SO_TestEncounterData 4
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_EncounterBase
-  encounterName: CommonTest
+  encounterName: Legendary Test
   encounterDescription: An enemy appears before the party, how do you resolve this?
-  encounterRarity: 1
+  encounterRarity: 5
   OptionA:
     OptionDescription: Attack! (Magic)
     difficulty: 75

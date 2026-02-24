@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game
 {
     [CreateAssetMenu(fileName = "SO_DungeonData", menuName = "ScriptableObjects/DungeonData", order = 3)]
-    public class SO_DungeonDataBase : ScriptableObject
+    public class SO_DungeonData : ScriptableObject
     {
         public string dungeonName;
         public int dangerRating = 1;
@@ -14,7 +14,7 @@ namespace Game
 
         //Conditional bonuses/detriments here
         
-        public List<SO_EncounterDataBase>  encounters = new List<SO_EncounterDataBase>();
+        public List<SO_EncounterData>  encounters = new List<SO_EncounterData>();
         
         //Completion rewards here
 
