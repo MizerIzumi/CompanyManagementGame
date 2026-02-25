@@ -26,7 +26,7 @@ namespace Game
         
         public void SelectBox()
         {
-            _advRecruitment.UpdateSelectedAdventurerBox(this);
+            _advRecruitment.SelectAdventurerBox(this);
             _selectedBorder.SetActive(true);
         }
 

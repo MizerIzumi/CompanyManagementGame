@@ -18,13 +18,17 @@ namespace Game
         
         public CharacterInventorySlots inventorySlots;
         public SO_AdventurerProfessionBase profession;
-
+        
         public int missionsCleared = 0;
+        
+        //TODO: When rerouting through Adventurer Core is setup, move this bool to there.
+        public bool isOccupied = false;
         
         private bool _initialized = false;
         [SerializeField]
         private float _expMultiplier = 1;
         
+        //TODO: Health and mana need revision, adventurers can start with 0 or less health and the bar attached to health is not being used
         public void InitializeAdvStats(AdventurerStatsInitializer advStatsInit)
         {
             if (_initialized)

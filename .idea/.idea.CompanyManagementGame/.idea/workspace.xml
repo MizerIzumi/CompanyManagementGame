@@ -6,14 +6,27 @@
   <component name="ChangeListManager">
     <list default="true" id="d4cc607c-e1be-4693-a6eb-d59d57334e53" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CompanyManagementGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CompanyManagementGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/GameData/ActionStack/AS_AdventurersUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/GameData/ActionStack/AS_AdventurersUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Adventurer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Adventurer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/AdventurerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/AdventurerStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/CharacterInventorySlots.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/CharacterInventorySlots.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Dungeon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/Dungeon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/DungeonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/DungeonManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/Encounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/Encounter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_EncounterData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_EncounterData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/SO_DungeonData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/SO_DungeonData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/SO_TestDungeonData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/SO_TestDungeonData.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/GameData/ActionStack/ActionStack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/GameData/ActionStack/ActionStack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/GameData/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/GameData/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/GameData/TestingScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/GameData/TestingScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerBox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerBox.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerRecruitment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerRecruitment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/TimeOverlay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/TimeOverlay.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/Adventurers-Canvas-Base.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/Adventurers-Canvas-Base.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/CompanyAdventurersUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/CompanyAdventurersUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/IAdventurerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/IAdventurerUI.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel-Bold SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel-Bold SDF 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel-Bold SDF 1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel-Bold SDF 1.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Pixelcastle-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Pixelcastle-Regular SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -124,6 +137,7 @@
       <workItem from="1770994895468" duration="6856000" />
       <workItem from="1771576182380" duration="182000" />
       <workItem from="1771576396495" duration="16847000" />
+      <workItem from="1772006572262" duration="31900000" />
     </task>
     <servers />
   </component>

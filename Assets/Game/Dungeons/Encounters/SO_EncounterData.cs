@@ -8,7 +8,7 @@ namespace Game
     [CreateAssetMenu(fileName = "SO_EncounterData", menuName = "ScriptableObjects/EncounterData", order = 4)]
     public class SO_EncounterData : ScriptableObject
     {
-        //Numbers will need revision when equipment gets fully implemented
+        //TODO: Numbers will need revision when equipment gets fully implemented
         public enum Difficulty
         {
             VeryEasy = 25,

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SO_TestDungeonData
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_DungoenBase
   dungeonName: Testing Dungeon
-  dangerRating: 1
-  duration: 5
+  dangerRating: 5
+  duration: 3
   partySize: 1
-  encounterRate: 25
+  encounterRate: 50
   encounters:
   - {fileID: 11400000, guid: 682d5a1b677877646b660c1f0168b3f1, type: 2}
   - {fileID: 11400000, guid: a3c329259679bd24799051995fa83db9, type: 2}

@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
 using Game;
 using UnityEngine;
 using GlobalFunctions;
+using Random = UnityEngine.Random;
+
 public class Dungeon
 {
     public SO_DungeonData dungeonData;
@@ -16,11 +19,14 @@ public class Dungeon
     private List<Encounter> legendaryEncounters = new();
     
     public Encounter activeEncounter;
+
+    public bool dungeonStarted = false;
     
     public void StartDungeon()
     {
         Debug.Log("Initializing Dungeon: " + dungeonData.dungeonName);
         InnitializeEncounters();
+        dungeonStarted =  true;
     }
     
     private void InnitializeEncounters()
@@ -52,6 +58,7 @@ public class Dungeon
     {
         Encounter newEncounter = new Encounter();
         newEncounter.encounterData = encounterData;
+        newEncounter.dungeonData = dungeonData;
         return newEncounter;
     }
     
@@ -61,6 +68,10 @@ public class Dungeon
         {
             //End Dungeon
             isDone =  true;
+            foreach (AdventurerStats adventurer in party)
+            {
+                adventurer.isOccupied = false;
+            }
             return;
         }
         _timeElapsed++;
@@ -68,6 +79,7 @@ public class Dungeon
         if (activeEncounter != null)
         {
             activeEncounter.AutoResolveEncounter();
+            activeEncounter = null;
         }
         EncounterCheck();
     }
@@ -76,8 +88,10 @@ public class Dungeon
     {
         if (Random.Range(0, 100) <= dungeonData.encounterRate)
         {
+            AdventurerStats adventurer = party[Random.Range(0, party.Count)];
             activeEncounter = EncounterPicker(Functions.GetRandomRarity());
-            Debug.Log("Encountered: " + activeEncounter.encounterData.encounterName); 
+            activeEncounter.adventurer = adventurer;
+            Debug.Log(adventurer.GetName() + " encountered: " + activeEncounter.encounterData.encounterName);
             return;
         }
         Debug.Log("No Encounter");
