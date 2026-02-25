@@ -12,11 +12,11 @@ namespace Game
         public int partySize = 1;
         public int encounterRate = 25;
 
-        //Conditional bonuses/detriments here
+        //TODO: Conditional bonuses/detriments here
         
         public List<SO_EncounterData>  encounters = new List<SO_EncounterData>();
         
-        //Completion rewards here
+        //TODO: Completion rewards here
 
 
     }

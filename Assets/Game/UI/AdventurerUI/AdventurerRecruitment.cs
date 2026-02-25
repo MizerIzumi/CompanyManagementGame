@@ -82,7 +82,7 @@ namespace Game
             _spawnedBoxes.Add(advbox);
         }
         
-        public void UpdateSelectedAdventurerBox(AdventurerBox adventurerbox)
+        public void SelectAdventurerBox(AdventurerBox adventurerbox)
         {
             if (selectedAdventurerBox != null)
             {

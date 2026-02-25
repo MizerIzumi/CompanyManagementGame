@@ -9,6 +9,7 @@ namespace Game
 		public int seed = 0;
 	    public static GameManager Instance {get; private set;}
 	    public TimeManager timeManager;
+	    public ShopAndCompInv compAndShopInv;
 	    
 	    private void Awake()
 	    {

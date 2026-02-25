@@ -202,7 +202,7 @@ namespace Game
             }
         }
 
-        public bool disableStackGUI = true;
+        public bool disableStackGUI = false;
         private void OnGUI()
         {
             if (this != sm_main || disableStackGUI)

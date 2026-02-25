@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 56150051958061906}
   - component: {fileID: 6426259202309960318}
   - component: {fileID: 7446706134834490004}
+  - component: {fileID: 7000157117519969797}
+  - component: {fileID: 1131531997639219664}
   m_Layer: 0
   m_Name: Adventurer
   m_TagString: Untagged
@@ -46,11 +48,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.AdventurerStats
   _name: Name
-  Alignment: 400
-  Race: 100
-  Sub_Race: 200
-  Faith: 300
-  Profession: {fileID: 0}
+  race: {fileID: 0}
+  subRace: {fileID: 0}
+  alignment: 0
+  faith: 300
+  inventorySlots: {fileID: 0}
+  profession: {fileID: 0}
+  missionsCleared: 0
+  isOccupied: 0
+  _expMultiplier: 1
 --- !u!114 &7446706134834490004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,3 +75,31 @@ MonoBehaviour:
   ChestPiece: {fileID: 0}
   Boots: {fileID: 0}
   Accessory: {fileID: 0}
+--- !u!114 &7000157117519969797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147732962360053526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec1a3fb2424b5240a85edf8765cd156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.AdventurerCore
+  adventurerStats: {fileID: 6426259202309960318}
+  equipmentSlots: {fileID: 7446706134834490004}
+  inventorySlots: {fileID: 1131531997639219664}
+--- !u!114 &1131531997639219664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147732962360053526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996bca4a33d65f34289c4eb1cc86b312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.CharacterInventorySlots
+  InvSize: 0

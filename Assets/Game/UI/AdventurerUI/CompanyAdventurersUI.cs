@@ -71,7 +71,7 @@ namespace Game
         }
         
         
-        public void UpdateSelectedAdventurerBox(AdventurerBox adventurerbox)
+        public void SelectAdventurerBox(AdventurerBox adventurerbox)
         {
             if (selectedAdventurerBox != null)
             {
