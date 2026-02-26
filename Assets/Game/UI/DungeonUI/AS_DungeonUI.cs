@@ -47,6 +47,7 @@ namespace Game
             base.OnBegin(bFirstTime);
             if (bFirstTime)
             {
+                asEncounterUI.dungeonManager = _dungeonManager;
                 _firstTime = false;
             }
             _isDone = false;
@@ -84,12 +85,14 @@ namespace Game
 
         public void StartDungeon()
         {
+            if (_dungeon.dungeonStarted) return;
+            
             if (_dungeon == null)
             {
                 Debug.LogError("AS_DungeonUI.StartDungeon: Dungeon is null, you need to make a dungeon before starting it.");
                 return;
             }
-
+            
             if (_dungeonManager.StartDungeon(_dungeon))
             {
                 //Party.Count is not 0
@@ -101,16 +104,23 @@ namespace Game
 
         public void SelectAdventurerBox(AdventurerBox adventurerbox)
         {
+            if (_dungeon.dungeonStarted)
+            {
+                adventurerbox.DeselectBox();
+                return;
+            }
             AdventurerStats adventurer = adventurerbox.adventurerOBJ.GetComponent<AdventurerStats>();
             if (_dungeon.party.Contains(adventurer))
             {
                 RemoveAdventurerFromPary(adventurerbox);
+                adventurerbox.DeselectBox();
             }
             else
             {
                 AddAdventurerToPary(adventurerbox);
+                adventurerbox.DeselectBox();
             }
-            
+            adventurerbox.DeselectBox();
         }
 
         private void AddAdventurerToPary(AdventurerBox advBox)
@@ -147,6 +157,9 @@ namespace Game
             {
                 AddNewAdvBox(_partyGrid, pAdventurer.gameObject, _SpawnedPartyAdvBoxes);
             }
+            
+            if (_dungeon.dungeonStarted) return;
+            
             foreach (GameObject cAdventurer in _companyAdventurersList.GetAdventurers())
             {
                 if (cAdventurer.GetComponent<AdventurerStats>().isOccupied)

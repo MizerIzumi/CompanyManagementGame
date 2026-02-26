@@ -15,34 +15,34 @@ MonoBehaviour:
   encounterName: Tank Buster
   encounterDescription: Hope the Tank is alive
   encounterRarity: 1
-  OptionA:
-    OptionDescription: Tank Swap
-    difficulty: 125
+  optionA:
+    optionDescription: Mittigate
+    difficulty: 50
+    stat: 209
+    hasReward: 0
+    hasPenalty: 0
+    rewards: []
+    condition: 0
+  optionB:
+    optionDescription: Tank Swap
+    difficulty: 100
     stat: 205
     hasReward: 0
     hasPenalty: 0
     rewards: []
     condition: 0
-  OptionB:
-    OptionDescription: Die
-    difficulty: 25
-    stat: 201
-    hasReward: 0
-    hasPenalty: 0
-    rewards: []
-    condition: 0
-  OptionC:
-    OptionDescription: idk
-    difficulty: 75
+  optionC:
+    optionDescription: LB
+    difficulty: 100
     stat: 204
     hasReward: 0
     hasPenalty: 0
     rewards: []
     condition: 0
-  OptionD:
-    OptionDescription: LB
-    difficulty: 100
-    stat: 209
+  optionD:
+    optionDescription: Die
+    difficulty: 25
+    stat: 201
     hasReward: 0
     hasPenalty: 0
     rewards: []

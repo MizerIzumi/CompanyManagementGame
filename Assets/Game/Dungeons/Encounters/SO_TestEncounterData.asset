@@ -15,38 +15,38 @@ MonoBehaviour:
   encounterName: CommonTest
   encounterDescription: An enemy appears before the party, how do you resolve this?
   encounterRarity: 1
-  OptionA:
-    OptionDescription: Attack! (Magic)
+  optionA:
+    optionDescription: Fight (Magic)
     difficulty: 75
     stat: 208
     hasReward: 1
-    hasPenalty: 1
+    hasPenalty: 0
     rewards:
     - {fileID: 11400000, guid: 1809a630520167047bcfba14689435a6, type: 2}
     condition: 0
-  OptionB:
-    OptionDescription: Charge! (Physical)
-    difficulty: 100
+  optionB:
+    optionDescription: Fight (Physical)
+    difficulty: 75
     stat: 207
     hasReward: 1
-    hasPenalty: 1
+    hasPenalty: 0
     rewards:
     - {fileID: 11400000, guid: 1809a630520167047bcfba14689435a6, type: 2}
     condition: 0
-  OptionC:
-    OptionDescription: Sneak Past
-    difficulty: 50
-    stat: 204
-    hasReward: 0
-    hasPenalty: 1
-    rewards: []
-    condition: 0
-  OptionD:
-    OptionDescription: Snek Attack
+  optionC:
+    optionDescription: Sneak
     difficulty: 100
     stat: 204
+    hasReward: 0
+    hasPenalty: 0
+    rewards: []
+    condition: 0
+  optionD:
+    optionDescription: Talk
+    difficulty: 125
+    stat: 205
     hasReward: 1
-    hasPenalty: 1
+    hasPenalty: 0
     rewards:
     - {fileID: 11400000, guid: 1809a630520167047bcfba14689435a6, type: 2}
     condition: 0

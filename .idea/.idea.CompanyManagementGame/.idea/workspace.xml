@@ -6,33 +6,40 @@
   <component name="ChangeListManager">
     <list default="true" id="d4cc607c-e1be-4693-a6eb-d59d57334e53" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CompanyManagementGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CompanyManagementGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Adventurer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/Adventurer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/AdventurerStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/Adventurers/AdventurerStats.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Characters/CharacterInventorySlots.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Characters/CharacterInventorySlots.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Company/CompanyStats.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Company/CompanyStats.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Company/ShopAndCompInv.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Company/ShopAndCompInv.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Dungeon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/Dungeon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/DungeonManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/DungeonManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/Encounter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/Encounter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_E-M10.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_E-M10.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_EncounterData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_EncounterData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/SO_DungeonData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/SO_DungeonData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_TestEncounterData 1.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_TestEncounterData 1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_TestEncounterData 2.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_TestEncounterData 2.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_TestEncounterData 3.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_TestEncounterData 3.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_TestEncounterData 4.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_TestEncounterData 4.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_TestEncounterData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/Encounters/SO_TestEncounterData.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Game/Dungeons/SO_TestDungeonData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/Dungeons/SO_TestDungeonData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/GameData/ActionStack/ActionStack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/GameData/ActionStack/ActionStack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/GameData/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/GameData/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/GameData/TestingScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/GameData/TestingScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerBox.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerBox.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerRecruitment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/AdventurerRecruitment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/Adventurers-Canvas-Base.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/Adventurers-Canvas-Base.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/CompanyAdventurersUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/CompanyAdventurersUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/IAdventurerUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/AdventurerUI/IAdventurerUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/DungeonUI/AS_DungeonUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/DungeonUI/AS_DungeonUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/DungeonUI/AS_EncounterUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/DungeonUI/AS_EncounterUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/InventoryUI/AS_CompAndShopInvUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/InventoryUI/AS_CompAndShopInvUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Game/UI/TimeOverlay.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Game/UI/TimeOverlay.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel-Bold SDF 1.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel-Bold SDF 1.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/(Bold)Neo-castel SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/(Bold)Neo-castel SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/(Border)Neo-castel SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/(Border)Neo-castel SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Neo-castel SDF.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Pixelcastle-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/Pixelcastle-Regular SDF.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -53,22 +60,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Home&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Home",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.2.9f1\Editor\Unity.exe" />
@@ -106,13 +114,15 @@
       <option name="useMixedMode" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="37548">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="37548" />
       <option name="projectPathOnTarget" />
       <option name="runtimes">
-        <list />
+        <list>
+          <MonoRuntime />
+        </list>
       </option>
       <option name="selectedOptions">
         <list />
@@ -138,6 +148,7 @@
       <workItem from="1771576182380" duration="182000" />
       <workItem from="1771576396495" duration="16847000" />
       <workItem from="1772006572262" duration="31900000" />
+      <workItem from="1772094659033" duration="15737000" />
     </task>
     <servers />
   </component>
@@ -169,6 +180,19 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Game/Dungeons/Dungeon.cs</url>
+          <line>109</line>
+          <properties documentPath="C:\Users\halld\Unity Projects\CompanyManagementGame\Assets\Game\Dungeons\Dungeon.cs" containingFunctionPresentation="Method 'EncounterPicker'">
+            <startOffsets>
+              <option value="3343" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3358" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

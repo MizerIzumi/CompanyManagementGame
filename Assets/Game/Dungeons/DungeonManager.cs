@@ -1,13 +1,17 @@
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Game
 {
     public class DungeonManager : MonoBehaviour
     {
+        public event Action<Encounter> OnEncounter;
+        public event Action<Dungeon> OnDungeonStatusChanged;
+        
         private TimeManager  _timeManager;
         public MissionManager missionManager;
+        private Dictionary<SO_DungeonData, Dungeon> _dungeons = new();
         public List<Dungeon> dungeonsInProgress = new();
         public AS_DungeonUI asDungeonUI;
         private List<Encounter> _encounterQueue = new();
@@ -24,7 +28,7 @@ namespace Game
             {
                 asDungeonUI.SetDungeonManager(this);
             }
-            asDungeonUI.SetDungeon(CreateDungeon(dungeonData));
+            asDungeonUI.SetDungeon(GetDungeon(dungeonData));
             ActionStack.Main.PushAction(asDungeonUI);
             if (_encounterQueue.Count > 0)
             {
@@ -32,7 +36,6 @@ namespace Game
                 asDungeonUI.asEncounterUI.SetEncounter(_encounterQueue[0]);
                 _encounterQueue.Remove(_encounterQueue[0]);
                 ActionStack.Main.PushAction(asDungeonUI.asEncounterUI);
-                
             }
         }
         
@@ -43,15 +46,26 @@ namespace Game
             print("Starting dungeon: " + dungeon.dungeonData.dungeonName);
             dungeonsInProgress.Add(dungeon);
             dungeon.StartDungeon();
+            
+            _timeManager.AdvanceTime();
+            OnDungeonStatusChanged?.Invoke(dungeon);
             return true;
         }
 
-        public Dungeon CreateDungeon(SO_DungeonData dungeonData)
+        public Dungeon GetDungeon(SO_DungeonData dungeonData)
         {
+            if (_dungeons.TryGetValue(dungeonData, out var dungeon))
+            {
+                //dungeon already exists
+                return dungeon;
+            }
+            
             Dungeon newDungeon = new Dungeon
             {
                 dungeonData = dungeonData,
             };
+            
+            _dungeons.Add(dungeonData, newDungeon);
             
             return newDungeon;
         }
@@ -68,13 +82,32 @@ namespace Game
                 if (dungeon.activeEncounter != null)
                 {
                     _encounterQueue.Add(dungeon.activeEncounter);
+                    OnEncounter?.Invoke(dungeon.activeEncounter);
                 }
                 if (dungeon.isDone)
                 {
-                    missionManager.MissionComplete(dungeon.party, dungeon.dungeonData.dangerRating);
-                    dungeonsInProgress.Remove(dungeon);
+                    FinishDungeon(dungeon);
                 }
             }
+        }
+
+        public void EncounterResolved(Encounter encounter)
+        {
+            encounter.resolved = true;
+            OnEncounter?.Invoke(encounter);
+            _encounterQueue.Remove(encounter);
+        }
+
+        private void FinishDungeon(Dungeon dungeon)
+        {
+            foreach (AdventurerStats adventurer in dungeon.party)
+            {
+                adventurer.isOccupied = false;
+            }
+            missionManager.MissionComplete(dungeon.party, dungeon.dungeonData.dangerRating);
+            dungeon.ResetDungeon();
+            dungeonsInProgress.Remove(dungeon);
+            OnDungeonStatusChanged?.Invoke(dungeon);
         }
 
         public bool CanAdventurerJoinParty(Dungeon dungeon, AdventurerStats adventurer)

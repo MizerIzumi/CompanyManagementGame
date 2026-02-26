@@ -9,6 +9,8 @@ namespace Game
         public SO_EncounterData encounterData;
         public SO_DungeonData dungeonData;
         public AdventurerStats adventurer;
+
+        public bool resolved = false;
         
         public bool ChooseOption(SO_EncounterData.EncounterOption  option)
         {
@@ -40,10 +42,10 @@ namespace Game
         {
             List<SO_EncounterData.EncounterOption> options = new()
             {
-                encounterData.OptionA,
-                encounterData.OptionB,
-                encounterData.OptionC,
-                encounterData.OptionD
+                encounterData.optionA,
+                encounterData.optionB,
+                encounterData.optionC,
+                encounterData.optionD
             };
             
             return ChooseOption(options[UnityEngine.Random.Range(0, options.Count)]);
@@ -52,7 +54,7 @@ namespace Game
         //This returns a number between 0-100 indicating the % chance of success
         public int SuccessChance(SO_EncounterData.EncounterOption  option)
         {
-            float guaranteedSuccess = ((((int)option.difficulty / 100f) * dungeonData.dangerRating) + 5) * 2;
+            float guaranteedSuccess = ((((int)option.difficulty / 100f) * dungeonData.dangerRating) + dungeonData.dangerRating + 8) * 2;
             
             float x = adventurer.StatsDictionary[option.stat].Value / guaranteedSuccess;
             //EaseInOutQuad
