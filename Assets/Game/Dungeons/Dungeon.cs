@@ -12,20 +12,26 @@ public class Dungeon
     public bool isDone = false;
     public List<AdventurerStats> party = new();
     
-    private List<Encounter> commonEncounters = new();
-    private List<Encounter> uncommonEncounters = new();
-    private List<Encounter> rareEncounters = new();
-    private List<Encounter> epicEncounters = new();
+    private List<Encounter> _commonEncounters = new();
+    private List<Encounter> _uncommonEncounters = new();
+    private List<Encounter> _rareEncounters = new();
+    private List<Encounter> _epicEncounters = new();
     private List<Encounter> legendaryEncounters = new();
     
     public Encounter activeEncounter;
 
     public bool dungeonStarted = false;
     
+    private bool _innitialized = false;
+    
     public void StartDungeon()
     {
-        Debug.Log("Initializing Dungeon: " + dungeonData.dungeonName);
-        InnitializeEncounters();
+        if (!_innitialized)
+        {
+            Debug.Log("Initializing Dungeon: " + dungeonData.dungeonName);
+            InnitializeEncounters();
+            _innitialized = true;
+        }
         dungeonStarted =  true;
     }
     
@@ -36,16 +42,16 @@ public class Dungeon
             switch (encounterData.encounterRarity)
             {
                 case Rarity.Common:
-                    commonEncounters.Add(CreateEncounter(encounterData));
+                    _commonEncounters.Add(CreateEncounter(encounterData));
                     break;
                 case Rarity.Uncommon:
-                    uncommonEncounters.Add(CreateEncounter(encounterData));
+                    _uncommonEncounters.Add(CreateEncounter(encounterData));
                     break;
                 case Rarity.Rare:
-                    rareEncounters.Add(CreateEncounter(encounterData));
+                    _rareEncounters.Add(CreateEncounter(encounterData));
                     break;
                 case Rarity.Epic:
-                    epicEncounters.Add(CreateEncounter(encounterData));
+                    _epicEncounters.Add(CreateEncounter(encounterData));
                     break;
                 case Rarity.Legendary:
                     legendaryEncounters.Add(CreateEncounter(encounterData));
@@ -68,17 +74,18 @@ public class Dungeon
         {
             //End Dungeon
             isDone =  true;
-            foreach (AdventurerStats adventurer in party)
-            {
-                adventurer.isOccupied = false;
-            }
+            activeEncounter = null;
             return;
         }
         _timeElapsed++;
 
         if (activeEncounter != null)
         {
-            activeEncounter.AutoResolveEncounter();
+            if (!activeEncounter.resolved)
+            {
+                activeEncounter.AutoResolveEncounter();
+            }
+            activeEncounter.resolved = false;
             activeEncounter = null;
         }
         EncounterCheck();
@@ -104,32 +111,32 @@ public class Dungeon
         {
             case Rarity.Common:
                 
-                encounterIndex = Random.Range(0, commonEncounters.Count);
-                return commonEncounters[encounterIndex];
+                encounterIndex = Random.Range(0, _commonEncounters.Count);
+                return _commonEncounters[encounterIndex];
             
             case Rarity.Uncommon:
-                if (uncommonEncounters.Count == 0)
+                if (_uncommonEncounters.Count == 0)
                 {
                     return EncounterPicker(Rarity.Common);
                 }
-                encounterIndex = Random.Range(0, uncommonEncounters.Count);
-                return uncommonEncounters[encounterIndex];
+                encounterIndex = Random.Range(0, _uncommonEncounters.Count);
+                return _uncommonEncounters[encounterIndex];
             
             case Rarity.Rare:
-                if (rareEncounters.Count == 0)
+                if (_rareEncounters.Count == 0)
                 {
                     return EncounterPicker(Rarity.Uncommon);
                 }
-                encounterIndex = Random.Range(0, rareEncounters.Count);
-                return rareEncounters[encounterIndex];
+                encounterIndex = Random.Range(0, _rareEncounters.Count);
+                return _rareEncounters[encounterIndex];
             
             case Rarity.Epic:
-                if (epicEncounters.Count == 0)
+                if (_epicEncounters.Count == 0)
                 {
                     return EncounterPicker(Rarity.Rare);
                 }
-                encounterIndex = Random.Range(0, epicEncounters.Count);
-                return epicEncounters[encounterIndex];
+                encounterIndex = Random.Range(0, _epicEncounters.Count);
+                return _epicEncounters[encounterIndex];
             
             case Rarity.Legendary:
                 if (legendaryEncounters.Count == 0)
@@ -141,5 +148,13 @@ public class Dungeon
         }
         
         return null;
+    }
+
+    public void ResetDungeon()
+    {
+        party.Clear();
+        dungeonStarted = false;
+        isDone = false;
+        _timeElapsed = 0;
     }
 }

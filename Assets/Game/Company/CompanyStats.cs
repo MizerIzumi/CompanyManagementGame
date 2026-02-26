@@ -17,7 +17,7 @@ namespace Game
         {
             //Adding the all the stats to the Stats dictionary
             
-            StatInitializer fundsinit = new StatInitializer("Funds", 0f, 1, (float)Int32.MinValue, (float)Int32.MaxValue);
+            StatInitializer fundsinit = new StatInitializer("Funds", 100f, 1, (float)Int32.MinValue, (float)Int32.MaxValue);
             Statistic FundsStat = new Statistic(fundsinit);
             AddStat(FundsStat, TargetTags.CompFunds);
             

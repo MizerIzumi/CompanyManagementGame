@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -12,7 +13,7 @@ namespace Game
         
         private CompanyStats _companyStats;
         [Header("Company")]
-        public List<SO_ItemBase> _companyInventory;
+        public List<SO_ItemBase> companyInventory;
 
         private int _compinvcap;
         public int companyInvCapacity
@@ -25,7 +26,7 @@ namespace Game
         }
     
         [Header("Shop")]
-        public List<SO_ItemBase> _shopInventory;
+        public List<SO_ItemBase> shopInventory;
 
         private int _shopInvCapacity;
         public int shopInvCapacity
@@ -49,20 +50,20 @@ namespace Game
 
         public void AddItemToCompInv(SO_ItemBase item)
         {
-            if (_companyInventory.Count < companyInvCapacity)
+            if (companyInventory.Count < companyInvCapacity)
             {
-                AddItem(_companyInventory, item);
+                AddItem(companyInventory, item);
             }
         }
         
         public void ItemFromCompToShopInv(SO_ItemBase item)
         {
-            TryMoveItemToInv(_companyInventory, _shopInventory, shopInvCapacity, item);
+            TryMoveItemToInv(companyInventory, shopInventory, shopInvCapacity, item);
         }
 
         public void ItemFromShopInvToComp(SO_ItemBase item)
         {
-            TryMoveItemToInv(_shopInventory, _companyInventory, companyInvCapacity, item);
+            TryMoveItemToInv(shopInventory, companyInventory, companyInvCapacity, item);
         }
         
         

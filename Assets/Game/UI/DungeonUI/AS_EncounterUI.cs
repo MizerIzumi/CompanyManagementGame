@@ -7,7 +7,8 @@ namespace Game
 {
     public class AS_EncounterUI : ActionStack.ActionBehavior
     {
-        [FormerlySerializedAs("_EncounterUI")]
+        public DungeonManager  dungeonManager;
+        
         [Header("Local References")]
         [SerializeField]
         private GameObject _encounterUI;
@@ -73,10 +74,10 @@ namespace Game
             _encounterNameText.text = _encounter.encounterData.encounterName;
             _adventurerNameText.text = "- " +_encounter.adventurer.GetName();
             _encounterDescriptionText.text = _encounter.encounterData.encounterDescription;
-            _optionAText.text = _encounter.encounterData.OptionA.OptionDescription + "\\n" + _encounter.SuccessChance(_encounter.encounterData.OptionA) + "%";
-            _optionBText.text = _encounter.encounterData.OptionB.OptionDescription + "\\n" + _encounter.SuccessChance(_encounter.encounterData.OptionB) + "%";
-            _optionCText.text = _encounter.encounterData.OptionC.OptionDescription + "\\n" + _encounter.SuccessChance(_encounter.encounterData.OptionC) + "%";
-            _optionDText.text = _encounter.encounterData.OptionD.OptionDescription + "\\n" + _encounter.SuccessChance(_encounter.encounterData.OptionD) + "%";
+            _optionAText.text = _encounter.encounterData.optionA.optionDescription + "\\n" + _encounter.SuccessChance(_encounter.encounterData.optionA) + "%";
+            _optionBText.text = _encounter.encounterData.optionB.optionDescription + "\\n" + _encounter.SuccessChance(_encounter.encounterData.optionB) + "%";
+            _optionCText.text = _encounter.encounterData.optionC.optionDescription + "\\n" + _encounter.SuccessChance(_encounter.encounterData.optionC) + "%";
+            _optionDText.text = _encounter.encounterData.optionD.optionDescription + "\\n" + _encounter.SuccessChance(_encounter.encounterData.optionD) + "%";
         }
 
         private void UpdateButtons()
@@ -86,28 +87,32 @@ namespace Game
             _buttonC.onClick.AddListener(OptionC);
             _buttonD.onClick.AddListener(OptionD);
         }
-
+        
         private void OptionA()
         {
-            _encounter.ChooseOption(_encounter.encounterData.OptionA);
+            _encounter.ChooseOption(_encounter.encounterData.optionA);
+            dungeonManager.EncounterResolved(_encounter);
             Exit();
         }
         
         private void OptionB()
         {
-            _encounter.ChooseOption(_encounter.encounterData.OptionB);
+            _encounter.ChooseOption(_encounter.encounterData.optionB);
+            dungeonManager.EncounterResolved(_encounter);
             Exit();
         }
         
         private void OptionC()
         {
-            _encounter.ChooseOption(_encounter.encounterData.OptionC);
+            _encounter.ChooseOption(_encounter.encounterData.optionC);
+            dungeonManager.EncounterResolved(_encounter);
             Exit();
         }
         
         private void OptionD()
         {
-            _encounter.ChooseOption(_encounter.encounterData.OptionD);
+            _encounter.ChooseOption(_encounter.encounterData.optionD);
+            dungeonManager.EncounterResolved(_encounter);
             Exit();
         }
 

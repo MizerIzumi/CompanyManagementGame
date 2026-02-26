@@ -91,7 +91,7 @@ public class AS_CompAndShopInvUI : ActionStack.ActionBehavior
         if (company)
         {
             //Company inv
-            _activeInventory = shopAndCompInv._companyInventory;
+            _activeInventory = shopAndCompInv.companyInventory;
             UpdateCapacityDisplay(_compInvCap);
             DisableInvUI(_shopInv);
             EnableInvUI(_compInv);
@@ -99,7 +99,7 @@ public class AS_CompAndShopInvUI : ActionStack.ActionBehavior
         else
         {
             //Shop inv
-            _activeInventory = shopAndCompInv._shopInventory;
+            _activeInventory = shopAndCompInv.shopInventory;
             UpdateCapacityDisplay(_shopInvCap);
             DisableInvUI(_compInv);
             EnableInvUI(_shopInv);
@@ -143,11 +143,11 @@ public class AS_CompAndShopInvUI : ActionStack.ActionBehavior
         
         if (_compToShop)
         {
-            if (shopAndCompInv.shopInvCapacity - shopAndCompInv._shopInventory.Count <= _selectedItems.Count) return false;
+            if (shopAndCompInv.shopInvCapacity - shopAndCompInv.shopInventory.Count <= _selectedItems.Count) return false;
         }
         else
         {
-            if (shopAndCompInv.companyInvCapacity - shopAndCompInv._companyInventory.Count<= _selectedItems.Count) return false;
+            if (shopAndCompInv.companyInvCapacity - shopAndCompInv.companyInventory.Count<= _selectedItems.Count) return false;
         }
         
         _selectedItems.Add(itembox);

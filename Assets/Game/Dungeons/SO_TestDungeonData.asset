@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SO_TestDungeonData
   m_EditorClassIdentifier: Assembly-CSharp::Game.SO_DungoenBase
   dungeonName: Testing Dungeon
-  dangerRating: 5
+  dangerRating: 1
   duration: 3
   partySize: 1
   encounterRate: 50

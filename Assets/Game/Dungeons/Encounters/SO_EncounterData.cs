@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game
 {
@@ -23,15 +24,15 @@ namespace Game
         public string encounterDescription;
         public Rarity encounterRarity;
         
-        public EncounterOption OptionA;
-        public EncounterOption OptionB;
-        public EncounterOption OptionC;
-        public EncounterOption OptionD;
+        public EncounterOption optionA;
+        public EncounterOption optionB;
+        public EncounterOption optionC;
+        public EncounterOption optionD;
 
         [Serializable]
         public struct EncounterOption
         {
-            public string OptionDescription;
+            public string optionDescription;
             public Difficulty difficulty;
             public TargetTags stat;
             public bool hasReward;
