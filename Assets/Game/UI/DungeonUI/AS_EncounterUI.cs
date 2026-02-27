@@ -56,6 +56,7 @@ namespace Game
         public void DisableUI()
         {
             _encounterUI.gameObject.SetActive(false);
+            UnsubscribeFromEvents();
         }
         
         public void SetEncounter(Encounter newEncounter)
@@ -86,6 +87,14 @@ namespace Game
             _buttonB.onClick.AddListener(OptionB);
             _buttonC.onClick.AddListener(OptionC);
             _buttonD.onClick.AddListener(OptionD);
+        }
+
+        private void UnsubscribeFromEvents()
+        {
+            _buttonA.onClick.RemoveAllListeners();
+            _buttonB.onClick.RemoveAllListeners();
+            _buttonC.onClick.RemoveAllListeners();
+            _buttonD.onClick.RemoveAllListeners();
         }
         
         private void OptionA()

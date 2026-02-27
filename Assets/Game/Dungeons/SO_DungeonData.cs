@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game
 {
-    [CreateAssetMenu(fileName = "SO_DungeonData", menuName = "ScriptableObjects/DungeonData", order = 3)]
+    [CreateAssetMenu(fileName = "DD_DungeonData", menuName = "ScriptableObjects/DungeonData", order = 3)]
     public class SO_DungeonData : ScriptableObject
     {
         public string dungeonName;

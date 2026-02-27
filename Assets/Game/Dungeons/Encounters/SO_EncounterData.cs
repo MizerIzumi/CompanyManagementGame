@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 namespace Game
 {
-    [CreateAssetMenu(fileName = "SO_EncounterData", menuName = "ScriptableObjects/EncounterData", order = 4)]
+    [CreateAssetMenu(fileName = "ED_EncounterData", menuName = "ScriptableObjects/EncounterData", order = 4)]
     public class SO_EncounterData : ScriptableObject
     {
         //TODO: Numbers will need revision when equipment gets fully implemented

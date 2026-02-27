@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
@@ -10,6 +12,7 @@ namespace Game
 	    public static GameManager Instance {get; private set;}
 	    public TimeManager timeManager;
 	    public ShopAndCompInv compAndShopInv;
+	    public GameObject mainMenu;
 	    
 	    private void Awake()
 	    {
@@ -32,5 +35,25 @@ namespace Game
 	        print("Game Seed: " + seed);
 	    }
 
+	    public void EndGame()
+	    {
+		    Application.Quit();
+	    }
+
+	    public void MainMenu(InputAction.CallbackContext context)
+	    {
+		    if (context.ReadValue<float>() > 0)
+		    {
+			    mainMenu.SetActive(true);
+		    }
+	    }
+	    
+	    private void Update()
+	    {
+		    if (Input.GetKey(KeyCode.Escape))
+		    {
+			    mainMenu.SetActive(true);
+		    }
+	    }
 	}
 }

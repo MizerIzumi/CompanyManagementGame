@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game
 {
-    [CreateAssetMenu(fileName = "SO_Helmet", menuName = "ScriptableObjects/Items/Helmet", order = 2)]
+    [CreateAssetMenu(fileName = "EQ_Helmet", menuName = "ScriptableObjects/Items/Helmet", order = 2)]
     public class SO_HelmetBase : SO_EquipmentBase
     {
         public override void Equip(CharacterEquipmentSlots target)
